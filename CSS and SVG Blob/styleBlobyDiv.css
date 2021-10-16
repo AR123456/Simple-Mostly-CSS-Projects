@@ -1,0 +1,53 @@
+/* https://css-tricks.com/three-ways-to-blob-with-css-and-svg/ */
+.hooks-main > div {
+  background: orangered;
+  opacity: 0.6;
+  position: absolute;
+  top: 80px;
+  left: 120px;
+  width: 300px;
+  height: 120px;
+}
+
+.hooks-main > div:nth-child(2) {
+  width: 100px;
+  height: 300px;
+}
+
+/* .hooks-main {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+} */
+/* https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter#see_also */
+/* The filter doesn’t actually render, even though it’s in the markup. Instead, we reference it as a CSS filter on the blob’s parent element: */
+.hooks-main {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  filter: url("#goo");
+  overflow: hidden;
+}
+/*  this lightens the upper left corner  */
+.hooks-main > div::after {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+}
+.hooks-main > div:nth-child(2) {
+  width: 100px;
+  height: 300px;
+}
+.hooks-main {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  filter: url("#goo");
+  overflow: hidden;
+}

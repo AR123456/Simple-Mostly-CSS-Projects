@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="styleBlobyDiv.css" />
+<!-- the SVG filter  -->
+<!-- https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter#see_also -->
+<svg style="position: absolute; width: 0; height: 0">
+  <filter id="goo">
+    <feGaussianBlur in="SourceGraphic" stdDeviation="30" />
+    <feColorMatrix
+      in="blur"
+      values="1 0 0 0 0 
+            0 1 0 0 0 
+            0 0 1 0 0 
+            0 0 0 30 -7"
+    />
+  </filter>
+</svg>
+<div class="hooks-main">
+  <div></div>
+  <div></div>
+</div>
