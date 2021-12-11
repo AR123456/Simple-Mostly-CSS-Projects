@@ -5,16 +5,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script> -->
     <title>Glassmorphism</title>
   </head>
   <body>
     <nav>
-      <a href="#" data-ico="🏠" style="--hue: 200deg">home</a>
-      <a href="#" data-ico="🗒️" style="--hue: 260deg">notes</a>
-      <a href="#" data-ico="🔔" style="--hue: 320deg">activity</a>
-      <a href="#" data-ico="🧭" style="--hue: 30deg">iscovery</a>
+      <a class="item" href="#" style="--hue: 200deg"
+        ><span class="icon mono" id="blur0" aria-hidden="true">🏠</span
+        ><span class="icon mono" aria-hidden="true">🏠</span
+        ><span
+          class="icon midl"
+          aria-hidden="true"
+          style="background-image: -moz-element(#blur0)"
+          >🏠</span
+        ><span class="icon grey" aria-hidden="true">🏠</span>home</a
+      ><a class="item" href="#" style="--hue: 260deg"
+        ><span class="icon mono" id="blur1" aria-hidden="true">🗒️</span
+        ><span class="icon mono" aria-hidden="true">🗒️</span
+        ><span
+          class="icon midl"
+          aria-hidden="true"
+          style="background-image: -moz-element(#blur1)"
+          >🗒️</span
+        ><span class="icon grey" aria-hidden="true">🗒️</span>notes</a
+      ><a class="item" href="#" style="--hue: 320deg"
+        ><span class="icon mono" id="blur2" aria-hidden="true">🔔</span
+        ><span class="icon mono" aria-hidden="true">🔔</span
+        ><span
+          class="icon midl"
+          aria-hidden="true"
+          style="background-image: -moz-element(#blur2)"
+          >🔔</span
+        ><span class="icon grey" aria-hidden="true">🔔</span>activity</a
+      ><a class="item" href="#" style="--hue: 30deg"
+        ><span class="icon mono" id="blur3" aria-hidden="true">🧭</span
+        ><span class="icon mono" aria-hidden="true">🧭</span
+        ><span
+          class="icon midl"
+          aria-hidden="true"
+          style="background-image: -moz-element(#blur3)"
+          >🧭</span
+        ><span class="icon grey" aria-hidden="true">🧭</span>discovery</a
+      >
     </nav>
-    <h2>Glassmorphism</h2>
+
     <script src="app.js"></script>
   </body>
 </html>

@@ -1,14 +1,124 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+#btn--yp {
+  box-sizing: content-box;
+  position: fixed;
+  z-index: 9;
+  bottom: 1em;
+  right: 1em;
+  border: solid 1em transparent;
+  width: 4.625em;
+  height: 3.25em;
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/2017/icon-yp.svg)
+    50% / cover content-box;
+  font: 16px/1.25 trebuchet ms, sans-serif;
+  text-indent: 200vw;
+  text-shadow: none;
+  filter: grayscale(1) drop-shadow(0 0 1px #e8e0e0);
+  transition: 0.5s;
+  white-space: nowrap;
 }
-body{
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    
+#btn--yp:before {
+  box-sizing: inherit;
+  position: absolute;
+  left: 0;
+  bottom: 100%;
+  margin: 1em -0.5em;
+  padding: 0.5em;
+  width: 100%;
+  border-radius: 5px;
+  background: #e8e0e0;
+  color: #000;
+  text-align: center;
+  text-decoration: none;
+  text-indent: 0vw;
+  white-space: normal;
+  animation: float 1s ease-in-out infinite alternate;
+  content: attr(data-txt);
 }
+#btn--yp:hover,
+#btn--yp:focus {
+  outline: none;
+  filter: grayscale(0) drop-shadow(0 0 1px crimson);
+}
+
+@keyframes float {
+  to {
+    transform: translateY(0.75em);
+  }
+}
+body,
+nav,
+a {
+  display: grid;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: #333;
+}
+
+nav {
+  grid-auto-flow: column;
+  place-self: center;
+  padding: 0.75em 0 0.375em;
+  background: #fff;
+  font: clamp(0.625em, 5vw, 1.25em) / 1.25 ubuntu, sans-serif;
+}
+
+.item {
+  --hl: 0;
+  width: 5em;
+  color: hsl(var(--hue), calc(var(--hl) * 100%), 65%);
+  text-align: center;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.item:focus {
+  outline: none;
+}
+.item:hover,
+.item:focus {
+  --hl: 1;
+}
+
+.icon {
+  grid-area: 1/1;
+  place-self: center;
+  font-size: 2.5em;
+}
+
+.mono {
+  z-index: 1;
+  transform: translate(calc(var(--hl) * 0.375em), calc(var(--hl) * -0.25em))
+    rotate(calc(var(--hl) * 22.5deg));
+  opacity: var(--hl);
+  filter: sepia(1) hue-rotate(calc(var(--hue) - 50deg)) saturate(3)
+    blur(var(--r, 0));
+  transition: 0.3s;
+}
+.mono[id*="blur"] {
+  --r: 5px;
+  position: fixed;
+  bottom: 100vh;
+}
+
+.midl {
+  z-index: 2;
+  color: transparent;
+  backdrop-filter: blur(5px);
+  -webkit-mask: linear-gradient(red 0 0) text;
+}
+@supports (background: -moz-element(#hl)) {
+  .midl {
+    background-color: #fff;
+    background-clip: text;
+    backdrop-filter: none;
+  }
+}
+
+.grey {
+  z-index: 3;
+  filter: grayscale(1) opacity(0.35);
+}
+
+/* https://codepen.io/thebabydino/pen/mdwYmWW */
