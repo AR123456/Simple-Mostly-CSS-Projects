@@ -1,11 +1,46 @@
-/* setting up the canvas to take whole widht and height of the browser window */
 body {
   margin: 0;
 }
-/* Once registered,use worklet to generate an image for any CSS property that expects one. here done on background-image: */
+
 .worklet-canvas {
   width: 100vw;
   height: 100vh;
-  background-color: #fff;
-  background-image: paint(workletName);
+  /* background-color: #90c3a5; */
+  background-color: #d47ae8;
+  background-image: paint(tinySpecksPattern);
+}
+/*  the custom propertys feeding the getter in the JS file  */
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/@property */
+/* MDM docs about CSS.RegisterProperty */
+/* https://developer.mozilla.org/en-US/docs/Web/API/CSS_Properties_and_Values_API */
+@property --pattern-seed {
+  syntax: "<number>";
+  initial-value: 1000;
+  inherits: true;
+}
+
+@property --pattern-colors {
+  /*  define the syntax <color># for --pattern-colors. In turn, this allows us to pass an array of comma-separated colors to the worklet in any valid CSS color format. When our worklet receives these values, they have been converted to RGB and placed in a neat little array. Without a syntax definition, worklets interpret all props as simple strings. */
+  syntax: "<color>#";
+  /* initial-value: #161511, #dd6d45, #f2f2f2; */
+  initial-value: #fbf46d, #94daff, #99feff;
+  inherits: true;
+}
+
+@property --pattern-speck-count {
+  syntax: "<number>";
+  initial-value: 3000;
+  inherits: true;
+}
+
+@property --pattern-speck-min-size {
+  syntax: "<number>";
+  initial-value: 0;
+  inherits: true;
+}
+
+@property --pattern-speck-max-size {
+  syntax: "<number>";
+  initial-value: 3;
+  inherits: true;
 }
