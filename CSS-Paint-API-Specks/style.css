@@ -1,0 +1,11 @@
+/* setting up the canvas to take whole widht and height of the browser window */
+body {
+  margin: 0;
+}
+/* Once registered,use worklet to generate an image for any CSS property that expects one. here done on background-image: */
+.worklet-canvas {
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+  background-image: paint(workletName);
+}
