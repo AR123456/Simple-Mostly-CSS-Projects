@@ -5,8 +5,8 @@ body {
 .worklet-canvas {
   width: 100vw;
   height: 100vh;
-  /* background-color: #90c3a5; */
-  background-color: #d47ae8;
+  background-color: #90c3a5;
+  /* background-color: #d47ae8; */
   background-image: paint(tinySpecksPattern);
 }
 /*  the custom propertys feeding the getter in the JS file  */
@@ -22,8 +22,8 @@ body {
 @property --pattern-colors {
   /*  define the syntax <color># for --pattern-colors. In turn, this allows us to pass an array of comma-separated colors to the worklet in any valid CSS color format. When our worklet receives these values, they have been converted to RGB and placed in a neat little array. Without a syntax definition, worklets interpret all props as simple strings. */
   syntax: "<color>#";
-  /* initial-value: #161511, #dd6d45, #f2f2f2; */
-  initial-value: #fbf46d, #94daff, #99feff;
+  initial-value: #161511, #dd6d45, #f2f2f2;
+  /* initial-value: #fbf46d, #94daff, #99feff; */
   inherits: true;
 }
 
