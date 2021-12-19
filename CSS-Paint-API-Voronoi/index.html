@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Generative Art Voronoi</title>
+  </head>
+  <body>
+    <div class="worklet-canvas"></div>
+
+    <script id="register-worklet">
+      if (CSS.paintWorklet) {
+        CSS.paintWorklet.addModule("./worklet.js");
+      }
+    </script>
+  </body>
+</html>
+<!-- https://css-tricks.com/creating-generative-patterns-with-the-css-paint-api/ -->
