@@ -1,0 +1,120 @@
+:root {
+  --theme-hue: 230;
+  --theme-saturation: 85%;
+  --theme-hs: var(--theme-hue), var(--theme-saturation);
+}
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: system-ui, sans-serif;
+  font-size: 1.5rem;
+  background-color: hsl(var(--theme-hs), 95%);
+  color: hsl(var(--theme-hs), 25%);
+}
+body,
+#slides,
+.slide {
+  display: grid;
+}
+#slides {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.slide {
+  width: 100vw;
+  height: 100vh;
+}
+.slide--text,
+.slide--title {
+  place-content: center;
+}
+h1,
+h2 {
+  line-height: 1.1;
+}
+a {
+  color: inherit;
+}
+.content {
+  padding: 2rem;
+  font-size: 2rem;
+  line-height: 1.5;
+}
+.content * + * {
+  margin-top: 0.5em;
+}
+.slide--text .content {
+  max-width: 40ch;
+}
+.slide--title {
+  background-image: linear-gradient(
+    125deg,
+    hsl(var(--theme-hs), 95%),
+    hsl(var(--theme-hs), 75%)
+  );
+}
+/* use display properties on <style> to make it visible. placed it within another container to make it a resizable  Then, the <style> element itself to display: block and apply properties to give it a code editor look and feel. */
+.style {
+  display: grid;
+  align-items: center;
+  background-color: hsl(var(--theme-hs), 5%);
+  padding-inline: max(5vw, 2rem) 3rem;
+  font-size: 1.35rem;
+  overflow-y: hidden;
+  resize: horizontal;
+}
+style {
+  display: block;
+  outline: none;
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  color: hsl(var(--theme-hs), 85%);
+  background: none;
+  white-space: pre;
+  line-height: 1.65;
+  tab-size: 2;
+  hyphens: none;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  --line-height: 1.65em;
+  --highlight-start: calc(2 * var(--line-height));
+  --lines: calc(
+    var(--highlight-start) + var(--num-lines, 1) * var(--line-height)
+  );
+  background-image: linear-gradient(
+    hsl(var(--theme-hs), 75%) 0 var(--highlight-start),
+    hsl(var(--theme-hs), 90%) var(--highlight-start) var(--lines),
+    hsl(var(--theme-hs), 75%) var(--lines) 100%
+  );
+}
+/*  .slide--demo rule and use CSS grid to display the styles and demo, side-by-side. the base .slide class has use grid, so now need a rule for grid-template-columns just for this template. */
+/* fit-content() allows an element to use its intrinsic width up until the maximum value defined in the function.   */
+.slide--demo {
+  grid-template-columns: fit-content(85ch) 1fr;
+}
+/* add padding for the .demo. extra class within the demo of .box. This is a convention for demos to provide a visual of element boundaries when the size and position of something are important. */
+.demo {
+  padding: 2rem;
+}
+
+.box {
+  background-color: hsl(var(--theme-hs), 85%);
+  border: 2px dashed;
+  border-radius: 0.5em;
+  padding: 1rem;
+  font-size: 1.35rem;
+  text-align: center;
+}
+.highlight--rule-only {
+  --highlight-start: calc(1 * var(--line-height));
+}
+
+.highlight--none {
+  background-image: none;
+  background-color: currentColor;
+}
+/* RESTART at Slide motion with CSS scroll snap  */

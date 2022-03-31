@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ol id="slides">
+      <li class="slide slide--text">
+        <div class="content">
+          <h1>Presentation Title</h1>
+          <p>Presented by Your Name</p>
+        </div>
+      </li>
+      <li class="slide slide--title" data-topic="CSS">
+        <div class="content">
+          <h2>Topic 1</h2>
+        </div>
+      </li>
+      <li class="slide slide--demo" data-topic="CSS">
+        <div class="style">
+          <style contenteditable="true">
+            .modern-container {
+              --container-width: 40ch;
+
+              width: min(var(--container-width), 100% - 3rem);
+              margin-inline: auto;
+            }
+          </style>
+        </div>
+        <div class="demo">
+          <div class="modern-container">
+            <div class="box">Demo Slide Content Container</div>
+          </div>
+        </div>
+      </li>
+    </ol>
+    <script src="app.js"></script>
+  </body>
+</html>

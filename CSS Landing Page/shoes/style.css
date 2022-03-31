@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+/* CSS Reset 
+      there is also Myers reset https://meyerweb.com/eric/tools/css/reset/
+      If using reset be sure to remember to add it back where needed. 
+      */
+* {
+  /* margin is the outside of the element */
+  /* margin: 0; */
+  /* padding is the inside of the element  */
+  /* padding: 0; */
+  /* The CSS box-sizing property allows us to include the padding and border in an element's total width and height. */
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+  /* center horizontaly  */
+  align-items: center;
+  /* center vertcally */
+  justify-content: center;
+  height: 100vh;
+  /* dont show scrol bars by default  */
+  overflow: hidden;
+  margin: 0;
+}
