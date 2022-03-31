@@ -1,17 +1,12 @@
-/* *,
-*::before,
-*::after {
-  box-sizing: border-box;
+.btn {
+  --ripple-color: rgba(0, 0, 0, 0.3);
+  --ripple-duration: 1.5s;
+  --ripple-fuzz: 1px;
+  border-color: transparent !important;
+  /* Just the ripple goes to the edges */
 }
-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  height: 100vh;
-  overflow: hidden;
-} */
+.btn:focus:not(:disabled):not(.disabled),
+.btn:active:not(:disabled):not(.disabled),
 .btn.click-fx:not(:disabled):not(.disabled) {
   background-image: radial-gradient(
       circle closest-side at center,
@@ -26,27 +21,137 @@ body {
   -webkit-animation: button-ripple var(--ripple-duration) ease-in;
   animation: button-ripple var(--ripple-duration) ease-in;
 }
-.figure.figure-ripple .btn .mockup {
-  width: 0px;
-  height: 0px;
-  border-color: transparent;
-  background-image: radial-gradient(
-    circle closest-side at center,
-    rgba(0, 0, 0, 0.3) 0%,
-    rgba(0, 0, 0, 0.3) 99%,
-    transparent 100%
-  );
-  transition: width 1s ease-in, height 1s ease-in, border-color 0.25s;
+.btn.pre-click-fx {
+  -webkit-animation: none !important;
+  animation: none !important;
 }
-.figure.figure-combined .btn .mockup {
-  width: 0%;
-  height: 0%;
-  background-image: radial-gradient(
-      circle closest-side at center,
-      rgba(0, 0, 0, 0.3) 0%,
-      rgba(0, 0, 0, 0.3) 99%,
-      transparent 100%
+@-webkit-keyframes button-ripple {
+  0% {
+    background-size: 0% 0%, 0% 0%;
+    background-position: calc(
+          50% - var(--click-el-w, 0px) / 2 + var(--click-offset-x, 0px)
+        )
+        calc(50% - var(--click-el-h, 0px) / 2 + var(--click-offset-y, 0px)),
+      0% 0%;
+  }
+  33% {
+    background-size: calc(2 * var(--click-max-r, 71%))
+        calc(2 * var(--click-max-r, 200vw)),
+      0% 0%;
+    background-size: calc(2 * var(--click-max-r, 71%)) 100vmax, 0% 0%;
+    background-position: calc(
+          50% - var(--click-el-w, 0px) / 2 + var(--click-offset-x, 0px)
+        )
+        calc(50% - var(--click-el-h, 0px) / 2 + var(--click-offset-y, 0px)),
+      0% 0%;
+  }
+  33.1% {
+    background-size: 0% 0%, 100% 1000%;
+  }
+  100% {
+    background-size: 0% 0%, 100% 1000%;
+    background-position: 0% 0%, 0% 100%;
+  }
+}
+@keyframes button-ripple {
+  0% {
+    background-size: 0% 0%, 0% 0%;
+    background-position: calc(
+          50% - var(--click-el-w, 0px) / 2 + var(--click-offset-x, 0px)
+        )
+        calc(50% - var(--click-el-h, 0px) / 2 + var(--click-offset-y, 0px)),
+      0% 0%;
+  }
+  33% {
+    background-size: calc(2 * var(--click-max-r, 71%))
+        calc(2 * var(--click-max-r, 200vw)),
+      0% 0%;
+    background-size: calc(2 * var(--click-max-r, 71%)) 100vmax, 0% 0%;
+    background-position: calc(
+          50% - var(--click-el-w, 0px) / 2 + var(--click-offset-x, 0px)
+        )
+        calc(50% - var(--click-el-h, 0px) / 2 + var(--click-offset-y, 0px)),
+      0% 0%;
+  }
+  33.1% {
+    background-size: 0% 0%, 100% 1000%;
+  }
+  100% {
+    background-size: 0% 0%, 100% 1000%;
+    background-position: 0% 0%, 0% 100%;
+  }
+}
+.dark-ripple {
+  --ripple-color: rgba(0, 0, 0, 0.6);
+}
+.light-ripple {
+  --ripple-color: rgba(255, 255, 255, 0.3);
+}
+.red-ripple {
+  --ripple-color: rgba(255, 0, 0, 0.3);
+}
+.fuzzy-ripple {
+  --ripple-fuzz: 30px;
+}
+.fast-ripple {
+  --ripple-duration: 1s;
+}
+.slow-ripple {
+  --ripple-duration: 3s;
+}
+.form-control {
+  border-radius: 0;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: background-size 0.5s, background-color 0.5s, border-color 0.25s,
+    color 0.2s, box-shadow 0.25s;
+}
+.form-control,
+.form-control:hover,
+.form-control:focus,
+.form-control:active {
+  background-image: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.35) 0%,
+      rgba(0, 0, 0, 0.35) 100%
     ),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.3) 20%, transparent 80%);
-  opacity: 0;
+    linear-gradient(0deg, #007bff 0%, #007bff 100%);
+  background-repeat: no-repeat;
+  background-position: 50% 100%, 50% 100%;
+  background-size: 100% 2px, 0% 2px;
+}
+.form-control:focus,
+.form-control:active,
+.form-control.click-fx {
+  background-size: 100% 2px, 100% 2px;
+  -webkit-animation: input-ripple 0.5s ease-in;
+  animation: input-ripple 0.5s ease-in;
+}
+.form-control.pre-click-fx:not(.post-click-fx) {
+  -webkit-animation: none !important;
+  animation: none !important;
+}
+@-webkit-keyframes input-ripple {
+  0% {
+    background-position: 50% 100%,
+      calc(50% - var(--click-el-w, 0px) / 2 + var(--click-offset-x, 0px)) 100%;
+    background-size: 100% 2px, 0% 2px, 0% 0%;
+  }
+  100% {
+    background-position: 50% 100%,
+      calc(50% - var(--click-el-w, 0px) / 2 + var(--click-offset-x, 0px)) 100%;
+    background-size: 100% 2px, calc(2 * var(--click-max-r, 71%)) 2px;
+  }
+}
+@keyframes input-ripple {
+  0% {
+    background-position: 50% 100%,
+      calc(50% - var(--click-el-w, 0px) / 2 + var(--click-offset-x, 0px)) 100%;
+    background-size: 100% 2px, 0% 2px, 0% 0%;
+  }
+  100% {
+    background-position: 50% 100%,
+      calc(50% - var(--click-el-w, 0px) / 2 + var(--click-offset-x, 0px)) 100%;
+    background-size: 100% 2px, calc(2 * var(--click-max-r, 71%)) 2px;
+  }
 }
