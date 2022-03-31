@@ -1,4 +1,4 @@
-*,
+/* *,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -11,4 +11,42 @@ body {
   margin: 0;
   height: 100vh;
   overflow: hidden;
+} */
+.btn.click-fx:not(:disabled):not(.disabled) {
+  background-image: radial-gradient(
+      circle closest-side at center,
+      var(--ripple-color) 0%,
+      var(--ripple-color) calc(100% - var(--ripple-fuzz, 0px)),
+      transparent 100%
+    ),
+    linear-gradient(180deg, var(--ripple-color) 10%, transparent 90%);
+  background-size: 0% 0%, 0% 0%;
+  background-repeat: no-repeat;
+  background-origin: border-box;
+  -webkit-animation: button-ripple var(--ripple-duration) ease-in;
+  animation: button-ripple var(--ripple-duration) ease-in;
+}
+.figure.figure-ripple .btn .mockup {
+  width: 0px;
+  height: 0px;
+  border-color: transparent;
+  background-image: radial-gradient(
+    circle closest-side at center,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.3) 99%,
+    transparent 100%
+  );
+  transition: width 1s ease-in, height 1s ease-in, border-color 0.25s;
+}
+.figure.figure-combined .btn .mockup {
+  width: 0%;
+  height: 0%;
+  background-image: radial-gradient(
+      circle closest-side at center,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(0, 0, 0, 0.3) 99%,
+      transparent 100%
+    ),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.3) 20%, transparent 80%);
+  opacity: 0;
 }
