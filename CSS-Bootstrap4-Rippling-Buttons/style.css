@@ -5,16 +5,22 @@
   border-color: transparent !important;
   /* Just the ripple goes to the edges */
 }
+/* ripple effect using only background-image, background-size, and background-position, which are all animateable properties. This allows the effect to work directly on elements without any wrappers or pseudo-elements, and without js needing to kick off the animation. */
 .btn:focus:not(:disabled):not(.disabled),
 .btn:active:not(:disabled):not(.disabled),
 .btn.click-fx:not(:disabled):not(.disabled) {
+  /* ripple outward radial-gradient that starts at size 0% expand to cover whole button. */
   background-image: radial-gradient(
-      circle closest-side at center,
+      /*  gradient drawn as circle that touches the nearest side and stays in center    */
+        circle closest-side at center,
       var(--ripple-color) 0%,
-      var(--ripple-color) calc(100% - var(--ripple-fuzz, 0px)),
+      /* need box large enough for the circle to encompass button. buttons are wider than tall, and never wider than 100vw, so ripple background grows to be sqrt(2) * 100% = 141% wide and 100vw tall, the circle should cover the entire button.   */
+        var(--ripple-color) calc(100% - var(--ripple-fuzz, 0px)),
       transparent 100%
     ),
-    linear-gradient(180deg, var(--ripple-color) 10%, transparent 90%);
+    /*  the fade afterwards is tricky because you can't change background images opacity. So simulate that by taking linear-gradient that starts with the ripple color and fades to transparent, and then move that over the button from the opaque end to the transparent end  */
+      linear-gradient(180deg, var(--ripple-color) 10%, transparent 90%);
+  /* now combine ripple and fade, into one animation. Can add multiple background-images and set their properties individually. Add both images and hide one by making its background size zero. Then in the middle  "switch" the images seamlessly by changing  background sizes over tiny time period  keyframe 0.001% after the previous one).   */
   background-size: 0% 0%, 0% 0%;
   background-repeat: no-repeat;
   background-origin: border-box;
@@ -25,6 +31,13 @@
   -webkit-animation: none !important;
   animation: none !important;
 }
+/* CSS Variable being used 
+--click-offset-x: the distance of the click in px from the left edge of button.
+--click-offset-y: the distance of the click in px from the top edge of button.
+--click-max-r: the maximum distance from the click to any corner of the button,ensures ripple becomes large enough to cover button.
+--click-el-w: the width of the element (necessary to position center of background-image relative to edges of the button -- starting from 0% and adding the offset would align the left edge of the background and not the center).
+--click-el-h: the height of the element (same reason as above).
+*/
 @-webkit-keyframes button-ripple {
   0% {
     background-size: 0% 0%, 0% 0%;
