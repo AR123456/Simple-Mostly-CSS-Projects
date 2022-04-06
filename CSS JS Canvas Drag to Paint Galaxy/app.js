@@ -73,7 +73,45 @@ const createDustParticle = (color) => {
   return canvas;
 };
 ////
-const Galaxy = function (x, y) {};
+const Galaxy = function (x, y) {
+  let g = this;
+  g.x = x;
+  g.y = y;
+  g.starts = [];
+  g.dust = [];
+  g.drag = [];
+
+  g.angleOffsetX = TAU * r();
+  g.angleOffsetY = TAU * r();
+  g.realAngleOffsetX = 0;
+  g.realAngleOffsetY = 0;
+  g.color = {
+    r: Math.round(50 + r() * 100),
+    g: Math.round(50 + r() * 100),
+    b: Math.round(150 + r() * 100),
+  };
+  var calculateStarDustParams = (o) => {
+    o.angle = angle2([g.x, g.y], [o.x, o.y]);
+    o.distance = distance2([g.x, g.y], [o.x, o.y]);
+    o.xAspect = [o.x / o.y];
+    o.yAspect = [o.y / o.x];
+  };
+  g.calculateCenter = () => {
+    if (!g.stars.length) return;
+    g.x =
+      g.stars
+        .map((s) => s.x)
+        .reduce((previous, current) => previous + current) / g.stars.length;
+
+    g.y =
+      g.stars
+        .map((s) => s.y)
+        .reduce((previous, current) => previous + current) / g.stars.length;
+
+    g.stars.forEach(calculateStarDustParams);
+    g.dust.forEach(calculateStarDustParams);
+  };
+};
 //
 const Star = function (x, y) {};
 //
