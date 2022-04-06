@@ -1,3 +1,5 @@
+const { SSL_OP_MSIE_SSLV2_RSA_PADDING } = require("constants");
+
 const w = window.innerWidth;
 const h = window.innerHeight;
 // console.log(w, h);
@@ -90,7 +92,7 @@ const Galaxy = function (x, y) {
     g: Math.round(50 + r() * 100),
     b: Math.round(150 + r() * 100),
   };
-  var calculateStarDustParams = (o) => {
+  let calculateStarDustParams = (o) => {
     o.angle = angle2([g.x, g.y], [o.x, o.y]);
     o.distance = distance2([g.x, g.y], [o.x, o.y]);
     o.xAspect = [o.x / o.y];
@@ -113,11 +115,29 @@ const Galaxy = function (x, y) {
   };
 };
 //
-const Star = function (x, y) {};
+const Star = function (x, y) {
+  let s = this;
+  s.x = x + Math.cos(TAU * r()) * spread;
+  s.y = y + Math.sin(TAU * r()) * spread;
+  s.radius = r() + 0.25;
+  s.speed = r();
+};
 //
-const Dust = function (x, y, size) {};
+const Dust = function (x, y, size) {
+  let d = this;
+  d.x = x;
+  d.y = y;
+  d.size = size;
+  d.texture = createDustParticle();
+  d.speed = r();
+};
 //
-const updateStarDust = (s, g) => {};
+const updateStarDust = (s, g) => {
+  if (g == currentGalaxy && drawingMode) return;
+  s.angle += (0.5 + s.speed * 0.5) / s.distance;
+  s.x = g.x + Math.cos(s.angle + g.realAngleOffsetX) * s.distance;
+  s.y = g.y + Math.sin(s.angle + g.realAngleOffsetY) * s.distance;
+};
 //
 const update = () => {};
 //
