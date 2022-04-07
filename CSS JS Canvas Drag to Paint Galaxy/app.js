@@ -139,9 +139,73 @@ const updateStarDust = (s, g) => {
   s.y = g.y + Math.sin(s.angle + g.realAngleOffsetY) * s.distance;
 };
 //
-const update = () => {};
+const update = () => {
+  galaxies.forEach((g) => {
+    if (g != currentGalaxy) {
+      g.realAngleOffsetX +=
+        g.realAngleOffsetX < g.angleOffsetX
+          ? (g.angleOffsetX - g.realAngleOffsetX) * 0.05
+          : 0;
+    }
+    g.stars.forEach((s) => {
+      /*s.distance -= s.distance < 2
+        ? 0
+        : TAU/s.distance;*/
+      updateStarDust(s, g);
+    });
+    g.dust.forEach((d) => {
+      /*d.distance -= d.distance < 50
+        ? 0
+        : TAU/d.distance;*/
+      updateStarDust(d, g);
+    });
+  });
+};
 //
-const render = () => {};
+const render = () => {
+  // source-over This is the default setting and draws new shapes on top of the existing canvas content.
+  dustCtx.globalCompositeOperation = "source-over";
+  dustCtx.fillStyle = "rgba(0,0,0,.05)";
+  dustCtx.fillRect(0, 0, w, h);
+  dustCtx.globalCompositeOperation = "lighter";
+
+  starCtx.clearRect(0, 0, w, h);
+  starCtx.fillStyle = "#ffffff";
+  starCtx.strokeStyle = "rgba(255,255,255,.05)";
+  starCtx.beginPath();
+
+  if (drawingMode)
+    galaxies.forEach((g) => {
+      starCtx.moveTo(g.x, g.y);
+      starCtx.arc(g.x, g.y, 2, 0, TAU);
+    });
+  galaxies.forEach((g) => {
+    g.stars.forEach((s) => {
+      starCtx.moveTo(s.x, s.y);
+      // The arc() method creates a circular arc centered at (x, y) with a radius of radius. The path starts at startAngle, ends at endAngle, and travels in the direction given by counterclockwise (defaulting to clockwise).
+      starCtx.arc(s.x, s.y, s.radius, 0, TAU);
+    });
+    g.dust.forEach((d) => {
+      dustCtx.drawImage(
+        d.texture,
+        d.x - d.size * 0.5,
+        d.y - d.size * 0.5,
+        d.size,
+        d.size
+      );
+    });
+  });
+  dustCtx.fill();
+  starCtx.fill();
+  if (drawingMode && currentGalaxy) {
+    starCtx.beginPath();
+    currentGalaxy.stars.forEach((s, i) => {
+      starCtx.moveTo(s.x, s.y);
+      starCtx.lineTo(currentGalaxy.x, currentGalaxy.y);
+    });
+    starCtx.stroke();
+  }
+};
 //
 let currentGalaxy = null;
 
