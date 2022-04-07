@@ -75,27 +75,31 @@ const createDustParticle = (color) => {
 ////
 const Galaxy = function (x, y) {
   let g = this;
+
   g.x = x;
   g.y = y;
-  g.starts = [];
+  g.stars = [];
   g.dust = [];
-  g.drag = [];
+  g.drag = r();
 
   g.angleOffsetX = TAU * r();
   g.angleOffsetY = TAU * r();
   g.realAngleOffsetX = 0;
   g.realAngleOffsetY = 0;
+
   g.color = {
     r: Math.round(50 + r() * 100),
     g: Math.round(50 + r() * 100),
     b: Math.round(150 + r() * 100),
   };
+
   let calculateStarDustParams = (o) => {
     o.angle = angle2([g.x, g.y], [o.x, o.y]);
     o.distance = distance2([g.x, g.y], [o.x, o.y]);
     o.xAspect = [o.x / o.y];
     o.yAspect = [o.y / o.x];
   };
+
   g.calculateCenter = () => {
     if (!g.stars.length) return;
     g.x =
@@ -113,7 +117,7 @@ const Galaxy = function (x, y) {
   };
 };
 //
-const Star = function (x, y) {
+const Star = function (x, y, spread) {
   let s = this;
   s.x = x + Math.cos(TAU * r()) * spread;
   s.y = y + Math.sin(TAU * r()) * spread;
@@ -143,6 +147,10 @@ const update = () => {
       g.realAngleOffsetX +=
         g.realAngleOffsetX < g.angleOffsetX
           ? (g.angleOffsetX - g.realAngleOffsetX) * 0.05
+          : 0;
+      g.realAngleOffsetY +=
+        g.realAngleOffsetY < g.angleOffsetY
+          ? (g.angleOffsetY - g.realAngleOffsetY) * 0.05
           : 0;
     }
     g.stars.forEach((s) => {
@@ -224,6 +232,7 @@ const disableDraw = (e) => {
 //
 const draw = (e) => {
   if (!drawingMode) return;
+
   currentGalaxy.stars.push(new Star(mouse.pos.x, mouse.pos.y, mouse.speed));
   currentGalaxy.stars.push(new Star(mouse.pos.x, mouse.pos.y, mouse.speed));
   currentGalaxy.stars.push(new Star(mouse.pos.x, mouse.pos.y, mouse.speed));
@@ -236,6 +245,7 @@ const draw = (e) => {
         mouse.speed * 1.5
       )
     );
+
   currentGalaxy.calculateCenter();
 };
 //
@@ -253,6 +263,7 @@ loop();
 /// move event
 const moveEvent = (e) => {
   mouse.speed = distance2([e.layerX, e.layerY], [mouse.pos.x, mouse.pos.y]);
+
   mouse.pos.x = e.layerX;
   mouse.pos.y = e.layerY;
   draw(e);
@@ -262,6 +273,7 @@ const moveEvent = (e) => {
 window.addEventListener("mousedown", activateDraw);
 window.addEventListener("mousemove", moveEvent);
 window.addEventListener("mouseup", disableDraw);
+
 window.addEventListener("touchstart", activateDraw);
 window.addEventListener("touchmove", moveEvent);
 window.addEventListener("touchend", disableDraw);
