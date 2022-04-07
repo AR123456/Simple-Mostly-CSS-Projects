@@ -1,5 +1,3 @@
-const { SSL_OP_MSIE_SSLV2_RSA_PADDING } = require("constants");
-
 const w = window.innerWidth;
 const h = window.innerHeight;
 // console.log(w, h);
@@ -211,11 +209,35 @@ let currentGalaxy = null;
 
 let drawingMode = false;
 //
-const activateDraw = (e) => {};
+const activateDraw = (e) => {
+  drawingMode = true;
+  mouse.pos.x = e.layerX;
+  mouse.pos.y = e.layerY;
+  currentGalaxy = new Galaxy(e.layerX, e.layerY);
+  galaxies.push(currentGalaxy);
+};
 //
-const disableDraw = (e) => {};
+const disableDraw = (e) => {
+  drawingMode = false;
+  currentGalaxy = null;
+};
 //
-const draw = (e) => {};
+const draw = (e) => {
+  if (!drawingMode) return;
+  currentGalaxy.stars.push(new Star(mouse.pos.x, mouse.pos.y, mouse.speed));
+  currentGalaxy.stars.push(new Star(mouse.pos.x, mouse.pos.y, mouse.speed));
+  currentGalaxy.stars.push(new Star(mouse.pos.x, mouse.pos.y, mouse.speed));
+
+  if (mouse.speed * 1.5 > 13 && mouse.speed < 100)
+    currentGalaxy.dust.push(
+      new Dust(
+        currentGalaxy.x + Math.cos(TAU * r()) * mouse.speed * 0.1,
+        currentGalaxy.y + Math.sin(TAU * r()) * mouse.speed * 0.1,
+        mouse.speed * 1.5
+      )
+    );
+  currentGalaxy.calculateCenter();
+};
 //
 
 //// the drawing loop
