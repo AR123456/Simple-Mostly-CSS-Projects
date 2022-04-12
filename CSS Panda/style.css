@@ -2,6 +2,8 @@
   box-sizing: border-box;
 }
 body {
+  background: #a6c1a6;
+  font-family: sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,4 +11,75 @@ body {
   height: 100vh;
   margin: 0;
   overflow: hidden;
+}
+
+.panda {
+  transform: scale(1.2) translate(40px);
+  zoom: 1.2;
+  -webkit-animation: panda 0.25s ease-in-out alternate infinite;
+  animation: panda 0.25s ease-in-out alternate infinite;
+  transform-origin: bottom center;
+}
+.panda-ears {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  z-index: -1;
+  transform: translateY(23px) scale(1.25);
+}
+.panda-ears::before,
+.panda-ears::after {
+  content: " ";
+  display: block;
+  background: #543535;
+  width: 10px;
+  height: 10px;
+  border: 5px solid #1b1e23;
+  border-radius: 10px;
+}
+.panda-contain {
+  transform-origin: bottom center;
+  -webkit-animation: tilt 3s ease-in-out alternate infinite;
+  animation: tilt 3s ease-in-out alternate infinite;
+}
+.panda-head,
+.panda-body {
+  background: #eaf4de;
+  height: 50px;
+  width: 60px;
+  border-radius: 30px 30px 15px 15px/40px 40px 10px 10px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.panda-eyes:before,
+.panda-eyes:after {
+  content: "";
+  display: block;
+  width: 4px;
+  height: 4px;
+  border: 6px solid #1b1e23;
+  background: #9fb7dd;
+}
+.panda-eyes:before {
+  transform: rotate(-30deg) scale(1, 0.75);
+  border-radius: 12px 8px 8px 8px/12px 8px 8px 8px;
+}
+.panda-eyes:after {
+  transform: rotate(30deg) scale(1, 0.75);
+  border-radius: 8px 12px 8px 8px/8px 12px 8px 8px;
+}
+.panda-nose {
+  width: 30px;
+  height: 35px;
+  background: #eaf4de;
+  border: 1px solid #1b1e23;
+  transform: scale(1, 0.5);
+  position: absolute;
+  top: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  -webkit-animation: nose 3s ease-in-out alternate infinite;
+  animation: nose 3s ease-in-out alternate infinite;
 }
