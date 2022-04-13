@@ -83,3 +83,39 @@ body {
   -webkit-animation: nose 3s ease-in-out alternate infinite;
   animation: nose 3s ease-in-out alternate infinite;
 }
+.panda-nose::before {
+  content: "";
+  display: block;
+  height: 8px;
+  width: 8px;
+  border-radius: 4px;
+  margin-top: 5px;
+  background: #1b1e23;
+  -webkit-animation: eyes 3s ease-in-out infinite alternate;
+  animation: eyes 3s ease-in-out infinite alternate;
+}
+.panda-nose:after {
+  content: "";
+  height: 15px;
+  width: 2px;
+  border-radius: 4px;
+  background: #1b1e23;
+  -webkit-animation: eyes 3s ease-in-out infinite alternate;
+  animation: eyes 3s ease-in-out infinite alternate;
+}
+.panda-arms {
+  position: relative;
+}
+.panda-arms:before,
+.panda-arms:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 3px;
+  height: 30px;
+  width: 13px;
+  background: #1b1e23;
+  border-radius: 5px 5px 5px 5px;
+  transform-origin: center top;
+  z-index: -1;
+}
