@@ -5,5 +5,6 @@ const selectElements = document.querySelectorAll("[data-custom]");
 // instansiate to use in my project
 
 selectElements.forEach((selectElement) => {
-  console.log(new Select(selectElement));
+  //   console.log(new Select(selectElement));
+  new Select(selectElement);
 });
