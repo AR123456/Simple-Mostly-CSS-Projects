@@ -23,39 +23,26 @@ export default class Select {
   }
 }
 
-// this is outside the constructor so that it is not exposed
-// it takes in the class
 function setupCustomElement(select) {
-  // first adding CSS classes to style
-  // appending custom-select to each so that it doesent interfear with
-  // any other css on the page
   select.customElement.classList.add("custom-select-container");
   select.labelElement.classList.add("custom-select-value");
-  // need the getter get selectedOption above for this to work
-  select.labelElement.innerText = select.selectedOption.value;
-  // add this to the custom element ( so it is in the container we created)
+  select.labelElement.innerText = select.selectedOption.label;
   select.customElement.append(select.labelElement);
-  // do the same for options
   select.optionsCustomElement.classList.add("custom-select-options");
-  // append the ___ to the ___
   select.options.forEach((option) => {
-    /// add as a li in the ul created above
     const optionElement = document.createElement("li");
     optionElement.classList.add("custom-selected-option");
-    // if it is selected add selected class
     optionElement.classList.toggle("selected", option.selected);
     optionElement.innerText = option.label;
-    // get access to the value too
     optionElement.dataset.value = option.value;
+    // this is getting the ul to appear
+    select.optionsCustomElement.append(optionElement);
   });
   select.customElement.append(select.optionsCustomElement);
-  // then add some JS for functionality
 }
-// dont want this exposed to end user so define this funciton here
+
 function getFormattedOptions(optionElements) {
-  // this is a node list so put it into an array
   return [...optionElements].map((optionElement) => {
-    // return each one as an object
     return {
       value: optionElement.value,
       label: optionElement.label,
