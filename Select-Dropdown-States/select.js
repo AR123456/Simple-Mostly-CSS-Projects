@@ -1,20 +1,11 @@
-// this is like a library I would import
-// export this class I am creating with the constructor in it
-
 export default class Select {
-  // pass in any element as  Element
   constructor(element) {
     this.element = element;
-    // getting all the avalible options from select and putting them into a function
-
     this.options = getFormattedOptions(element.querySelectorAll("option"));
-    // get the wrapper that goes around the custom element code
     this.customElement = document.createElement("div");
     this.labelElement = document.createElement("span");
     this.optionsCustomElement = document.createElement("ul");
-    // here "this" is the entire class
     setupCustomElement(this);
-    // this addes our custom stuff to the page
     element.after(this.customElement);
   }
 
@@ -51,4 +42,3 @@ function getFormattedOptions(optionElements) {
     };
   });
 }
-// https://www.youtube.com/watch?v=Fc-oyl31mRI

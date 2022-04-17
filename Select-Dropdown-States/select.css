@@ -1,0 +1,34 @@
+.custom-select-container,
+.custom-select-value,
+.custom-select-options,
+.custom-select-option {
+  box-sizing: border-box;
+}
+.custom-select-container {
+  display: inline-block;
+  position: relative;
+}
+.custom-select-value {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 200px;
+  border: 1px solid black;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  /* prevents the highlighting of text  */
+  user-select: none;
+}
+/* making the custom down triangle carrot in the custom selector box */
+.custom-select-value::after {
+  content: "";
+  display: inline-block;
+  border: 4px solid transparent;
+  border-top-color: black;
+}
+/* hide the custom display items by default */
+.custom-select-options {
+  display: none;
+  /* prevent scrolling or reaction when this is selected  */
+  position: absolute;
+}
