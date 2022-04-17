@@ -22,7 +22,7 @@ function setupCustomElement(select) {
   select.optionsCustomElement.classList.add("custom-select-options");
   select.options.forEach((option) => {
     const optionElement = document.createElement("li");
-    optionElement.classList.add("custom-selected-option");
+    optionElement.classList.add("custom-select-option");
     optionElement.classList.toggle("selected", option.selected);
     optionElement.innerText = option.label;
     optionElement.dataset.value = option.value;
