@@ -14,6 +14,9 @@ export default class Select {
   get selectedOption() {
     return this.options.find((option) => option.selected);
   }
+  get selectedOptionIndex() {
+    return this.options.indexOf(this.selectedOption);
+  }
   selectValue(value) {
     const newSelectedOption = this.options.find((option) => {
       return option.value === value;
@@ -23,6 +26,8 @@ export default class Select {
     prevSelectedOption.element.selected = false;
     newSelectedOption.selected = true;
     newSelectedOption.element.selected = true;
+
+    this.labelElement.innerText = newSelectedOption.label;
   }
 }
 
@@ -41,15 +46,40 @@ function setupCustomElement(select) {
     optionElement.innerText = option.label;
     optionElement.dataset.value = option.value;
     optionElement.addEventListener("click", () => {
+      select.selectedOption.element.classList.remove("selected");
       select.selectValue(option.value);
+      optionElement.classList.add("selected");
       select.optionsCustomElement.classList.remove("show");
     });
     // this is getting the ul to appear
     select.optionsCustomElement.append(optionElement);
   });
   select.customElement.append(select.optionsCustomElement);
-  select.customElement.addEventListener("click", () => {
+  select.labelElement.addEventListener("click", () => {
     select.optionsCustomElement.classList.toggle("show");
+  });
+  select.customElement.addEventListener("blur", () => {
+    select.optionsCustomElement.classList.remove("show");
+  });
+  // building in the stuff avalible on an out the box select list into custom one
+  // using swithch case to do this
+  select.customElement.addEventListener("keydown", (e) => {
+    switch (e.code) {
+      case "Space":
+        select.optionsCustomElement.classList.toggle("show");
+        break;
+      case "ArrowUp":
+        const prevOption = select.options[select.selectedOptionIndex - 1];
+        if (prevOption) {
+          select.selectValue(prevOption.value);
+        }
+        break;
+      case "ArrowDown":
+        break;
+
+      default:
+        break;
+    }
   });
 }
 
