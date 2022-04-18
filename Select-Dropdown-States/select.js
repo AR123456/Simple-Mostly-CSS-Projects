@@ -6,16 +6,29 @@ export default class Select {
     this.labelElement = document.createElement("span");
     this.optionsCustomElement = document.createElement("ul");
     setupCustomElement(this);
+    // hiding the non custom display
+    element.style.display = "none";
     element.after(this.customElement);
   }
 
   get selectedOption() {
     return this.options.find((option) => option.selected);
   }
+  selectValue(value) {
+    const newSelectedOption = this.options.find((option) => {
+      return option.value === value;
+    });
+    const prevSelectedOption = this.selectedOption;
+    prevSelectedOption.selected = false;
+    prevSelectedOption.element.selected = false;
+    newSelectedOption.selected = true;
+    newSelectedOption.element.selected = true;
+  }
 }
 
 function setupCustomElement(select) {
   select.customElement.classList.add("custom-select-container");
+
   select.customElement.tabIndex = 0;
   select.labelElement.classList.add("custom-select-value");
   select.labelElement.innerText = select.selectedOption.label;
@@ -27,10 +40,17 @@ function setupCustomElement(select) {
     optionElement.classList.toggle("selected", option.selected);
     optionElement.innerText = option.label;
     optionElement.dataset.value = option.value;
+    optionElement.addEventListener("click", () => {
+      select.selectValue(option.value);
+      select.optionsCustomElement.classList.remove("show");
+    });
     // this is getting the ul to appear
     select.optionsCustomElement.append(optionElement);
   });
   select.customElement.append(select.optionsCustomElement);
+  select.customElement.addEventListener("click", () => {
+    select.optionsCustomElement.classList.toggle("show");
+  });
 }
 
 function getFormattedOptions(optionElements) {
