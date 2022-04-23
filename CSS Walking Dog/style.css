@@ -213,6 +213,116 @@
   z-index: 1;
   border-radius: 50%;
 }
+.snout {
+  --color: var(--color-snout);
+  width: 25%;
+  height: 0;
+  padding-top: 25%;
+  background-color: var(--color);
+  top: 0;
+  right: -5px;
+  border-bottom-left-radius: 100%;
+  z-index: 1;
+}
+.ears {
+  bottom: 40%;
+  height: 100%;
+  width: 30%;
+  left: 0;
+  z-index: -1;
+}
+
+.ear {
+  --color: var(--color-spot);
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  transform-origin: left bottom;
+  transform: rotate(-10deg);
+  -webkit-animation: ear-front calc(var(--duration) / 2) infinite;
+  animation: ear-front calc(var(--duration) / 2) infinite;
+}
+@-webkit-keyframes ear-front {
+  50% {
+    transform: rotate(-15deg);
+  }
+}
+@keyframes ear-front {
+  50% {
+    transform: rotate(-15deg);
+  }
+}
+.ear:before {
+  content: "";
+  position: absolute;
+  height: 25px;
+  width: 15px;
+  z-index: 2;
+  top: -2px;
+  right: -7px;
+  border-top-left-radius: 100%;
+  border-width: 2px;
+  border-color: transparent;
+  border-style: solid;
+  border-left: 2px solid var(--color-snout);
+  transform-origin: bottom left;
+  -webkit-animation: ear-mark var(--semi-duration)
+    calc(-1 * var(--semi-duration)) infinite;
+  animation: ear-mark var(--semi-duration) calc(-1 * var(--semi-duration))
+    infinite;
+}
+@-webkit-keyframes ear-mark {
+  from,
+  to {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(25deg);
+  }
+}
+@keyframes ear-mark {
+  from,
+  to {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(25deg);
+  }
+}
+.ear > .fur {
+  border-top-left-radius: 100%;
+  height: 100%;
+  width: 100%;
+}
+.ear:nth-child(2) {
+  left: 15px;
+  bottom: 5px;
+  transform: rotate(-5deg);
+  --color: var(--color-fur);
+  z-index: -1;
+  -webkit-animation: ear-back calc(var(--duration) / 2) infinite both;
+  animation: ear-back calc(var(--duration) / 2) infinite both;
+}
+@-webkit-keyframes ear-back {
+  from,
+  to {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+}
+@keyframes ear-back {
+  from,
+  to {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+}
+
 html,
 body {
   width: 100%;
