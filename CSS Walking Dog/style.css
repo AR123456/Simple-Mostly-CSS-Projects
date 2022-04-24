@@ -458,6 +458,159 @@
   transform: rotate(-45deg);
 }
 
+.tail {
+  height: 15px;
+  width: 20px;
+  background-color: var(--color);
+  border-top-right-radius: 10px 100%;
+  border-top-left-radius: 10px 100%;
+  -webkit-animation: tail var(--semi-duration) infinite;
+  animation: tail var(--semi-duration) infinite;
+}
+@-webkit-keyframes tail {
+  from,
+  to {
+    transform: rotate(-45deg) translateX(-15%);
+  }
+  50% {
+    transform: rotate(-25deg) translateX(15%);
+  }
+}
+@keyframes tail {
+  from,
+  to {
+    transform: rotate(-45deg) translateX(-15%);
+  }
+  50% {
+    transform: rotate(-25deg) translateX(15%);
+  }
+}
+.tail > .tail {
+  bottom: calc(90%);
+  transform-origin: bottom left;
+  transform: rotate(-10deg) translateY(50%) scaleX(0.8) scaleY(0.9);
+  -webkit-animation: tail-inner var(--semi-duration) var(--stagger) infinite;
+  animation: tail-inner var(--semi-duration) var(--stagger) infinite;
+}
+@-webkit-keyframes tail-inner {
+  from,
+  to {
+    transform: rotate(-10deg) translateY(50%) scaleX(0.8) scaleY(0.9);
+  }
+  50% {
+    transform: rotate(5deg) translateY(50%) scaleX(0.8) scaleY(0.9);
+  }
+}
+@keyframes tail-inner {
+  from,
+  to {
+    transform: rotate(-10deg) translateY(50%) scaleX(0.8) scaleY(0.9);
+  }
+  50% {
+    transform: rotate(5deg) translateY(50%) scaleX(0.8) scaleY(0.9);
+  }
+}
+
+.legs > .leg {
+  bottom: 5px;
+  --color: var(--color-fur);
+}
+.legs > .leg:nth-child(1),
+.legs .leg:nth-child(3) {
+  right: 15px;
+}
+.legs > .leg:nth-child(3),
+.legs > .leg:nth-child(4) {
+  --color: var(--color-fur-dark);
+  z-index: -1;
+}
+.legs > .leg:nth-child(1),
+.legs .leg:nth-child(4) {
+  --delay: 0s;
+}
+.legs > .leg:nth-child(2),
+.legs > .leg:nth-child(3) {
+  --delay: calc(-1 * var(--duration) / 2);
+}
+.legs > .leg:nth-child(2) {
+  left: 0;
+}
+.legs > .leg:nth-child(4) {
+  left: 0;
+}
+
+.leg {
+  position: absolute;
+  height: 65px;
+  width: 45px;
+  background-color: var(--color);
+  transform-origin: center 5px;
+  -webkit-animation: leg infinite var(--duration) var(--delay, 0s);
+  animation: leg infinite var(--duration) var(--delay, 0s);
+}
+.leg > .leg-inner {
+  -webkit-animation: leg-inner infinite var(--duration) calc(var(--delay));
+  animation: leg-inner infinite var(--duration) calc(var(--delay));
+  transform: rotate(90deg);
+}
+@-webkit-keyframes leg-inner {
+  from,
+  to {
+    transform: none;
+  }
+  33% {
+    transform: rotate(70deg);
+  }
+  76% {
+    transform: none;
+  }
+}
+@keyframes leg-inner {
+  from,
+  to {
+    transform: none;
+  }
+  33% {
+    transform: rotate(70deg);
+  }
+  76% {
+    transform: none;
+  }
+}
+@-webkit-keyframes leg {
+  from,
+  to {
+    transform: none;
+  }
+  33% {
+    transform: rotate(-55deg);
+  }
+  66% {
+    transform: rotate(-20deg);
+  }
+}
+@keyframes leg {
+  from,
+  to {
+    transform: none;
+  }
+  33% {
+    transform: rotate(-55deg);
+  }
+  66% {
+    transform: rotate(-20deg);
+  }
+}
+.leg > .fur {
+  width: 144.4444444444%;
+  height: 100%;
+}
+.leg > .fur:after {
+  width: 45px;
+  bottom: 0;
+  top: initial;
+  transform: rotate(15deg);
+}
 html,
 body {
   width: 100%;
