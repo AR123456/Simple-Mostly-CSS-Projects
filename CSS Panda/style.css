@@ -51,6 +51,16 @@ body {
   display: flex;
   justify-content: center;
 }
+.panda-eyes {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  width: 65%;
+  left: 17%;
+  top: 40%;
+  -webkit-animation: eyes 3s ease-in-out infinite alternate;
+  animation: eyes 3s ease-in-out infinite alternate;
+}
 .panda-eyes:before,
 .panda-eyes:after {
   content: "";
@@ -73,6 +83,7 @@ body {
   height: 35px;
   background: #eaf4de;
   border: 1px solid #1b1e23;
+  border-radius: 16px;
   transform: scale(1, 0.5);
   position: absolute;
   top: 40%;
