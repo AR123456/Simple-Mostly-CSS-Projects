@@ -129,3 +129,24 @@ body {
   transform-origin: center top;
   z-index: -1;
 }
+.panda-arms:before {
+  transform: rotateZ(120deg);
+  left: 10px;
+  -webkit-animation: wave 0.5s ease-in-out alternate infinite;
+  animation: wave 0.5s ease-in-out alternate infinite;
+}
+.panda-arms:after {
+  right: 10px;
+  transform: rotateZ(-35deg);
+  -webkit-animation: offhand 0.8s ease-in-out alternate infinite;
+  animation: offhand 0.8s ease-in-out alternate infinite;
+}
+.panda-body {
+  z-index: -1;
+  transform: scale(1, 0.65) translateY(-30px);
+  border-top: 20px solid #1b1e23;
+  border-bottom: 20px solid #1b1e23;
+  -webkit-animation: breath 0.25 ease-in-out infinite alternate;
+  animation: breath 0.25 ease-in-out infinite alternate;
+  border-radius: 30px 30px 25px 25px/40px 40px 25px 25px;
+}
