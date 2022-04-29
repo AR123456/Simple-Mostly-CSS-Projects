@@ -178,3 +178,22 @@ body {
   -webkit-animation: run-r 0.5s ease-in-out alternate infinite;
   animation: run-r 0.5s ease-in-out alternate infinite;
 }
+.panda-shadow {
+  content: "";
+  display: block;
+  background: #1b1e23;
+  width: 60px;
+  height: 60px;
+  transform: scale(1, 0.3);
+  border-radius: 30px;
+  position: relative;
+  z-index: -1;
+  opacity: 0.2;
+  -webkit-animation: shadow 0.25s ease-in-out alternate infinite;
+  animation: shadow 0.25s ease-in-out alternate infinite;
+}
+.weight {
+  transform-origin: bottom center;
+  -webkit-animation: weight 0.5s ease-in-out alternate infinite;
+  animation: weight 0.5s ease-in-out alternate infinite;
+}
