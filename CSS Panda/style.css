@@ -231,3 +231,19 @@ body {
     transform: rotateZ(-80deg);
   }
 }
+@keyframes eyes {
+  0% {
+    transform: translateX(-1px);
+  }
+  100% {
+    transform: translateX(1px);
+  }
+}
+@keyframes nose {
+  0% {
+    transform: scale(1, 0.5) translateX(-2px);
+  }
+  100% {
+    transform: scale(1, 0.5) translateX(2px);
+  }
+}
