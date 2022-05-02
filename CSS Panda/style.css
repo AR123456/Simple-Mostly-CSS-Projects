@@ -270,3 +270,27 @@ body {
     transform: translateY(-10px);
   }
 }
+@keyframes panda {
+  0% {
+    transform: scale(1) translateY(60px);
+  }
+  100% {
+    transform: scale(1) translateY(56px);
+  }
+}
+@keyframes weight {
+  0% {
+    transform: rotateZ(-4deg);
+  }
+  100% {
+    transform: rotateZ(4deg);
+  }
+}
+@keyframes shadow {
+  0% {
+    transform: scale(1.2, 0.3) translateY(-30px);
+  }
+  100% {
+    transform: scale(1.15, 0.3) translateY(-27px);
+  }
+}
