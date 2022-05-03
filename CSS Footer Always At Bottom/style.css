@@ -2,11 +2,37 @@
   box-sizing: border-box;
 }
 body {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  min-height: 100vh;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+main {
+  flex: 2;
+  background: bisque;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  overflow: hidden;
-  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+section {
+  padding: 20px;
+  flex-grow: 1;
+}
+aside {
+  flex: 1;
+  background: powderblue;
+  padding: 20px;
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+footer {
+  padding: 20px;
+  background: peru;
+}
+@media screen and(max-width:767px) {
+  body {
+    flex-direction: column-reverse;
+  }
 }
