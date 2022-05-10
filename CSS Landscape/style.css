@@ -61,8 +61,14 @@ div {
 .tree.two {
   width: 5vmin;
   height: 20vmin;
-  bottom: 30%;
-  left: 20%;
+  bottom: 100%;
+  left: 30%;
+}
+.tree.three {
+  width: 5vmin;
+  height: 20vmin;
+  bottom: 100%;
+  left: 40%;
 }
 .tree .body {
   display: block;
@@ -71,4 +77,22 @@ div {
   background: #1b771b;
   border-radius: 100% 100% 100% 100%/100% 100% 50% 50%;
   box-shadow: inset 1.5vmin -0.5vmin #186b18;
+}
+.tree .trunk {
+  width: 13%;
+  height: 10%;
+  background: #484444;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
+}
+.tree .shadow {
+  width: 50%;
+  height: 200%;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  transform: rotateZ(-104deg);
+  transform-origin: bottom center;
+  left: -7%;
+  bottom: -7%;
 }
