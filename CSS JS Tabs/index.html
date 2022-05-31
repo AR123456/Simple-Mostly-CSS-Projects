@@ -4,11 +4,116 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Yomogi&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>Document</title>
   </head>
   <body>
-    <h1>tabs</h1>
+    <input
+      type="radio"
+      value="1"
+      name="border"
+      checked="checked"
+      class="variation"
+      id="solid"
+    />
+    <label for="solid"><span class="circle"></span><span>Flat UI</span></label>
+    <input
+      type="radio"
+      value="2"
+      name="border"
+      checked="checked"
+      class="variation"
+      id="shadow"
+    />
+    <label for="solid"
+      ><span class="circle"></span><span>Realistic</span></label
+    >
+    <div class="folder">
+      <div class="tabs">
+        <button class="tab active" onclick="">
+          <div><span>Work Stuff</span></div>
+        </button>
+        <button class="tab" onclick="">
+          <div><span>Food</span></div>
+        </button>
+        <button class="tab" onclick="">
+          <div><span>Baking</span></div>
+        </button>
+        <button class="tab" onclick="">
+          <div><span>Dog</span></div>
+        </button>
+      </div>
+      <div class="content">
+        <div class="content-inner" id="tab-1">
+          <div class="page">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Error ex
+              modi nisi eius nulla vitae consequatur corrupti aliquid nesciunt
+              nihil, doloribus, ad quae perferendis consequuntur assumenda
+              voluptatem voluptate, minima laudantium.
+            </p>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Excepturi, blanditiis! Facere amet omnis assumenda officia non
+              aliquam voluptatem iste quae voluptatum quis quasi, at incidunt
+              vero labore qui quisquam. Velit?
+            </p>
+          </div>
+        </div>
+        <div class="content-inner" id="tab-2">
+          <div class="page">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Error ex
+              modi nisi eius nulla vitae consequatur corrupti aliquid nesciunt
+              nihil, doloribus, ad quae perferendis consequuntur assumenda
+              voluptatem voluptate, minima laudantium.
+            </p>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Excepturi, blanditiis! Facere amet omnis assumenda officia non
+              aliquam voluptatem iste quae voluptatum quis quasi, at incidunt
+              vero labore qui quisquam. Velit?
+            </p>
+          </div>
+        </div>
+        <div class="content-inner" id="tab-3">
+          <div class="page">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Error ex
+              modi nisi eius nulla vitae consequatur corrupti aliquid nesciunt
+              nihil, doloribus, ad quae perferendis consequuntur assumenda
+              voluptatem voluptate, minima laudantium.
+            </p>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Excepturi, blanditiis! Facere amet omnis assumenda officia non
+              aliquam voluptatem iste quae voluptatum quis quasi, at incidunt
+              vero labore qui quisquam. Velit?
+            </p>
+          </div>
+        </div>
+        <div class="content-inner" id="tab-4">
+          <div class="page">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Error ex
+              modi nisi eius nulla vitae consequatur corrupti aliquid nesciunt
+              nihil, doloribus, ad quae perferendis consequuntur assumenda
+              voluptatem voluptate, minima laudantium.
+            </p>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Excepturi, blanditiis! Facere amet omnis assumenda officia non
+              aliquam voluptatem iste quae voluptatum quis quasi, at incidunt
+              vero labore qui quisquam. Velit?
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="app.js"></script>
   </body>
 </html>
