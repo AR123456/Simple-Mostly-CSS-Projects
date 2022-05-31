@@ -21,9 +21,11 @@ body {
 body .folder {
   grid-column: 1/-1;
 }
+
 p {
   margin-bottom: 1rem;
 }
+
 .tab {
   font-family: "Patrick Hand";
   text-transform: uppercase;
@@ -39,4 +41,56 @@ p {
   white-space: nowrap;
   cursor: pointer;
   background: var(--background);
+}
+.tab:focus {
+  outline: none;
+}
+.tab:focus span {
+  border-bottom: 2px solid;
+  border-radius: 0;
+}
+.tab:first-of-type {
+  margin-left: 30px;
+}
+.tab div {
+  background: var(--background);
+  padding: 6px 0;
+  position: relative;
+  z-index: 10;
+}
+.tab span {
+  display: inline-block;
+  border: 2px solid transparent;
+  padding: 6px 15px 6px;
+  border-radius: 5px;
+  z-index: 5;
+  position: relative;
+  font-size: 140%;
+  color: #fff;
+  min-width: 6rem;
+}
+.tab:before,
+.tab:after {
+  content: "";
+  height: 100%;
+  position: absolute;
+  background: var(--background);
+  border-radius: 8px 8px 0 0;
+  width: 30px;
+  top: 0;
+}
+tab:before {
+  right: -16px;
+  transform: skew(25deg);
+  left: -16px;
+  border-radius: 0 8px 0 0;
+}
+.tab:after {
+  transform: skew(-25deg);
+  left: -16px;
+  border-radius: 8px 0 0 0;
+}
+.tab.active {
+  z-index: 50;
+  position: relative;
 }
