@@ -135,6 +135,17 @@ tab:before {
   /* Chrome/Safari/Webkit */
   display: none;
 }
+.page {
+  padding: 1.5rem;
+  border-radius: 2px;
+  min-height: 20rem;
+  line-height: 160%;
+  background-color: #f9f9f9;
+  filter: drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.15));
+  background-image: linear-gradient(#e4e4e4 1px, transparent 1px);
+  background-size: 8% 8%, 2px 2px;
+}
+
 .tabs {
   padding: 2rem 0 0 0;
   width: 100%;
@@ -148,4 +159,58 @@ tab:before {
     margin: 0 2rem;
     width: calc(100% - 4rem);
   }
+}
+#solid:checked ~ .folder .tab:nth-of-type(1),
+#solid:checked ~ .folder .content-inner:nth-of-type(1) {
+  --background: #af4d98;
+}
+#solid:checked ~ .folder .tab:nth-of-type(2),
+#solid:checked ~ .folder .content-inner:nth-of-type(2) {
+  --background: #d66ba0;
+}
+#solid:checked ~ .folder .tab:nth-of-type(3),
+#solid:checked ~ .folder .content-inner:nth-of-type(3) {
+  --background: #e5a9a9;
+}
+#solid:checked ~ .folder .tab:nth-of-type(4),
+#solid:checked ~ .folder .content-inner:nth-of-type(4) {
+  --background: #6cb6bb;
+}
+#solid:checked ~ .folder .tab {
+  border: 2px solid;
+  border-width: 2px 0 0;
+}
+#solid:checked ~ .folder .tab:before,
+#solid:checked ~ .folder .tab:after {
+  top: -2px;
+  border-top: 2px solid;
+}
+#solid:checked ~ .folder .tab:before {
+  border-right: 2px solid;
+}
+#solid:checked ~ .folder .tab:after {
+  border-left: 2px solid;
+}
+#solid:checked ~ .folder .tab.active span {
+  border: 2px solid;
+}
+#solid:checked ~ .folder .tab.active:focus span {
+  outline: 1px solid rgba(255, 255, 255, 0.7);
+}
+#solid:checked ~ .folder .tab:not(.active) {
+  border-bottom: 2px solid;
+}
+#solid:checked ~ .folder .tab:not(.active):before,
+#solid:checked ~ .folder .tab:not(.active):after {
+  box-shadow: 0 1.5px 0 black;
+}
+#solid:checked ~ .folder .content {
+  top: -2px;
+  left: -2px;
+}
+#solid:checked ~ .folder .content__inner {
+  box-shadow: 0 0 0 1.5px black;
+}
+#solid:checked ~ .folder .page {
+  border: 2px solid;
 }
