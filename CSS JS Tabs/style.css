@@ -214,3 +214,18 @@ tab:before {
 #solid:checked ~ .folder .page {
   border: 2px solid;
 }
+#shadow:checked ~ .folder .tab {
+  --background: linear-gradient(to bottom, #fee9a5, #f9d877);
+}
+#shadow:checked ~ .folder .tab span {
+  color: black;
+}
+#shadow:checked ~ .folder .tab:focus span {
+  border-bottom-color: black;
+}
+#shadow:checked ~ .folder .tab.active:focus span {
+  border-color: black;
+}
+#shadow:checked ~ .folder .content__inner {
+  --background: linear-gradient(to bottom, #f9d877, #fee9a5);
+}
