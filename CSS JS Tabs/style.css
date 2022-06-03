@@ -229,3 +229,27 @@ tab:before {
 #shadow:checked ~ .folder .content__inner {
   --background: linear-gradient(to bottom, #f9d877, #fee9a5);
 }
+/* radio buttons  */
+input.variation {
+  display: none;
+}
+input.variation + label {
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+  cursor: pointer;
+  color: white;
+}
+input.variation + label .circle {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 3px solid white;
+}
+input.variation:checked + label .circle {
+  background: white;
+  box-shadow: inset 0 0 0 3px #3c1053;
+}
+input.variation:nth-of-type(1) + label {
+  justify-self: flex-end;
+}
