@@ -1,20 +1,20 @@
-*,
-*::before,
-*::after {
+* {
   box-sizing: border-box;
 }
+
 :root {
-  --background: #fd877;
+  --background: #f9d877;
 }
+
 body {
   padding: 4rem 2rem 2rem;
   min-height: 100vh;
-  background: linear-gradient(to bottom right, #f570c0, #ded7e1);
+  background: linear-gradient(to bottom right, #ad5389, #3c1053);
   font-size: 1.2rem;
   font-family: "Patrick Hand";
   display: grid;
   grid: 2rem auto/repeat(2, 50%);
-  column-gap: 2rem;
+  grid-column-gap: 2rem;
   justify-content: center;
   width: 100%;
 }
@@ -79,10 +79,9 @@ p {
   width: 30px;
   top: 0;
 }
-tab:before {
+.tab:before {
   right: -16px;
   transform: skew(25deg);
-  left: -16px;
   border-radius: 0 8px 0 0;
 }
 .tab:after {
@@ -94,6 +93,13 @@ tab:before {
   z-index: 50;
   position: relative;
 }
+.tab.active span {
+  background: white;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  color: black;
+}
+
 .content {
   border-radius: 10px;
   position: relative;
@@ -112,8 +118,8 @@ tab:before {
   left: 0;
   border-radius: inherit;
 }
-.content-inner {
-  font-family: "Yomgi", sans-serif;
+.content__inner {
+  font-family: "Yomogi", sans-serif;
   display: none;
   background: var(--background);
   border-radius: inherit;
@@ -121,6 +127,7 @@ tab:before {
   filter: drop-shadow(0px -2px 2px rgba(0, 0, 0, 0.1));
   z-index: 5;
 }
+
 .folder {
   margin: 1rem auto;
   max-width: 50rem;
@@ -135,6 +142,7 @@ tab:before {
   /* Chrome/Safari/Webkit */
   display: none;
 }
+
 .page {
   padding: 1.5rem;
   border-radius: 2px;
@@ -160,20 +168,21 @@ tab:before {
     width: calc(100% - 4rem);
   }
 }
+
 #solid:checked ~ .folder .tab:nth-of-type(1),
-#solid:checked ~ .folder .content-inner:nth-of-type(1) {
+#solid:checked ~ .folder .content__inner:nth-of-type(1) {
   --background: #af4d98;
 }
 #solid:checked ~ .folder .tab:nth-of-type(2),
-#solid:checked ~ .folder .content-inner:nth-of-type(2) {
+#solid:checked ~ .folder .content__inner:nth-of-type(2) {
   --background: #d66ba0;
 }
 #solid:checked ~ .folder .tab:nth-of-type(3),
-#solid:checked ~ .folder .content-inner:nth-of-type(3) {
+#solid:checked ~ .folder .content__inner:nth-of-type(3) {
   --background: #e5a9a9;
 }
 #solid:checked ~ .folder .tab:nth-of-type(4),
-#solid:checked ~ .folder .content-inner:nth-of-type(4) {
+#solid:checked ~ .folder .content__inner:nth-of-type(4) {
   --background: #6cb6bb;
 }
 #solid:checked ~ .folder .tab {
@@ -214,6 +223,7 @@ tab:before {
 #solid:checked ~ .folder .page {
   border: 2px solid;
 }
+
 #shadow:checked ~ .folder .tab {
   --background: linear-gradient(to bottom, #fee9a5, #f9d877);
 }
@@ -229,7 +239,8 @@ tab:before {
 #shadow:checked ~ .folder .content__inner {
   --background: linear-gradient(to bottom, #f9d877, #fee9a5);
 }
-/* radio buttons  */
+
+/* radio buttons styling */
 input.variation {
   display: none;
 }
