@@ -118,7 +118,7 @@ p {
   left: 0;
   border-radius: inherit;
 }
-.content__inner {
+.content-inner {
   font-family: "Yomogi", sans-serif;
   display: none;
   background: var(--background);
@@ -170,19 +170,19 @@ p {
 }
 
 #solid:checked ~ .folder .tab:nth-of-type(1),
-#solid:checked ~ .folder .content__inner:nth-of-type(1) {
+#solid:checked ~ .folder .content-inner:nth-of-type(1) {
   --background: #af4d98;
 }
 #solid:checked ~ .folder .tab:nth-of-type(2),
-#solid:checked ~ .folder .content__inner:nth-of-type(2) {
+#solid:checked ~ .folder .content-inner:nth-of-type(2) {
   --background: #d66ba0;
 }
 #solid:checked ~ .folder .tab:nth-of-type(3),
-#solid:checked ~ .folder .content__inner:nth-of-type(3) {
+#solid:checked ~ .folder .content-inner:nth-of-type(3) {
   --background: #e5a9a9;
 }
 #solid:checked ~ .folder .tab:nth-of-type(4),
-#solid:checked ~ .folder .content__inner:nth-of-type(4) {
+#solid:checked ~ .folder .content-inner:nth-of-type(4) {
   --background: #6cb6bb;
 }
 #solid:checked ~ .folder .tab {
@@ -217,7 +217,7 @@ p {
   top: -2px;
   left: -2px;
 }
-#solid:checked ~ .folder .content__inner {
+#solid:checked ~ .folder .content-inner {
   box-shadow: 0 0 0 1.5px black;
 }
 #solid:checked ~ .folder .page {
@@ -236,7 +236,7 @@ p {
 #shadow:checked ~ .folder .tab.active:focus span {
   border-color: black;
 }
-#shadow:checked ~ .folder .content__inner {
+#shadow:checked ~ .folder .content-inner {
   --background: linear-gradient(to bottom, #f9d877, #fee9a5);
 }
 
