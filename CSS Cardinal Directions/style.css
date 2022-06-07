@@ -27,3 +27,15 @@ body {
   position: relative;
   width: var(--box-width);
 }
+.drop {
+  background: linear-gradient(#37854f, #173620);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+}
+.activator {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
