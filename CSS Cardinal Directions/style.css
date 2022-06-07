@@ -8,7 +8,22 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background: #e1fee2;
+  font-family: sans-serif;
+  font-weight: 900;
   margin: 0;
   height: 100vh;
+}
+.box {
+  --box-width: 300px;
+  border-radius: 16px;
+
+  box-shadow: 0 2.2px 2.2px rgba(0, 0, 0, 0.068),
+    0 5.3px 5.3px rgba(0, 0, 0, 0.093), 0 10px 10px rgba(0, 0, 0, 0.103),
+    0 17.9px 17.9px rgba(0, 0, 0, 0.11), 0 33.4px 33.4px rgba(0, 0, 0, 0.115),
+    0 80px 80px rgba(0, 0, 0, 0.12);
+  height: var(--box-width);
   overflow: hidden;
+  position: relative;
+  width: var(--box-width);
 }
