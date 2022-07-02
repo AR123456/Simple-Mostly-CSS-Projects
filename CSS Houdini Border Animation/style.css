@@ -1,12 +1,19 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:400");
 * {
-  padding: 0;
-  margin: 0;
+  box-sizing: border-box;
 }
+/* the @property is the houdini magic */
 body {
+  font-family: Raleway, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 1rem;
+  background-color: rgba(10, 12, 18, 1);
+  color: white;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  overflow: hidden;
+}
+p {
+  margin: 0%;
 }
