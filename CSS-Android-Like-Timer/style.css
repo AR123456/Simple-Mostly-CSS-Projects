@@ -1,6 +1,11 @@
 :root {
   --hue: 220;
+
+  --surface-1: hsl(var(--hue) 6% 12%);
+  --surface-2: hsl(var(--hue) 5% 30%);
   --text-1: hsl(var(--hue) 10% 90%);
+  --text-2: hsl(var(--hue) 10% 80%);
+  --brand-1: hsl(var(--hue) 50% 67%);
 }
 
 html {
@@ -28,4 +33,121 @@ body {
 
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell,
     Noto Sans, sans-serif;
+}
+.timer {
+  max-width: 40ch;
+  display: grid;
+  grid-gap: 3rem;
+  gap: 3rem;
+  padding: 2rem;
+  background: hsl(200, 6%, 12%);
+  background: var(--surface-1);
+  box-shadow: 0 2.8px 2.2px hsla(0, 0%, 0%, 0.02),
+    0 6.7px 5.3px hsla(0, 0%, 0%, 0.027999999999999997),
+    0 12.5px 10px hsla(0, 0%, 0%, 0.035), 0 22.3px 17.9px hsla(0, 0%, 0%, 0.042),
+    0 41.8px 33.4px hsla(0, 0%, 0%, 0.05), 0 100px 80px hsla(0, 0%, 0%, 0.07);
+  border: 1px solid hsl(220, 5%, 30%);
+  border: 1px solid var(--surface-2);
+  border-radius: 5px;
+}
+
+.timer > hr {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid hsl(220, 5%, 30%);
+  border-bottom: 1px solid var(--surface-2);
+}
+.timer > footer {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  place-items: center;
+}
+header {
+  display: grid;
+  grid-auto-flow: column;
+  /* https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns */
+  grid-template-columns: [icon-start] 3rem [title] 1fr [icon-end] 3rem;
+  align-items: center;
+}
+header > h1 {
+  grid-area: title;
+  margin: 0;
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+header > .icon:first-of-type {
+  grid-area: icon-start;
+}
+
+header > .icon:last-of-type {
+  grid-area: icon-end;
+}
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.icon > svg {
+  fill: hsl(220, 10%, 80%);
+  fill: var(--text-2);
+  height: 100%;
+}
+time {
+  font-size: 3rem;
+  font-weight: 400;
+  font-feature-settings: "tnum";
+  font-variant-numeric: tabular-nums;
+  color: hsl(220, 50%, 67%);
+  color: var(--brand-1);
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+time > span {
+  display: flex;
+  align-items: baseline;
+}
+time > span > small {
+  font-size: 45%;
+}
+.keypad {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  grid-gap: 3rem;
+  gap: 3rem;
+
+  font-feature-settings: "tnum";
+
+  font-variant-numeric: tabular-nums;
+}
+.keypad > * {
+  flex-basis: 20%;
+}
+.keypad > span {
+  text-align: center;
+  font-size: 2.5rem;
+}
+.fab {
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: hsl(220, 50%, 67%);
+
+  background: var(--brand-1);
+  border-radius: 50%;
+  box-shadow: 0 10px 5px hsl(220, 5%, 10%);
+  box-shadow: 0 10px 5px hsl(var(--hue) 5% 10%);
+}
+
+.fab > svg {
+  width: 50%;
+  fill: hsl(220, 6%, 12%);
+  fill: var(--surface-1);
 }
