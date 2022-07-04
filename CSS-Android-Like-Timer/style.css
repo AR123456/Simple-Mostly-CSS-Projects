@@ -1,6 +1,6 @@
 :root {
   --hue: 220;
-
+  /* the dark blue in background */
   --surface-1: hsl(var(--hue) 6% 12%);
   --surface-2: hsl(var(--hue) 5% 30%);
   --text-1: hsl(var(--hue) 10% 90%);
