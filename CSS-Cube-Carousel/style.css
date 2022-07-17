@@ -75,3 +75,64 @@ figure div {
   background-position: center !important;
   background-repeat: no-repeat !important;
 }
+.front div {
+  background: url("https://picsum.photos/id/404/1280/720");
+}
+
+.left div {
+  background: url("https://picsum.photos/id/611/1280/720");
+}
+
+.right div {
+  background: url("https://picsum.photos/id/117/1280/720");
+}
+
+.back div {
+  background: url("https://picsum.photos/id/142/1280/720");
+}
+
+.bottom div {
+  background: url("https://picsum.photos/id/888/1280/720");
+}
+
+.top div {
+  background: url("https://picsum.photos/id/491/1280/720");
+}
+/* more formatting of face of cube */
+
+/*  */
+.front {
+  transform: translateZ(150px);
+  background: #1be7ff;
+  --face_color: #1be7ff;
+}
+
+.back {
+  transform: rotateY(180deg) translateZ(150px);
+  background: #6eeb83;
+  --face_color: #6eeb83;
+}
+
+.top {
+  transform: rotateX(90deg) translateZ(150px);
+  background: #e4ff1a;
+  --face_color: #e4ff1a;
+}
+
+.bottom {
+  transform: rotateX(-90deg) translateZ(150px);
+  background: #e8aa14;
+  --face_color: #e8aa14;
+}
+
+.left {
+  transform: rotateY(-90deg) translateZ(150px);
+  background: #ff5714;
+  --face_color: #ff5714;
+}
+
+.right {
+  transform: rotateY(90deg) translateZ(150px);
+  background: black;
+  --face_color: black;
+}
