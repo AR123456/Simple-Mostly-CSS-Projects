@@ -144,7 +144,7 @@ figure a:hover {
   color: white;
   transition: all 0.3s ease-in-out;
 }
- 
+
 .front {
   transform: translateZ(150px);
   background: #1be7ff;
@@ -179,4 +179,68 @@ figure a:hover {
   transform: rotateY(90deg) translateZ(150px);
   background: black;
   --face_color: black;
+}
+.front h2,
+.front p,
+.back h2,
+.back p,
+.top h2,
+.top p,
+.bottom h2,
+.bottom p {
+  color: black;
+}
+
+.front a,
+.back a,
+.top a,
+.bottom a {
+  background: black;
+  color: white;
+}
+.front a:hover,
+.back a:hover,
+.top a:hover,
+.bottom a:hover {
+  color: black;
+}
+
+label {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--face_color);
+  color: black;
+  font-size: 14pt;
+  margin: 0;
+  padding: 0;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+label:hover {
+  cursor: pointer;
+}
+/* postition the arrow button to the left,ect */
+label:nth-child(1) {
+  left: -55px;
+  padding-bottom: 5px;
+}
+
+label:nth-child(2) {
+  right: -55px;
+  padding-bottom: 5px;
+}
+
+label:nth-child(3) {
+  top: -55px;
+}
+
+label:nth-child(4) {
+  bottom: -55px;
 }
