@@ -244,3 +244,199 @@ label:nth-child(3) {
 label:nth-child(4) {
   bottom: -55px;
 }
+#swap-left-front:checked ~ .flopper {
+  transform: rotateY(90deg);
+  transition: all 0.5s ease-in-out;
+}
+#swap-right-front:checked ~ .flopper {
+  transform: rotateY(-90deg);
+  transition: all 0.5s ease-in-out;
+}
+
+#swap-up-front:checked ~ .flopper {
+  transform: rotateX(-90deg);
+  transition: all 0.5s ease-in-out;
+}
+
+#swap-down-front:checked ~ .flopper {
+  transform: rotateX(90deg);
+  transition: all 0.5s ease-in-out;
+}
+
+#swap-left-back:checked ~ .flopper {
+  transform: rotateY(-90deg);
+  transition: all 0.5s ease-in-out;
+}
+
+#swap-right-back:checked ~ .flopper {
+  transform: rotateY(-270deg);
+  transition: all 0.5s ease-in-out;
+}
+
+#swap-up-back:checked ~ .flopper {
+  transform: rotateX(-90deg);
+  transition: all 0.5s ease-in-out;
+}
+
+#swap-down-back:checked ~ .flopper {
+  transform: rotateX(90deg);
+  transition: all 0.5s ease-in-out;
+}
+
+#swap-left-top:checked ~ .flopper {
+  transform: rotateY(90deg);
+  transition: all 0.5s ease-in-out;
+}
+
+#swap-right-top:checked ~ .flopper {
+  transform: rotateY(-90deg);
+  transition: all 0.5s ease-in-out;
+}
+
+#swap-up-top:checked ~ .flopper {
+  transform: rotateY(-180deg);
+  transition: all 0.5s ease-in-out;
+}
+
+#swap-down-top:checked ~ .flopper {
+  transform: rotateX(0deg);
+  transition: all 0.5s ease-in-out;
+}
+
+#swap-left-bottom:checked ~ .flopper {
+  transform: rotateY(90deg);
+  transition: all 0.5s ease-in-out;
+}
+
+#swap-right-bottom:checked ~ .flopper {
+  transform: rotateY(-90deg);
+  transition: all 0.5s ease-in-out;
+}
+
+#swap-up-bottom:checked ~ .flopper {
+  transform: rotateX(0deg);
+  transition: all 0.5s ease-in-out;
+}
+
+#swap-down-bottom:checked ~ .flopper {
+  transform: rotateY(180deg);
+  transition: all 0.5s ease-in-out;
+}
+
+#swap-left-left:checked ~ .flopper {
+  transform: rotateY(180deg);
+  transition: all 0.5s ease-in-out;
+}
+
+#swap-right-left:checked ~ .flopper {
+  transform: rotateY(-360deg);
+  transition: all 0.5s ease-in-out;
+}
+
+#swap-up-left:checked ~ .flopper {
+  transform: rotateX(-90deg);
+  transition: all 0.5s ease-in-out;
+}
+
+#swap-down-left:checked ~ .flopper {
+  transform: rotateX(90deg);
+  transition: all 0.5s ease-in-out;
+}
+
+#swap-left-right:checked ~ .flopper {
+  transform: rotateY(0deg);
+  transition: all 0.5s ease-in-out;
+}
+
+#swap-right-right:checked ~ .flopper {
+  transform: rotateY(-180deg);
+  transition: all 0.5s ease-in-out;
+}
+
+#swap-up-right:checked ~ .flopper {
+  transform: rotateX(-90deg);
+  transition: all 0.5s ease-in-out;
+}
+
+#swap-down-right:checked ~ .flopper {
+  transform: rotateX(90deg);
+  transition: all 0.5s ease-in-out;
+}
+input {
+  display: none;
+}
+@keyframes rotate {
+  0% {
+    transform: rotateY(0deg) rotateX(0deg);
+  }
+  50% {
+    transform: rotateY(180deg) rotateX(30deg);
+  }
+  100% {
+    transform: rotateY(360deg) rotateX(0deg);
+  }
+}
+
+@media (max-height: 435px), @media (max-width: 435px) {
+  figure {
+    width: 250px;
+    height: 250px;
+  }
+  .front {
+    transform: translateZ(125px);
+  }
+
+  .back {
+    transform: rotateY(180deg) translateZ(125px);
+  }
+
+  .top {
+    transform: rotateX(90deg) translateZ(125px);
+  }
+
+  .bottom {
+    transform: rotateX(-90deg) translateZ(125px);
+  }
+
+  .left {
+    transform: rotateY(-90deg) translateZ(125px);
+  }
+
+  .right {
+    transform: rotateY(90deg) translateZ(125px);
+  }
+  figure div {
+    height: 80px;
+  }
+  figure h2 {
+    font-size: 18pt;
+    line-height: 18pt;
+  }
+  figure p {
+    font-size: 11pt;
+    line-height: 15pt;
+  }
+  figure a {
+    height: 60px;
+  }
+  label {
+    width: 30px;
+    height: 30px;
+    font-size: 12pt;
+  }
+  label:nth-child(1) {
+    left: -40px;
+  }
+
+  label:nth-child(2) {
+    right: -40px;
+  }
+
+  label:nth-child(3) {
+    top: -40px;
+  }
+
+  label:nth-child(4) {
+    bottom: -40px;
+  }
+}
