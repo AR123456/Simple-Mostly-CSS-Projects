@@ -38,3 +38,15 @@ img {
   /* shift up  */
   transform: translateY(-5px);
 }
+.card-image {
+  border-radius: 10px;
+  overflow: hidden;
+}
+.card-header a {
+  font-weight: 600;
+  font-size: 1.375rem;
+  line-height: 1.25;
+  padding-right: 1rem;
+  text-decoration: none;
+  color: inherit;
+}
