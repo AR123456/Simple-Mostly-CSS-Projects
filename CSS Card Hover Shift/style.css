@@ -50,3 +50,29 @@ img {
   text-decoration: none;
   color: inherit;
 }
+.card-header a:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+/* heart icon  */
+.icon-button {
+  border: 0;
+  background-color: #fff;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  font-size: 1.25rem;
+  transition: 0.25s ease;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 3px 8px 0 rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  cursor: pointer;
+  color: #565656;
+}
