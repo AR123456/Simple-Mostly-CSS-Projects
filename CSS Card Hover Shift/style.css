@@ -38,9 +38,16 @@ img {
   /* shift up  */
   transform: translateY(-5px);
 }
+
 .card-image {
   border-radius: 10px;
   overflow: hidden;
+}
+.card-header {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .card-header a {
   font-weight: 600;
@@ -75,4 +82,13 @@ img {
   z-index: 1;
   cursor: pointer;
   color: #565656;
+}
+.icon-button svg {
+  width: 1em;
+  height: 1em;
+}
+.icon-button:hover,
+.icon-button:focus {
+  background-color: #ec4646;
+  color: #fff;
 }
