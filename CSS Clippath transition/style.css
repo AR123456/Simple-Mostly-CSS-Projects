@@ -13,3 +13,161 @@ body {
   height: 100vh;
   overflow: hidden;
 }
+.slice-clip-path-transition {
+  transition: clip-path 1s ease;
+  --sliceCount: 10; /* min: 1, max: 20 */
+
+  /* calc slices ------ only touch to adjust max slices*/
+  --w: calc(100% / max(1, min(var(--sliceCount), 20)));
+  --s1a: calc(var(--w) / 2);
+  --s1b: var(--s1a);
+  --s2a: calc(var(--s1a) + var(--w));
+  --s2b: calc(var(--s1b) + var(--w));
+  --s3a: calc(var(--s2a) + var(--w));
+  --s3b: calc(var(--s2b) + var(--w));
+  --s4a: calc(var(--s3a) + var(--w));
+  --s4b: calc(var(--s3b) + var(--w));
+  --s5a: calc(var(--s4a) + var(--w));
+  --s5b: calc(var(--s4b) + var(--w));
+  --s6a: calc(var(--s5a) + var(--w));
+  --s6b: calc(var(--s5b) + var(--w));
+  --s7a: calc(var(--s6a) + var(--w));
+  --s7b: calc(var(--s6b) + var(--w));
+  --s8a: calc(var(--s7a) + var(--w));
+  --s8b: calc(var(--s7b) + var(--w));
+  --s9a: calc(var(--s8a) + var(--w));
+  --s9b: calc(var(--s8b) + var(--w));
+  --s10a: calc(var(--s9a) + var(--w));
+  --s10b: calc(var(--s9b) + var(--w));
+  --s11a: calc(var(--s10a) + var(--w));
+  --s11b: calc(var(--s10b) + var(--w));
+  --s12a: calc(var(--s11a) + var(--w));
+  --s12b: calc(var(--s11b) + var(--w));
+  --s13a: calc(var(--s12a) + var(--w));
+  --s13b: calc(var(--s12b) + var(--w));
+  --s14a: calc(var(--s13a) + var(--w));
+  --s14b: calc(var(--s13b) + var(--w));
+  --s15a: calc(var(--s14a) + var(--w));
+  --s15b: calc(var(--s14b) + var(--w));
+  --s16a: calc(var(--s15a) + var(--w));
+  --s16b: calc(var(--s15b) + var(--w));
+  --s17a: calc(var(--s16a) + var(--w));
+  --s17b: calc(var(--s16b) + var(--w));
+  --s18a: calc(var(--s17a) + var(--w));
+  --s18b: calc(var(--s17b) + var(--w));
+  --s19a: calc(var(--s18a) + var(--w));
+  --s19b: calc(var(--s18b) + var(--w));
+  --s20a: calc(var(--s19a) + var(--w));
+  --s20b: calc(var(--s19b) + var(--w));
+  /* clip */
+  clip-path: polygon(
+    var(--s1a) 0,
+    var(--s1a) 100%,
+    var(--s1b) 100%,
+    var(--s1b) 0,
+    var(--s2a) 0,
+    var(--s2a) 100%,
+    var(--s2b) 100%,
+    var(--s2b) 0,
+    var(--s3a) 0,
+    var(--s3a) 100%,
+    var(--s3b) 100%,
+    var(--s3b) 0,
+    var(--s4a) 0,
+    var(--s4a) 100%,
+    var(--s4b) 100%,
+    var(--s4b) 0,
+    var(--s5a) 0,
+    var(--s5a) 100%,
+    var(--s5b) 100%,
+    var(--s5b) 0,
+    var(--s6a) 0,
+    var(--s6a) 100%,
+    var(--s6b) 100%,
+    var(--s6b) 0,
+    var(--s7a) 0,
+    var(--s7a) 100%,
+    var(--s7b) 100%,
+    var(--s7b) 0,
+    var(--s8a) 0,
+    var(--s8a) 100%,
+    var(--s8b) 100%,
+    var(--s8b) 0,
+    var(--s9a) 0,
+    var(--s9a) 100%,
+    var(--s9b) 100%,
+    var(--s9b) 0,
+    var(--s10a) 0,
+    var(--s10a) 100%,
+    var(--s10b) 100%,
+    var(--s10b) 0,
+    var(--s11a) 0,
+    var(--s11a) 100%,
+    var(--s11b) 100%,
+    var(--s11b) 0,
+    var(--s12a) 0,
+    var(--s12a) 100%,
+    var(--s12b) 100%,
+    var(--s12b) 0,
+    var(--s13a) 0,
+    var(--s13a) 100%,
+    var(--s13b) 100%,
+    var(--s13b) 0,
+    var(--s14a) 0,
+    var(--s14a) 100%,
+    var(--s14b) 100%,
+    var(--s14b) 0,
+    var(--s15a) 0,
+    var(--s15a) 100%,
+    var(--s15b) 100%,
+    var(--s15b) 0,
+    var(--s16a) 0,
+    var(--s16a) 100%,
+    var(--s16b) 100%,
+    var(--s16b) 0,
+    var(--s17a) 0,
+    var(--s17a) 100%,
+    var(--s17b) 100%,
+    var(--s17b) 0,
+    var(--s18a) 0,
+    var(--s18a) 100%,
+    var(--s18b) 100%,
+    var(--s18b) 0,
+    var(--s19a) 0,
+    var(--s19a) 100%,
+    var(--s19b) 100%,
+    var(--s19b) 0,
+    var(--s20a) 0,
+    var(--s20a) 100%,
+    var(--s20b) 100%,
+    var(--s20b) 0,
+    100% 0,
+    100% 100%,
+    0% 100%,
+    0 0
+  );
+}
+.slice-clip-path-transition:focus {
+  --s1a: 0%;
+  --s1b: var(--w);
+}
+
+/* only for demo */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  display: grid;
+  grid-template-areas: "overlap";
+}
+body > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  grid-area: overlap;
+}
