@@ -6,10 +6,42 @@
 }
 body {
   font-family: "Space Grotesk", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f5f5f5;
+}
+.wrap {
+  padding: 1.5rem;
+}
+nav {
+  padding: 16px 36px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 6px 16px #f0f3f4;
+}
+nav container {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
-  overflow: hidden;
+  margin: 0 auto;
+}
+nav container ul,
+nav container .nav_menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  gap: 36px;
+}
+nav container li a {
+  padding: 8px;
+  letter-spacing: 0.2rem;
+  font-size: 0.9rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #999999;
+  transition: color 150ms ease-out;
+}
+nav container li a:hover {
+  color: #030303;
 }
