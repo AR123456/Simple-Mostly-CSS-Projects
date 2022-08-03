@@ -63,3 +63,20 @@ nav container li a:hover {
   margin-left: 12px;
   border-radius: 2px;
 }
+.nav--button {
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  color: white;
+  border: solid black 2px;
+  background: black;
+  transition-property: color, background;
+  transition-duration: 0.15s;
+  transition-timing-function: ease-out;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.nav--button:hover {
+  color: black;
+  background: transparent;
+}
