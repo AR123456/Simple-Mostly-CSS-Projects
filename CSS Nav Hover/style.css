@@ -80,3 +80,70 @@ nav container li a:hover {
   color: black;
   background: transparent;
 }
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 48px;
+  border-radius: 5px;
+  min-height: 50vh;
+  position: relative;
+  background: url("https://images.unsplash.com/photo-1534138807944-7b5dd2954e1a?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYyNzExNzU3Nw&ixlib=rb-1.2.1&q=85")
+    center no-repeat;
+  background-size: cover;
+}
+.hero a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  padding-top: 24px;
+  color: white;
+  height: 100%;
+  width: 5%;
+}
+.hero a.left {
+  left: 0;
+}
+.hero a.right {
+  right: 0;
+}
+.hero--button {
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  color: black;
+  border: solid white 2px;
+  background: white;
+  transition-property: color, background;
+  transition-property: color, background;
+  transition-duration: 0.15s;
+  transition-timing-function: ease-out;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 24px;
+}
+.hero--button:hover {
+  color: #999999;
+}
+/* the hover magic  */
+#nav_big_text {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  color: #dce2e5;
+  opacity: 0;
+  font-size: 18rem;
+  font-weight: 700;
+  line-height: 0.8;
+  text-transform: uppercase;
+  transform: translateX(10%);
+  transition-property: transform, opacity;
+  transition-duration: 0.25s;
+  transition-timing-function: ease-out;
+  z-index: -1;
+}
+#nav_big_text.big_text_active {
+  transform: translateX(0%);
+  opacity: 1;
+}
