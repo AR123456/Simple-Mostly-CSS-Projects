@@ -38,7 +38,7 @@ nav container li a {
   letter-spacing: 0.2rem;
   font-size: 0.9rem;
   text-decoration: none;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   color: #999999;
   transition: color 150ms ease-out;
 }
@@ -51,7 +51,7 @@ nav container li a:hover {
   letter-spacing: 0.6rem;
   font-weight: 700;
   position: relative;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 .logo-text:after {
   content: "";
@@ -65,7 +65,7 @@ nav container li a:hover {
 }
 .nav--button {
   text-decoration: none;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   padding: 12px 24px;
   color: white;
   border: solid black 2px;
@@ -88,7 +88,9 @@ nav container li a:hover {
   border-radius: 5px;
   min-height: 50vh;
   position: relative;
-  background: url("https://images.unsplash.com/photo-1534138807944-7b5dd2954e1a?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYyNzExNzU3Nw&ixlib=rb-1.2.1&q=85")
+  /* background: url("https://images.unsplash.com/photo-1534138807944-7b5dd2954e1a?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYyNzExNzU3Nw&ixlib=rb-1.2.1&q=85")
+    center no-repeat; */
+  background: url("https://images.unsplash.com/photo-1659092815505-9c88e78c27f5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80")
     center no-repeat;
   background-size: cover;
 }
@@ -110,7 +112,7 @@ nav container li a:hover {
 }
 .hero--button {
   text-decoration: none;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   padding: 12px 24px;
   color: black;
   border: solid white 2px;
