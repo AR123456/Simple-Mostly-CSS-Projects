@@ -147,3 +147,34 @@ nav container li a:hover {
   transform: translateX(0%);
   opacity: 1;
 }
+footer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: absolute;
+  bottom: 24px;
+}
+.social_links {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2px;
+  margin-right: 24px;
+}
+.social_links a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  width: 32px;
+  height: 32px;
+  border-radius: 5px;
+  background: transparent;
+  transition-property: background, opacity;
+  transition-duration: 0.25s;
+  transition-timing-function: ease-out;
+}
+.social_links a:hover {
+  background: #fff;
+  color: #999999;
+}
