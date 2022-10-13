@@ -37,3 +37,16 @@ body {
   border-radius: 10px 10px 150px 150px;
   border: 5px solid#20184e;
 }
+.eye-group {
+  background-color: teal;
+  width: 150px;
+  height: 50px;
+  top: 10px;
+  left: 0;
+}
+.eye {
+  background-color: red;
+  width: 30px;
+  height: 50px;
+  border-radius: 50%;
+}
