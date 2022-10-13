@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+body {
+  background: #feee9d;
+}
+.circle {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: #fbd671;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
