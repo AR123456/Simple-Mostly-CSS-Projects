@@ -1,57 +1,79 @@
-* {
-  box-sizing: border-box;
-  position: absolute;
-}
+html,
 body {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   overflow: hidden;
   padding: 0;
   margin: 0;
 }
+
 body {
-  background: #feee9d;
+  background: #FEEE9D;
 }
-.head {
+body * {
+  position: absolute;
+}
+body *:before, body *:after {
+  position: absolute;
+  content: "";
+}
+body .head {
   width: 300px;
   height: 300px;
-  background: #fbd671;
+  background-color: #FBD671;
   border-radius: 50%;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: inset -10px -10px 0px #efbb42;
+  box-shadow: inset -10px -10px 0px #f8b90e;
 }
-.face {
-  width: 155px;
+body .head .face {
+  width: 150px;
   height: 170px;
   left: 75px;
   top: 75px;
 }
-.mouth {
-  background: #20184e;
+body .head .face .mouth {
   width: 100%;
   height: 75px;
   bottom: 0;
   left: 0;
+  background-color: #20184E;
   border-radius: 10px 10px 150px 150px;
-  border: 5px solid#20184e;
+  border: 5px solid #20184E;
+  overflow: hidden;
 }
-.eye-group {
+body .head .face .mouth::after {
+  background-color: #F15962;
+  width: 100px;
+  height: 80px;
+  border-radius: 50%;
+  left: 25px;
+  top: 30px;
+}
+body .head .face .eye-group {
   width: 150px;
   height: 50px;
   top: 10px;
   left: 0;
 }
-.eye {
-  background: #20184e;
+body .head .face .eye-group .eye {
+  background-color: #20184E;
   width: 30px;
   height: 50px;
   border-radius: 50%;
 }
-.eye-left {
+body .head .face .eye-group .eye.eye-left {
   left: 15px;
 }
-.eye-right {
+body .head .face .eye-group .eye.eye-right {
   right: 15px;
+}
+body .head .face .eye-group .eye .pupil {
+  width: 10px;
+  height: 15px;
+  top: 5px;
+  background-color: #FBD671;
+  border-radius: 50%;
 }
