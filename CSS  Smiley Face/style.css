@@ -20,16 +20,16 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  box-shadow: inset -10px -10px 0px #efbb42;
 }
 .face {
-  background-color: rgb(137, 137, 239);
   width: 155px;
   height: 170px;
   left: 75px;
   top: 75px;
 }
 .mouth {
-  background-color: #20184e;
+  background: #20184e;
   width: 100%;
   height: 75px;
   bottom: 0;
@@ -38,15 +38,20 @@ body {
   border: 5px solid#20184e;
 }
 .eye-group {
-  background-color: teal;
   width: 150px;
   height: 50px;
   top: 10px;
   left: 0;
 }
 .eye {
-  background-color: red;
+  background: #20184e;
   width: 30px;
   height: 50px;
   border-radius: 50%;
+}
+.eye-left {
+  left: 15px;
+}
+.eye-right {
+  right: 15px;
 }
