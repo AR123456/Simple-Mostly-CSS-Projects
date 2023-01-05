@@ -12,7 +12,7 @@ const ctx = canvas.getContext("2d");
 // one function with different rules
 // takes in the starting positions length of first line, angle, width branches, color of main body and color of leaves
 
-function drawTree(startX, startY, len, angel, branchWidth, color1, color2) {
+function drawTree(startX, startY, len, angle, branchWidth, color1, color2) {
   ctx.beginPath();
   // save the context to the stack
   ctx.save();
@@ -36,4 +36,15 @@ function drawTree(startX, startY, len, angel, branchWidth, color1, color2) {
     ctx.restore();
     return;
   }
+  // recursion - function will call itself with slightly altered values
+  drawTree(0, -len, len * 0.75, angle + 15, branchWidth);
+  drawTree(0, -len, len * 0.75, angle - 15, branchWidth);
+  // now return canvas to original position
+  ctx.restore();
 }
+
+// start growing from middle of canvas
+drawTree(canvas.width / 2, canvas.height - 80, 120, 0, 2, "brown", "green");
+
+// A series
+//https://www.youtube.com/watch?v=wBAtHDdaZ2Y&t=0s
