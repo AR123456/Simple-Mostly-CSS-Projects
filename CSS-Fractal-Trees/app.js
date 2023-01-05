@@ -26,9 +26,17 @@ function drawTree(startX, startY, len, angle, branchWidth, color1, color2) {
   ctx.rotate((angle * Math.PI) / 180);
   //   start a new path here
   ctx.moveTo(0, 0);
-  // move the line to one length of a tree segment using a - value allows tree to grow up
-  ctx.lineTo(0, -len);
-  //   this is usign bezier curve
+
+  //   value allows tree to grow up
+  //   ctx.lineTo(0, -len);
+  //   this is using bezier curve
+  //   ctx.bezierCurveTo(10, -len / 2, 10, -len / 2, 0, -len);
+  //  cure the benzier to right or left based on angle
+  if (angle > 0) {
+    ctx.bezierCurveTo(10, -len / 2, 10, -len / 2, 0, -len);
+  } else {
+    ctx.bezierCurveTo(10, -len / 2, -10, -len / 2, 0, -len);
+  }
   // stroke getting its color from strokeStyle = color1
   ctx.stroke();
   // set limit on drawing so that we stop when computer rendering limit is reached
@@ -54,7 +62,7 @@ function drawTree(startX, startY, len, angle, branchWidth, color1, color2) {
 }
 
 // start growing from middle of canvas
-drawTree(canvas.width / 2, canvas.height - 80, 120, 0, 15, "brown", "green");
+drawTree(canvas.width / 2, canvas.height - 80, 120, 0, 25, "brown", "green");
 
 // A series
 //https://www.youtube.com/watch?v=wBAtHDdaZ2Y&t=0s
