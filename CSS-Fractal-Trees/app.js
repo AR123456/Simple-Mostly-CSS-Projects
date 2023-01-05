@@ -5,7 +5,7 @@ canvas.height = window.innerHeight;
 // get all the methods avalable in the canvas api
 const ctx = canvas.getContext("2d");
 
-// recursion - snowflakes, crystals , tree roots, blood vessesl
+// recursion - snowflakes, crystals , tree roots
 // tree of pythagoras is drawn around a right tri angel
 // Mandelbrot set
 // this is code for H-Tree fractal
@@ -28,23 +28,36 @@ function drawTree(startX, startY, len, angle, branchWidth, color1, color2) {
   ctx.moveTo(0, 0);
   // move the line to one length of a tree segment using a - value allows tree to grow up
   ctx.lineTo(0, -len);
+  //   this is usign bezier curve
+  // stroke getting its color from strokeStyle = color1
   ctx.stroke();
   // set limit on drawing so that we stop when computer rendering limit is reached
   if (len < 10) {
+    // branches are long enough,
     // stop drawing and return
+    // draw leafs
+    ctx.beginPath();
+    // Math.PI for circle shape
+    ctx.arc(0, -len, 10, 0, Math.PI / 2);
+    // fillStyle is color of leaves
+    ctx.fill();
+
     // restore goes back to what things were when ctx.save() was called
     ctx.restore();
     return;
   }
   // recursion - function will call itself with slightly altered values
-  drawTree(0, -len, len * 0.75, angle + 15, branchWidth);
-  drawTree(0, -len, len * 0.75, angle - 15, branchWidth);
+  drawTree(0, -len, len * 0.75, angle + 15, branchWidth * 0.8);
+  drawTree(0, -len, len * 0.75, angle - 15, branchWidth * 0.8);
   // now return canvas to original position
   ctx.restore();
 }
 
 // start growing from middle of canvas
-drawTree(canvas.width / 2, canvas.height - 80, 120, 0, 2, "brown", "green");
+drawTree(canvas.width / 2, canvas.height - 80, 120, 0, 15, "brown", "green");
 
 // A series
 //https://www.youtube.com/watch?v=wBAtHDdaZ2Y&t=0s
+// canvas, draw methods , recursion
+//https://www.youtube.com/watch?v=axve3EgJlYI&t=0s
+// shadow color and shadow color and Bezier curve
