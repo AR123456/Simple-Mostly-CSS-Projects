@@ -2,17 +2,30 @@ const canvas = document.getElementById("fractalTree");
 const generateButton = document.querySelector(".generate-tree-button");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-
 const ctx = canvas.getContext("2d");
+let curve = 10;
+let curve2 = 0;
 
 function drawTree(startX, startY, len, angle, branchWidth, color1, color2) {
   ctx.beginPath();
   ctx.save();
   ctx.strokeStyle = color1;
   ctx.fillStyle = color2;
-  // adding some shadow to branches
+  // adding some shadow to branches and leaves
   ctx.shadowBlur = 15;
-  ctx.shadowColor = "black";
+  //   ctx.shadowColor = "black";
+  ctx.shadowColor =
+    "rgba(" +
+    Math.random() * 255 +
+    "," +
+    Math.random() * 255 +
+    "," +
+    Math.random() * 255 +
+    "," +
+    ".5";
+  (")");
+  console.log(ctx.shadowColor);
+  //   ctx.shadowColor = "rgba(0,0,0,.5)";
   ctx.lineWidth = branchWidth;
   ctx.translate(startX, startY);
   // convert degrees to radians - the canvas API expects radians
@@ -50,6 +63,49 @@ function drawTree(startX, startY, len, angle, branchWidth, color1, color2) {
 // start growing from middle of canvas
 drawTree(canvas.width / 2, canvas.height - 80, 120, 0, 25, "brown", "green");
 
+// on button click do this
+function generateRandomTree() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  // creating variables for each of the args being passed into the draw function
+  let centerPoint = canvas.width / 2;
+  let len = Math.floor(Math.random() * 20 + 100);
+  let angle = 0;
+  let branchWidth = Math.random() * 70 + 1;
+  let color1 =
+    "rgb(" +
+    Math.random() * 255 +
+    "," +
+    Math.random() * 255 +
+    "," +
+    Math.random() * 255 +
+    ")";
+  let color2 =
+    "rgb(" +
+    Math.random() * 255 +
+    "," +
+    Math.random() * 255 +
+    "," +
+    Math.random() * 255 +
+    ")";
+
+  generateButton.style.background = color1;
+  curve = Math.random() * 25 + 3;
+  curve2 = Math.random() * 10;
+  drawTree(
+    centerPoint,
+    canvas.height - 80,
+    len,
+    angle,
+    branchWidth,
+    color1,
+    color2
+  );
+}
+generateButton.addEventListener("click", generateRandomTree);
+window.addEventListener("resize", function () {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
 // A series
 //https://www.youtube.com/watch?v=wBAtHDdaZ2Y&t=0s
 // canvas, draw methods , recursion
