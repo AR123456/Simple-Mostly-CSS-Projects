@@ -1,10 +1,19 @@
 const canvas = document.getElementById("fractalTree");
 const generateButton = document.querySelector(".generate-tree-button");
+const sliderText = document.querySelector(".trunk-text");
+const branchSlider = document.getElementById("branchWidth");
+const leafSlider = document.getElementById("leafAdjuster");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 const ctx = canvas.getContext("2d");
 let curve = 10;
 let curve2 = 0;
+branchSlider.oninput = onSliderInput;
+
+function onSliderInput(event) {
+  //   console.log(event.target.value);
+  branchWidth = event.target.value;
+}
 
 function drawTree(startX, startY, len, angle, branchWidth, color1, color2) {
   ctx.beginPath();
@@ -24,7 +33,7 @@ function drawTree(startX, startY, len, angle, branchWidth, color1, color2) {
     "," +
     ".5";
   (")");
-  console.log(ctx.shadowColor);
+  //   console.log(ctx.shadowColor);
   //   ctx.shadowColor = "rgba(0,0,0,.5)";
   ctx.lineWidth = branchWidth;
   ctx.translate(startX, startY);
@@ -46,7 +55,8 @@ function drawTree(startX, startY, len, angle, branchWidth, color1, color2) {
     // draw leafs
     ctx.beginPath();
     // Math.PI for circle shape
-    ctx.arc(0, -len, 10, 10, Math.PI / 2);
+    let r = 10;
+    ctx.arc(0, -len, r, 10, Math.PI / 2);
     // fillStyle =color2
     ctx.fill();
     ctx.restore();
@@ -70,7 +80,7 @@ function generateRandomTree() {
   let centerPoint = canvas.width / 2;
   let len = Math.floor(Math.random() * 20 + 100);
   let angle = 0;
-  let branchWidth = Math.random() * 70 + 1;
+  //   let branchWidth = Math.random() * 70 + 1;
   let color1 =
     "rgb(" +
     Math.random() * 255 +
@@ -89,6 +99,8 @@ function generateRandomTree() {
     ")";
 
   generateButton.style.background = color1;
+  sliderText.style.background = color1;
+
   curve = Math.random() * 25 + 3;
   curve2 = Math.random() * 10;
   drawTree(
@@ -101,11 +113,12 @@ function generateRandomTree() {
     color2
   );
 }
+function drawAdjustedTrunk() {}
 generateButton.addEventListener("click", generateRandomTree);
-window.addEventListener("resize", function () {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-});
+// window.addEventListener("resize", function () {
+//   canvas.width = window.innerWidth;
+//   canvas.height = window.innerHeight;
+// });
 // A series
 //https://www.youtube.com/watch?v=wBAtHDdaZ2Y&t=0s
 // canvas, draw methods , recursion

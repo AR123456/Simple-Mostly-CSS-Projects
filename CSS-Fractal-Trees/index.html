@@ -5,11 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <title>Fractal Fun</title>
   </head>
   <body>
     <h2>Fractal Trees</h2>
     <canvas id="fractalTree"></canvas>
+
+    <div class="slidcontainter" class="slider">
+      <h2 class="trunk-text">Trunk Width Adjuster</h2>
+      <input
+        type="range"
+        id="branchWidth"
+        step="1"
+        min="1"
+        value="10"
+        max="100"
+      />
+    </div>
     <button class="generate-tree-button">Generate Random Tree</button>
     <script src="app.js"></script>
   </body>
