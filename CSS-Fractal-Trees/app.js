@@ -46,7 +46,7 @@ function drawTree(startX, startY, len, angle, branchWidth, color1, color2) {
     // draw leafs
     ctx.beginPath();
     // Math.PI for circle shape
-    ctx.arc(0, -len, 10, 0, Math.PI / 2);
+    ctx.arc(0, -len, 10, 10, Math.PI / 2);
     // fillStyle is color of leaves
     ctx.fill();
 
