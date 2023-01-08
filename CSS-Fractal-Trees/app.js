@@ -13,6 +13,7 @@ branchSlider.oninput = onSliderInput;
 function onSliderInput(event) {
   //   console.log(event.target.value);
   branchWidth = event.target.value;
+  generateRandomTree();
 }
 
 function drawTree(startX, startY, len, angle, branchWidth, color1, color2) {
@@ -113,7 +114,21 @@ function generateRandomTree() {
     color2
   );
 }
-function drawAdjustedTrunk() {}
+function drawAdjustedTrunk() {
+  // set limit on drawing stop when rendering limit is reached
+  if (len < 10) {
+    // branches are long enough,so
+    // draw leafs
+    ctx.beginPath();
+    // Math.PI for circle shape
+    let r = 50;
+    ctx.arc(0, -len, r, 10, Math.PI / 2);
+    // fillStyle =color2
+    ctx.fill();
+    ctx.restore();
+    return;
+  }
+}
 generateButton.addEventListener("click", generateRandomTree);
 // window.addEventListener("resize", function () {
 //   canvas.width = window.innerWidth;
