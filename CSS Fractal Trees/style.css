@@ -81,15 +81,16 @@ input[type="range"]:focus {
 }
 input[type="range"] + label {
   position: absolute;
-  left: 50%;
+  left: 50px;
   top: 10%;
   z-index: 10;
   /* transform: translate(-50%, 0); */
   /* padding: 20px 20px; */
-  border-radius: 50%;
+  /* border-radius: 50%; */
+  border-radius: 0.4em;
   background-color: white;
   color: black;
-  padding: 0.2em;
+  padding: 0.3em;
   text-align: center;
   box-shadow: 0 0 5px rgba(249, 248, 248, 0.3);
 }
@@ -110,7 +111,7 @@ input[type="range"]::-webkit-slider-thumb {
   width: 1em; /* Set a specific slider handle width */
   height: 1em; /* Slider handle height */
   border-radius: 50%;
-  border: 1px solid black;
+  border: 1px solid rgb(247, 243, 243);
   margin-top: -0.2em;
   background-color: brown;
   cursor: pointer; /* Cursor on hover */
@@ -131,7 +132,7 @@ input[type="range"]::-moz-range-thumb {
   width: 1em; /* Set a specific slider handle width */
   height: 1em; /* Slider handle height */
   border-radius: 50%;
-  border: 1px solid black;
+  border: 1px solid rgb(243, 239, 239);
   margin-top: -0.2em;
   background-color: brown;
   cursor: pointer; /* Cursor on hover */
@@ -151,7 +152,7 @@ input[type="range"]::-ms-thumb {
   width: 1em; /* Set a specific slider handle width */
   height: 1em; /* Slider handle height */
   border-radius: 50%;
-  border: 1px solid black;
+  border: 1px solid rgb(250, 246, 246);
   margin-top: -0.2em;
   background-color: brown;
   cursor: pointer; /* Cursor on hover */

@@ -9,13 +9,46 @@ canvas.height = window.innerHeight;
 const ctx = canvas.getContext("2d");
 let curve = 10;
 let curve2 = 0;
-branchSlider.oninput = onSliderInput;
+//  change to ES^
+// branchSlider.oninput = onSliderInput;
+// function onSliderInput(event) {
+//   //   console.log(event.target.value);
+//   branchWidth = event.target.value;
+//   generateRandomTree();
+// }
+// Using more modern ES 6 syntax
 
-function onSliderInput(event) {
-  //   console.log(event.target.value);
-  branchWidth = event.target.value;
+branchSlider.addEventListener("input", (e) => {
+  // need type of number
+  branchWidth = +e.target.value;
+  // TODO need to slim this function down to just change trunk width and color , re generation a random tree is slowing things down.
   generateRandomTree();
-}
+  // TODO variables for track value change-  should this be in a diff function so as not to slow down generating branch thickness ?
+  const value = +e.target.value;
+  // the label is the next sybling of the input div so using that to get
+  const label = e.target.nextElementSibling;
+  // finding the place of the label relative to the track
+  // get computed width of range
+  const rangeWidth = getComputedStyle(e.target).getPropertyValue("width");
+  const labelWidth = getComputedStyle(label).getPropertyValue("width");
+  // remove the "px" chars from the length
+  const numRangeWidth = +rangeWidth.substring(0, rangeWidth.length - 2);
+  const numLabelWidth = +labelWidth.substring(0, labelWidth.length - 2);
+  // get min and max from the css
+  const max = +e.target.max;
+  const min = +e.target.min;
+  // calculate to come up with value for "left" property of the thumb
+  const left =
+    value * (numRangeWidth / max) -
+    numLabelWidth / 2 +
+    scale(value, min, max, 45, -1);
+  label.style.left = `${left}px`;
+  // map range of numbers to another range of numbers
+  label.innerHTML = value;
+});
+const scale = (num, in_min, in_max, out_min, out_max) => {
+  return ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min;
+};
 
 function drawTree(startX, startY, len, angle, branchWidth, color1, color2) {
   ctx.beginPath();
