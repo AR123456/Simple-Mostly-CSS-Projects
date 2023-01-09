@@ -43,34 +43,22 @@ canvas {
   top: 5%;
   z-index: 10;
   transform: translate(-50%, 0);
-  padding: 20px 20px;
+  /* padding: 20px 20px; */
   border-radius: 50px;
   background-color: brown;
   color: black;
-  font-size: 20px;
-  width: 250px;
+  font-size: 1rem;
+  width: 10rem;
 }
-.leaf-text {
-  position: absolute;
-  left: 50%;
-  top: 20%;
-  z-index: 10;
-  transform: translate(-50%, 0);
-  padding: 20px 20px;
-  border-radius: 50px;
-  background-color: brown;
-  color: black;
-  font-size: 20px;
-  width: 160px;
-}
-.slidecontainer {
+
+.slider-container {
   width: 100%; /* Width of the outside container */
-  position: absolute;
+  position: relative;
   left: 40%;
   top: 15%;
   z-index: 10;
 }
-#branchWidth {
+input[type="range"] {
   -webkit-appearance: none; /* Override default CSS styles */
   appearance: none;
   position: absolute;
@@ -86,6 +74,7 @@ canvas {
   -webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
   transition: opacity 0.2s;
 }
+
 #leafAdjuster {
   -webkit-appearance: none; /* Override default CSS styles */
   appearance: none;
