@@ -36,6 +36,7 @@ canvas {
   font-size: 20px;
   width: 300px;
   overflow: hidden;
+  text-align: center;
 }
 .trunk-text {
   position: absolute;
@@ -49,6 +50,7 @@ canvas {
   color: black;
   font-size: 1rem;
   width: 10rem;
+  text-align: center;
 }
 
 .slider-container {
@@ -63,34 +65,41 @@ input[type="range"] {
   appearance: none;
   position: absolute;
   left: 5%;
-  top: 15%;
+  top: 16%;
   z-index: 10;
   width: 90%; /* Full-width */
   height: 2px; /* Specified height */
-  background: #d3d3d3; /* Grey background */
+
   border-radius: 5px;
   outline: none; /* Remove outline */
   opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
   -webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
   transition: opacity 0.2s;
+}
+input[type="range"] + label {
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  z-index: 10;
+  /* transform: translate(-50%, 0); */
+  /* padding: 20px 20px; */
+  border-radius: 50%;
+  background-color: white;
+  color: black;
+  padding: 0.2em;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(249, 248, 248, 0.3);
+}
+/* Track  */
+
+input[type="range"]::-webkit-slider-runnable-track {
+  background: #d3d3d3; /* Grey background */
+  border-radius: 4px;
+  width: 100%;
+  height: 0.5em;
+  cursor: pointer;
 }
 
-#leafAdjuster {
-  -webkit-appearance: none; /* Override default CSS styles */
-  appearance: none;
-  position: absolute;
-  left: 5%;
-  top: 30%;
-  z-index: 10;
-  width: 90%; /* Full-width */
-  height: 2px; /* Specified height */
-  background: #d3d3d3; /* Grey background */
-  border-radius: 5px;
-  outline: none; /* Remove outline */
-  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-  -webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
-  transition: opacity 0.2s;
-}
 /* Mouse-over effects */
 .slider:hover {
   opacity: 1; /* Fully shown on mouse-over */
