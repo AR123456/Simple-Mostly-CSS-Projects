@@ -3,6 +3,7 @@ const generateButton = document.querySelector(".generate-tree-button");
 const sliderText = document.querySelector(".trunk-text");
 const branchSlider = document.getElementById("branchWidth");
 const leafSlider = document.getElementById("leafAdjuster");
+const range = document.querySelectorAll("input[type=range]");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 const ctx = canvas.getContext("2d");
@@ -114,6 +115,14 @@ function generateRandomTree() {
     color2
   );
 }
+// TODO set the color of thumb to color1
+// https://stackoverflow.com/questions/48297265/slider-webkit-slider-thumb-needed-in-javascript
+
+function setSlideThumbColor() {
+  style.innerHTML =
+    "input[type='range']::-webkit-slider-thumb {background:'brown';}";
+}
+
 function drawAdjustedTrunk() {
   // set limit on drawing stop when rendering limit is reached
   if (len < 10) {

@@ -76,6 +76,9 @@ input[type="range"] {
   -webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
   transition: opacity 0.2s;
 }
+input[type="range"]:focus {
+  outline: none;
+}
 input[type="range"] + label {
   position: absolute;
   left: 50%;
@@ -94,32 +97,62 @@ input[type="range"] + label {
 
 input[type="range"]::-webkit-slider-runnable-track {
   background: #d3d3d3; /* Grey background */
+
   border-radius: 4px;
   width: 100%;
   height: 0.5em;
   cursor: pointer;
 }
-
-/* Mouse-over effects */
-.slider:hover {
-  opacity: 1; /* Fully shown on mouse-over */
-}
-
-/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-.slider::-webkit-slider-thumb {
+/* Thumb */
+input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none; /* Override default look */
   appearance: none;
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
+  width: 1em; /* Set a specific slider handle width */
+  height: 1em; /* Slider handle height */
   border-radius: 50%;
-  background: #04aa6d; /* Green background */
+  border: 1px solid black;
+  margin-top: -0.2em;
+  background-color: brown;
   cursor: pointer; /* Cursor on hover */
 }
 
-.slider::-moz-range-thumb {
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
+/* for firefox  */
+input[type="range"]::-moz-range-track {
+  background: #d3d3d3; /* Grey background */
+
+  border-radius: 4px;
+  width: 100%;
+  height: 0.5em;
+  cursor: pointer;
+}
+input[type="range"]::-moz-range-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 1em; /* Set a specific slider handle width */
+  height: 1em; /* Slider handle height */
   border-radius: 50%;
-  background: #04aa6d; /* Green background */
+  border: 1px solid black;
+  margin-top: -0.2em;
+  background-color: brown;
+  cursor: pointer; /* Cursor on hover */
+}
+/* for IE  */
+input[type="range"]::-ms-track {
+  background: #d3d3d3; /* Grey background */
+
+  border-radius: 4px;
+  width: 100%;
+  height: 0.5em;
+  cursor: pointer;
+}
+input[type="range"]::-ms-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 1em; /* Set a specific slider handle width */
+  height: 1em; /* Slider handle height */
+  border-radius: 50%;
+  border: 1px solid black;
+  margin-top: -0.2em;
+  background-color: brown;
   cursor: pointer; /* Cursor on hover */
 }
