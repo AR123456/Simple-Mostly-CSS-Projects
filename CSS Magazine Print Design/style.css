@@ -1,13 +1,43 @@
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  overflow: hidden;
+
+/* 14 columns on mobile and 7 rows plus some uniform gaps. */
+.grid {
+  display: grid;
+}
+
+.image-grid-3-m4 {
+  grid-template-rows: repeat(7, 1fr);
+  grid-template-columns: repeat(14, 1fr);
+  gap: 0.5rem;
+}
+
+img {
+  /* ell the browser to have the images always span their full container, the size of which is determined by the grid .object-fit to make sure all the space will be taken up by the image with the overflow hidden*/
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+/* first image begins at the top left corner, so we start on grid column line 1 and row 1, and it shall span 6 of our 14 columns and 4 rows */
+.image-0 {
+  grid-column: 1 / span 6;
+  grid-row: 1 / span 4;
+}
+.image-1 {
+  grid-column: 7 / span 6;
+  grid-row: 2 / span 2;
+  aspect-ratio: 1/1;
+}
+.image-2 {
+  grid-column: 1 / span 6;
+  grid-row: 5 / span 2;
+  padding-left: 1rem;
+}
+.image-3 {
+  grid-column: 7 / span 8;
+  grid-row: 4 / span 4;
+}
+.container {
+  width: 300px;
 }
