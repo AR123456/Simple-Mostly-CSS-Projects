@@ -74,3 +74,28 @@ img {
   width: 800px;
 }
 /* RESTART at Shifting Blocks In the main Component   https://www.smashingmagazine.com/2023/02/build-magazine-layout-css-grid-areas/  */
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1.2rem;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "numerology"
+    "text";
+}
+
+.images {
+  grid-area: numerology;
+}
+
+.numbering {
+  grid-area: numerology;
+}
+
+.text {
+  grid-area: text;
+}
+.single-image {
+  display: none;
+}
