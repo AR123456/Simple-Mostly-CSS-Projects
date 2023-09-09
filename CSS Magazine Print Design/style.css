@@ -99,3 +99,68 @@ img {
 .single-image {
   display: none;
 }
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1.2rem;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "numerology"
+    "text";
+}
+
+.images {
+  grid-area: numerology;
+}
+
+.numbering {
+  grid-area: numerology;
+}
+
+.text {
+  grid-area: text;
+}
+.single-image {
+  display: none;
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(14, minmax(0, 1fr));
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1.2rem;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "images images images images images . numbering numbering numbering single-image single-image single-image single-image single-image"
+    "images images images images images . text text text single-image single-image single-image single-image single-image";
+}
+
+.images {
+  grid-area: images;
+}
+
+.numbering {
+  grid-area: numbering;
+}
+
+.text {
+  grid-area: text;
+}
+
+.single-image {
+  grid-area: single-image;
+}
+.version-1 {
+  grid-template-areas:
+    "images images images images images . numbering numbering numbering single-image single-image single-image single-image single-image"
+    "images images images images images . text text text single-image single-image single-image single-image single-image";
+}
+.version-1 .single-image {
+  grid-area: single-image;
+  display: block;
+}
+.version-2 {
+  grid-template-areas:
+    ". numbering numbering numbering . . images images images images images images images images"
+    ". text text text . . images images images images images images images images";
+}
