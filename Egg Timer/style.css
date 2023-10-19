@@ -62,3 +62,26 @@ box-shadow: inset 0 4px 8px Rgb(0 0 0/0.05), inset 20px 0 16px Rgb(0 0 0/0.05), 
 transition: background-position-x .2s;
 touch-action:none ;
 }
+.egg-top.dragged {
+  transition-duration: 0s;
+  transition-timing-function: ease-out;
+}
+.egg-container.active .egg:not(.ringing) .egg-top {
+  cursor: ew-resize;
+}
+/* this puts all the ruler marks one on top of another at the bottom of the egg  */
+.time-ruler-faces-container {
+  --initial-rotation: calc(180deg + (360deg / var(--face-count) / 2));
+  --rotation: 0deg;
+
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 6px;
+  transform: rotateY(calc(var(--rotation) + var(--initial-rotation)));
+  transform-style: preserve-3d;
+  aspect-ratio: 553.8592 / 76;
+  width: 100%;
+  transition: transform 0.4s;
+}
