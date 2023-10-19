@@ -1,5 +1,5 @@
 body {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -7,5 +7,48 @@ body {
   font-family: "Helvetica", sans-serif;
   font-weight: 500;
   font-feature-settings: "tnum";
-  font-variant-numeric: tabular-nums;
+  font-variant-numeric: tabular-nums; */
+}
+.egg-container {
+  transform: scale(0.25);
+  transition: transform 0.2s;
+}
+.egg-container.active{
+transform: scale(1);
+}
+.egg{
+--shadow-opacity:1
+border-radius: 100% 100% 76% 76% / 118% 118% 80% 80%;
+filter: drop-shadow(0 0px 2-x Rgb(0 0 0/var(--shadow-opacity)));
+cursor:pointer;
+}
+.egg-container.active .egg{
+--shadow-opacity:0;
+cursor: initial;
+}
+.egg.ringing{
+animation: ring .12s infinite;
+}
+
+@keyframes ring {
+  0%,
+  50%,
+  100%{
+  transform: rotate(0);
+  }
+  25%{
+  transform:rotate(5deg)
+
+  }
+  75%{
+  transform: rotate(-5deg);
+  }
+}
+.egg-top{
+background-color: #a70e0e;
+
+width: 274px;
+height: 210px;
+
+
 }
