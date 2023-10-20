@@ -154,3 +154,15 @@ font-size: 32px;
 color: #f4f4f4;
 transition: transform 0.2s;
 }
+.egg-container.active .time-container{
+transform: scale(1);
+transition-duration: 0.2s;
+transition-timing-function: cubic-bezier(0, 0, 0.3, 1.5);
+transition-delay: 0.1s;
+
+}
+.timer-button{
+  width: 100%;  
+  color: #fff;
+  background-image: linear-gradient(to bottom, #84b709, #46a100);
+}
