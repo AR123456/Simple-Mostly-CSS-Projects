@@ -1,5 +1,5 @@
 body {
-  /* display: flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -7,7 +7,7 @@ body {
   font-family: "Helvetica", sans-serif;
   font-weight: 500;
   font-feature-settings: "tnum";
-  font-variant-numeric: tabular-nums; */
+  font-variant-numeric: tabular-nums;
 }
 .egg-container {
   transform: scale(0.25);
@@ -132,4 +132,14 @@ touch-action:none ;
     inset -1px 0 1px Rgb(0 0 0/0.05), inset 0 -12px 8px Rgb(255 255 255/0.6),
     inset 0 -20px 8px Rgb(0 0 0/0.1), inset 0 -60px 20px Rgb(0 0 0/0.05);
 }
- 
+ .time-arrow{
+position: relative;
+z-index: 1;
+margin-top: 8px;
+margin-bottom: -1px;
+
+width: 20px;
+height: 14px;
+background-color: #d15705;
+clip-path: polygon(50% 0, 0% 100%, 100% 100%);
+}
