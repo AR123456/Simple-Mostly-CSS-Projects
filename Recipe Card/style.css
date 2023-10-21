@@ -24,6 +24,17 @@ body {
 }
 
 .card {
+  /* display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 25rem;
+  width: 35rem;
+  opacity: 0.5;
+  background-color: white;
+  border-radius: 5%; */
+}
+.card-top {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,4 +44,17 @@ body {
   opacity: 0.5;
   background-color: white;
   border-radius: 5%;
+}
+
+.recipe-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 25rem;
+  width: 35rem;
+  opacity: 0.5;
+  background-color: white;
+  border-radius: 5%;
+  visibility: hidden;
 }
