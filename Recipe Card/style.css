@@ -22,6 +22,9 @@ body {
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */
 }
+div {
+  margin: 20px;
+}
 
 .card {
   /* display: flex;
@@ -54,7 +57,44 @@ body {
   background-color: rgba(255, 255, 255, 0.5);
   /* object-position: right bottom; */
 }
+.title {
+  font-size: 3rem;
+  width: 50%;
+}
+.type ul {
+  list-style-type: none;
+}
+.type ul li {
+  display: inline-block;
 
+  background-color: rgba(255, 255, 255, 0.6);
+  margin: 2px;
+  padding: 7px;
+  border-radius: 25px;
+}
+.short-description {
+  justify-content: left;
+  font-size: 1.5rem;
+  width: 50%;
+}
+.see-recipe {
+  height: 75px;
+  width: 225px;
+  border-radius: 30px;
+  background-color: rgb(255, 0, 0);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+
+  padding-bottom: 10px;
+}
+.see-recipe img {
+  padding-top: 15px;
+}
+.chevron {
+  height: 30px;
+  width: 30px;
+}
 .recipe-container {
   display: flex;
   align-items: center;
