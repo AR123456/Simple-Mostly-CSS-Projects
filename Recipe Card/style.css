@@ -25,14 +25,9 @@ body {
 
 .card {
   /* display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  height: 25rem;
-  width: 35rem;
-  opacity: 0.5;
-  background-color: white;
-  border-radius: 5%; */
+  align-items: start;
+  justify-content: left;
+  flex-direction: row; */
 }
 .card-top {
   display: flex;
@@ -56,14 +51,14 @@ body {
 }
 
 .recipe-container {
-  display: flex;
+  /* display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  height: 25rem;
-  width: 35rem;
-  opacity: 0.5;
-  background-color: white;
-  border-radius: 5%;
+  flex-direction: column; */
+  /* height: 50rem;
+  width: 70rem;
+
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 5%; */
   visibility: hidden;
 }
