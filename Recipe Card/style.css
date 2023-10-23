@@ -100,12 +100,19 @@ div {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 25rem;
-  width: 35rem;
-  opacity: 0.5;
-  background-color: white;
+  height: 40rem;
+  width: 70rem;
+  opacity: 0.9;
+  background-color: rgba(255, 255, 255, 0.5);
   border-radius: 5%;
-  visibility: hidden;
+  /* visibility: hidden; */
   opacity: 0;
   transition: visibility 0s linear 300ms, opacity 300ms;
+}
+
+.ingredients ul {
+  list-style-type: none;
+}
+.directions {
+  margin-bottom: 100px;
 }
