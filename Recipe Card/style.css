@@ -11,7 +11,6 @@ body {
   justify-content: center;
   flex-direction: column;
   height: 100vh;
-  overflow: hidden;
 }
 body {
   /* background image */
@@ -42,11 +41,11 @@ div {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 50rem;
-  width: 70rem;
+  height: 33%;
+  width: 90%;
   opacity: 0.9;
 
-  border-radius: 5%;
+  border-radius: 30px;
   background: url(./images/tomato_board2.png);
   background-color: white;
   /* https://developer.mozilla.org/en-US/docs/Web/CSS/background-position */
@@ -88,6 +87,7 @@ div {
 
   padding-bottom: 10px;
 }
+
 .see-recipe img {
   padding-top: 15px;
 }
@@ -100,8 +100,8 @@ div {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 40rem;
-  width: 70rem;
+  height: 40%;
+  width: 90%;
   opacity: 0.9;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 5%;
@@ -109,10 +109,27 @@ div {
   opacity: 0;
   transition: visibility 0s linear 300ms, opacity 300ms;
 }
+.reveal-recipe {
+  font-style: visible;
+  opacity: 1;
+  transition: visibility 0s linear 0s, opacity 300ms;
+}
 
 .ingredients ul {
   list-style-type: none;
 }
+.ingredients ul li {
+  display: inline-block;
+}
+
 .directions {
   margin-bottom: 100px;
+}
+.directions ul {
+  list-style-type: none;
+}
+.info {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 5px;
 }

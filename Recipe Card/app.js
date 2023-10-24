@@ -9,7 +9,8 @@ seeRecipe.onclick = (e) => {
   console.log("also clicked ");
   // on  .recipe-container  change visibility to visable
   //    look at toggle
-  recipe.style.visibility = "visible";
-  recipe.style.opacity = "1";
-  recipe.style.transition = "visibility 0s linear 0s, opacity 300ms";
+  // recipe.style.visibility = "visible";
+  // recipe.style.opacity = "1";
+  // recipe.style.transition = "visibility 0s linear 0s, opacity 300ms";
+  recipe.classList.toggle("reveal-recipe");
 };
