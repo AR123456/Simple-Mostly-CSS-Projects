@@ -133,3 +133,16 @@ div {
   justify-content: flex-end;
   margin-bottom: 5px;
 }
+.directions li {
+  margin: 30px;
+}
+.directions li span {
+  font-size: small;
+  height: 10px !important;
+  width: 10px !important;
+  padding: 10px;
+  margin: 2px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  text-align: center;
+}
