@@ -11,3 +11,22 @@ body {
   height: 100vh;
   overflow: hidden;
 }
+.gingerbread .body {
+  fill: #cd803d;
+}
+
+.gingerbread .eye {
+  fill: white;
+}
+
+.gingerbread .mouth {
+  fill: none;
+  stroke: white;
+  stroke-width: 2px;
+}
+
+.gingerbread .limb {
+  stroke: #cd803d;
+  stroke-width: 35px;
+  stroke-linecap: round;
+}

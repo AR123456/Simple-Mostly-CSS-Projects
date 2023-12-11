@@ -10,25 +10,24 @@
     <h1>Gingerbread Man</h1>
     <!-- width and height of an SVG are external size viewBox is internal size. -->
     <!--viewBox is how the image elements think of the image when they position themselves inside of it  -->
-    <svg width="200" height="300" viewBox="-100 -100 200 200">
-      <circle
-        cx="0"
-        cy="-65"
-        r="35"
-        fill="brown"
-        stroke="gold"
-        stroke-width="2"
-      ></circle>
-      <rect
-        x="-67.5"
-        y="-35"
-        width="140"
-        height="35"
-        rx="15"
-        fill="brown"
-      ></rect>
-      <polygon points="0,0 80,120 " stroke-width="35" stroke="brown" />
-      <polygon points="0,0 -80,120 " stroke="brown" stroke-width="35" />
+    <svg
+      class="gingerbread"
+      width="200"
+      height="200"
+      viewBox="-100 -100 200 200"
+    >
+      <circle class="body" cx="0" cy="-50" r="30" />
+
+      <circle class="eye" cx="-12" cy="-55" r="3" />
+      <circle class="eye" cx="12" cy="-55" r="3" />
+      <rect class="mouth" x="-10" y="-40" width="20" height="5" rx="2" />
+
+      <line class="limb" x1="-40" y1="-10" x2="40" y2="-10" />
+      <line class="limb" x1="-25" y1="50" x2="0" y2="-15" />
+      <line class="limb" x1="25" y1="50" x2="0" y2="-15" />
+
+      <circle class="button" cx="0" cy="-10" r="5" />
+      <circle class="button" cx="0" cy="10" r="5" />
     </svg>
   </body>
 </html>
