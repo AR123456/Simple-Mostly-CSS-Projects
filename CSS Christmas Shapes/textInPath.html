@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Christmas SVGs</title>
+  </head>
+  <body>
+    <h1>Text along a path</h1>
+    <!-- width and height of an SVG are external size viewBox is internal size. -->
+    <!--viewBox is how the image elements think of the image when they position themselves inside of it  -->
+    <svg width="200" height="200" viewBox="-100 -100 200 200">
+      <defs>
+        <path id="text-arc" d="M 0, 50 A 50 50 0 1 1 1,50" />
+      </defs>
+
+      <text
+        fill="#0c5c4c"
+        font-family="Tahoma"
+        font-size="0.77em"
+        font-weight="bold"
+      >
+        <textPath href="#text-arc">
+          Happy Holidays! Happy Holidays! Happy Holidays!
+        </textPath>
+      </text>
+    </svg>
+  </body>
+</html>
