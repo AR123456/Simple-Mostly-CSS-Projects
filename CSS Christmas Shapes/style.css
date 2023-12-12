@@ -30,3 +30,30 @@ body {
   stroke-width: 35px;
   stroke-linecap: round;
 }
+.flake {
+  animation-duration: inherit;
+  animation-name: snowing;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.flake.opaque {
+  opacity: 0.7;
+}
+
+.flake.slow {
+  animation-duration: 5s;
+}
+
+.flake.fast {
+  animation-duration: 3s;
+}
+
+@keyframes snowing {
+  from {
+    transform: translate(0, -100px);
+  }
+  to {
+    transform: translate(0, 100px);
+  }
+}
