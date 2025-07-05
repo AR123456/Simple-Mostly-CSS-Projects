@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
 }
-figure[aria-label]:after {
+figure[aria-label]:before {
   content: attr(aria-label);
 }
