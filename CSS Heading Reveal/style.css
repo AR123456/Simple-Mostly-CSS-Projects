@@ -10,3 +10,13 @@ body {
   align-items: center;
   color: white;
 }
+.quote {
+  text-align: center;
+  font-size: min(6vw, 120px);
+  white-space: nowrap;
+}
+.quote blockquote {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+}
