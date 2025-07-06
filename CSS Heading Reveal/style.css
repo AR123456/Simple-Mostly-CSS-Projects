@@ -35,3 +35,8 @@ body {
   background-image: url("https://picsum.photos/200/300");
   margin: 0;
 }
+.quote .cut-text-container span {
+  color: #000;
+  mix-blend-mode: lighten;
+  background-color: #fff;
+}
