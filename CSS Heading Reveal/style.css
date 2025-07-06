@@ -31,3 +31,7 @@ body {
   position: relative;
   z-index: 1;
 }
+.quote .cut-text-container .cut-text {
+  background-image: url("https://picsum.photos/200/300");
+  margin: 0;
+}
