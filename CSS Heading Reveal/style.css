@@ -1,6 +1,9 @@
 * {
   box-sizing: border-box;
 }
-figure[aria-label]:before {
-  content: attr(aria-label);
+
+body {
+  height: 100%;
+
+  background: url("https://fastly.picsum.photos/id/190/1920/1080.jpg?hmac=f-GlJAWZkaT4BQmLiKbbgCM77yfiY15jZ-uU1MBrBJw");
 }
