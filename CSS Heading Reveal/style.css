@@ -49,6 +49,14 @@ body {
   animation: moveTopColoredClip 4s cubic-bezier(0.85, 0, 0.15, 1) infinite
     alternate;
 }
+.quote .colored-text.second {
+  top: 50%;
+  animation: moveBottomColoredClip 4s cubic-bezier(0.85, 0, 0.15, 1) infinite
+    alternate;
+}
+.quote figcaption {
+  line-height: 0.4;
+}
 /* animations */
 @keyframes moveTopColoredClip {
   0%,
