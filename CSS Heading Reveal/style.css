@@ -40,3 +40,12 @@ body {
   mix-blend-mode: lighten;
   background-color: #fff;
 }
+.quote .colored-text {
+  color: red;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  animation: moveTopColoredClip 4s cubic-bezier(0.85, 0, 0.15, 1) infinite
+    alternate;
+}
