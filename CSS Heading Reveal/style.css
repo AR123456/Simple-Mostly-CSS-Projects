@@ -58,7 +58,11 @@ body {
   line-height: 0.4;
   color: blue;
 }
-
+.quote cite {
+  font-size: 0.4em;
+  color: orange;
+  letter-spacing: 0.2em;
+}
 /* animations */
 @keyframes moveTopColoredClip {
   0%,
