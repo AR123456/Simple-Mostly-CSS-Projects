@@ -56,7 +56,9 @@ body {
 }
 .quote figcaption {
   line-height: 0.4;
+  color: blue;
 }
+
 /* animations */
 @keyframes moveTopColoredClip {
   0%,
