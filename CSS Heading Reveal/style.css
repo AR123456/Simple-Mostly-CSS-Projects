@@ -49,3 +49,14 @@ body {
   animation: moveTopColoredClip 4s cubic-bezier(0.85, 0, 0.15, 1) infinite
     alternate;
 }
+/* animations */
+@keyframes moveTopColoredClip {
+  0%,
+  25% {
+    clip-path: polygon(35px -100%, 100% -100%, calc(100% - 35px) 0%, 0% 0%);
+  }
+  75%,
+  100% {
+    clip-path: polygon(35px 0%, 100% 0%, calc(100% - 35px) 100%, 0% 100%);
+  }
+}

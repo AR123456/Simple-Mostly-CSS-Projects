@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clip-Path Animation Demo</title>
+    <style>
+      body {
+        background: #111;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .animated-bar {
+        width: 300px;
+        height: 200px;
+        background: linear-gradient(135deg, #ff6b6b, #f7d794);
+        animation: moveTopColoredClip 2s ease-in-out forwards;
+        clip-path: polygon(35px -100%, 100% -100%, calc(100% - 35px) 0%, 0% 0%);
+      }
+
+      @keyframes moveTopColoredClip {
+        0%,
+        25% {
+          clip-path: polygon(
+            35px -100%,
+            100% -100%,
+            calc(100% - 35px) 0%,
+            0% 0%
+          );
+        }
+        75%,
+        100% {
+          clip-path: polygon(35px 0%, 100% 0%, calc(100% - 35px) 100%, 0% 100%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="animated-bar"></div>
+  </body>
+</html>
