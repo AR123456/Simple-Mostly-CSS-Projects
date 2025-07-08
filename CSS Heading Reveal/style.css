@@ -86,3 +86,13 @@ body {
     clip-path: polygon(35px 0%, 100% 0%, calc(100% - 35px) 100%, 0% 100%);
   }
 }
+@keyframes fadeInAutor {
+  0%,
+  25% {
+    opacity: 0;
+  }
+  75%,
+  100% {
+    opacity: 1;
+  }
+}
