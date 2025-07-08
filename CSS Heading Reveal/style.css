@@ -62,6 +62,7 @@ body {
   font-size: 0.4em;
   color: orange;
   letter-spacing: 0.2em;
+  animation: fadeInAuthor 4s cubic-bezier(0.85, 0, 0.15, 1) infinite alternate;
 }
 /* animations */
 @keyframes moveTopColoredClip {
