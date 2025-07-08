@@ -65,6 +65,17 @@ body {
   animation: fadeInAuthor 4s cubic-bezier(0.85, 0, 0.15, 1) infinite alternate;
 }
 /* animations */
+@keyframes moveCutClip {
+  0%,
+  25% {
+    clip-path: polygon(35px 0%, 100% 0%, calc(100% - 35px) 50%, 0% 50%);
+  }
+  75%,
+  100% {
+    clip-path: polygon(35px 50%, 100% 50%, calc(100% - 35px) 100%, 0% 100%);
+  }
+}
+
 @keyframes moveTopColoredClip {
   0%,
   25% {
