@@ -32,6 +32,8 @@ body {
   background: white;
   position: relative;
   z-index: 1;
+  padding: 0px 50px;
+  animation: moveCutClip 4s cubic-bezier(0.85, 0, 0.15, 1) infinite alternate;
 }
 .quote .cut-text-container .cut-text {
   background-image: url("./download.png");
