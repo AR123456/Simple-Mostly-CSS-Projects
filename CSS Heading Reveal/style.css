@@ -1,7 +1,9 @@
 * {
   box-sizing: border-box;
 }
-
+html {
+  height: 100%;
+}
 body {
   height: 100%;
 
@@ -86,7 +88,17 @@ body {
     clip-path: polygon(35px 0%, 100% 0%, calc(100% - 35px) 100%, 0% 100%);
   }
 }
-@keyframes fadeInAutor {
+@keyframes moveBottomColoredClip {
+  0%,
+  25% {
+    clip-path: polygon(35px 0%, 100% 0%, calc(100% - 35px) 100%, 0% 100%);
+  }
+  75%,
+  100% {
+    clip-path: polygon(35px 100%, 100% 100%, calc(100% - 35px) 200%, 0% 200%);
+  }
+}
+@keyframes fadeInAuthor {
   0%,
   25% {
     opacity: 0;
