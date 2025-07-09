@@ -62,7 +62,7 @@ body {
 }
 .quote cite {
   font-size: 0.4em;
-  color: orange;
+  color: #fff;
   letter-spacing: 0.2em;
   animation: fadeInAuthor 4s cubic-bezier(0.85, 0, 0.15, 1) infinite alternate;
 }
