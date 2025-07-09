@@ -43,7 +43,7 @@ body {
   background-color: #fff;
 }
 .quote .colored-text {
-  color: red;
+  color: #fff;
   position: absolute;
   top: 0;
   left: 0;
@@ -56,6 +56,7 @@ body {
   animation: moveBottomColoredClip 4s cubic-bezier(0.85, 0, 0.15, 1) infinite
     alternate;
 }
+
 .quote figcaption {
   line-height: 0.4;
 }
