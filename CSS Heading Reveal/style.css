@@ -1,20 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Amiri:ital@1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
 * {
   margin-top: 0;
 }
+
 html,
 body {
   height: 100%;
 }
+
 body {
   margin: 0;
   padding: 0;
-  background-image: url("./190-1920x1080.jpg");
+  background-image: url(https://picsum.photos/id/190/1920/1080);
   background-size: cover;
   background-position: center;
   display: grid;
   align-items: center;
   color: white;
 }
+
 .quote {
   text-align: center;
   font-size: min(6vw, 120px);
@@ -27,19 +32,21 @@ body {
 }
 .quote p {
   line-height: 1.1;
+  font-family: "Amiri", serif;
+  text-transform: uppercase;
 }
 .quote p span {
   display: block;
 }
 .quote .cut-text-container {
-  background: white;
+  background-color: #fff;
   position: relative;
   z-index: 1;
   padding: 0px 50px;
   animation: moveCutClip 4s cubic-bezier(0.85, 0, 0.15, 1) infinite alternate;
 }
 .quote .cut-text-container .cut-text {
-  background-image: url("./190-1920x1080.jpg");
+  background-image: url(https://picsum.photos/id/190/1920/1080);
   margin: 0;
 }
 .quote .cut-text-container span {
@@ -61,17 +68,19 @@ body {
   animation: moveBottomColoredClip 4s cubic-bezier(0.85, 0, 0.15, 1) infinite
     alternate;
 }
-
 .quote figcaption {
   line-height: 0.4;
 }
 .quote cite {
+  font-style: normal;
+  font-family: "Nunito", sans-serif;
   font-size: 0.4em;
   color: #fff;
+  text-transform: uppercase;
   letter-spacing: 0.2em;
   animation: fadeInAuthor 4s cubic-bezier(0.85, 0, 0.15, 1) infinite alternate;
 }
-/* animations */
+
 @keyframes moveCutClip {
   0%,
   25% {
@@ -82,7 +91,6 @@ body {
     clip-path: polygon(35px 50%, 100% 50%, calc(100% - 35px) 100%, 0% 100%);
   }
 }
-
 @keyframes moveTopColoredClip {
   0%,
   25% {
