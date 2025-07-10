@@ -12,9 +12,9 @@ body {
 body {
   margin: 0;
   padding: 0;
-  background-image: url(https://picsum.photos/id/190/1920/1080);
-  background-size: cover;
-  background-position: center;
+  background: url("./190-1920x1080.jpg");
+  /* background-size: cover;
+  background-position: center; */
   display: grid;
   align-items: center;
   color: white;
@@ -46,7 +46,7 @@ body {
   animation: moveCutClip 4s cubic-bezier(0.85, 0, 0.15, 1) infinite alternate;
 }
 .quote .cut-text-container .cut-text {
-  background-image: url(https://picsum.photos/id/190/1920/1080);
+  background-image: url("./190-1920x1080.jpg");
   margin: 0;
 }
 .quote .cut-text-container span {
