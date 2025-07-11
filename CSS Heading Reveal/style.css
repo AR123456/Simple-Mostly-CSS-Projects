@@ -15,7 +15,6 @@ body {
   background-position: center; */
   display: grid;
   align-items: center;
-  color: white;
 }
 
 .quote {
@@ -23,7 +22,7 @@ body {
   font-size: min(6vw, 120px);
   white-space: nowrap;
 }
-.quote blockquote {
+.quote div {
   position: relative;
   display: inline-block;
   margin: 0;
