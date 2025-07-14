@@ -33,7 +33,7 @@ body {
 .quote p span {
   display: block;
 }
-.quote .cut-text-container {
+.cut-text-container {
   background-color: #fff;
   position: relative;
   z-index: 1;
