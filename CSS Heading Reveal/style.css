@@ -22,7 +22,7 @@ body {
   font-size: min(6vw, 120px);
   white-space: nowrap;
 }
-.quote .swap-container {
+.swap-container {
   position: relative;
   display: inline-block;
   margin: 0;
