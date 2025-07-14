@@ -63,11 +63,13 @@ body {
   animation: moveBottomColoredClip 4s cubic-bezier(0.85, 0, 0.15, 1) infinite
     alternate;
 }
-.quote figcaption {
+.quote .footer {
   line-height: 0.4;
 }
-.quote cite {
+.quote .cite {
+  margin-top: 0.5em;
   font-size: 0.4em;
+  font-style: italic;
   color: #fff;
   letter-spacing: 0.2em;
   animation: fadeInAuthor 4s cubic-bezier(0.85, 0, 0.15, 1) infinite alternate;
