@@ -63,7 +63,7 @@ body {
   animation: moveBottomColoredClip 4s cubic-bezier(0.85, 0, 0.15, 1) infinite
     alternate;
 }
-.quote .footer {
+.footer {
   line-height: 0.4;
 }
 .quote .cite {
