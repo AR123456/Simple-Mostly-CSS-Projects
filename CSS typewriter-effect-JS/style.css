@@ -1,0 +1,253 @@
+*,
+html {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.stationary {
+  font-size: 40pt;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* blinking cursor */
+.typing::after {
+  content: "";
+  border-right: 1px solid black;
+  animation: blinkingEffect 0.6s linear infinite;
+}
+@keyframes blinkingEffect {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* typewriter text */
+.typing::before {
+  content: "";
+  animation: typewriter 18s steps(1) infinite;
+  white-space: pre;
+}
+
+@keyframes typewriter {
+  0%,
+  100% {
+    content: "";
+  }
+
+  /* mother */
+  1.43% {
+    content: "m";
+  }
+  2.86% {
+    content: "mo";
+  }
+  4.29% {
+    content: "mot";
+  }
+  5.72% {
+    content: "moth";
+  }
+  7.15% {
+    content: "mothe";
+  }
+  8.58%,
+  11.44% {
+    content: "mother";
+  }
+
+  /* delete mother */
+  12.87% {
+    content: "mothe";
+  }
+  14.3% {
+    content: "moth";
+  }
+  15.73% {
+    content: "mot";
+  }
+  17.16% {
+    content: "mo";
+  }
+  18.59% {
+    content: "m";
+  }
+  20.02% {
+    content: "";
+  }
+
+  /* grandmother */
+  21.45% {
+    content: "g";
+  }
+  22.88% {
+    content: "gr";
+  }
+  24.31% {
+    content: "gra";
+  }
+  25.74% {
+    content: "gran";
+  }
+  27.17% {
+    content: "grand";
+  }
+  28.6% {
+    content: "grandm";
+  }
+  30.03% {
+    content: "grandmo";
+  }
+  31.46% {
+    content: "grandmot";
+  }
+  32.89% {
+    content: "grandmoth";
+  }
+  34.32% {
+    content: "grandmothe";
+  }
+  35.75%,
+  38.61% {
+    content: "grandmother";
+  }
+
+  /* delete grandmother */
+  40.04% {
+    content: "grandmothe";
+  }
+  41.47% {
+    content: "grandmoth";
+  }
+  42.9% {
+    content: "grandmot";
+  }
+  44.33% {
+    content: "grandmo";
+  }
+  45.76% {
+    content: "grandm";
+  }
+  47.19% {
+    content: "grand";
+  }
+  48.62% {
+    content: "gran";
+  }
+  50.05% {
+    content: "gra";
+  }
+  51.48% {
+    content: "gr";
+  }
+  52.91% {
+    content: "g";
+  }
+  54.34% {
+    content: "";
+  }
+
+  /* coder */
+  55.77% {
+    content: "c";
+  }
+  57.2% {
+    content: "co";
+  }
+  58.63% {
+    content: "cod";
+  }
+  60.06% {
+    content: "code";
+  }
+  61.49%,
+  64.35% {
+    content: "coder";
+  }
+
+  /* delete coder */
+  65.78% {
+    content: "code";
+  }
+  67.21% {
+    content: "cod";
+  }
+  68.64% {
+    content: "co";
+  }
+  70.07% {
+    content: "c";
+  }
+  71.5% {
+    content: "";
+  }
+
+  /* chef */
+  72.93% {
+    content: "c";
+  }
+  74.36% {
+    content: "ch";
+  }
+  75.79% {
+    content: "che";
+  }
+  77.22%,
+  80.08% {
+    content: "chef";
+  }
+
+  /* delete chef */
+  81.51% {
+    content: "che";
+  }
+  82.94% {
+    content: "ch";
+  }
+  84.37% {
+    content: "c";
+  }
+  85.8% {
+    content: "";
+  }
+
+  /* meditator (final word) */
+  87.23% {
+    content: "m";
+  }
+  88.66% {
+    content: "me";
+  }
+  90.09% {
+    content: "med";
+  }
+  91.52% {
+    content: "medi";
+  }
+  92.95% {
+    content: "medit";
+  }
+  94.38% {
+    content: "medita";
+  }
+  95.81% {
+    content: "meditat";
+  }
+  97.24% {
+    content: "meditato";
+  }
+  98.67%,
+  100% {
+    content: "meditator";
+  } /* extended pause */
+}
