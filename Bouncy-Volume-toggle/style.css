@@ -17,3 +17,17 @@ body {
 }
 .card {
 }
+.volume {
+}
+.speaker {
+  outline: 2px solid red;
+}
+.first-sound {
+  outline: 2px solid blue;
+}
+.second-sound {
+  outline: 2px solid green;
+}
+.x-close {
+  outline: 2px solid purple;
+}
