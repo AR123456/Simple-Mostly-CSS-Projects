@@ -10,3 +10,15 @@ body {
   background-color: #808080;
   background-image: linear-gradient(to right, #202020, #808080);
 }
+@media screen and(min-width:400px) {
+  body {
+    overflow: hidden;
+  }
+}
+.container,
+.card-container {
+  margin: 0 auto;
+  margin-top: 5rem;
+  width: 400px;
+  text-align: right;
+}
