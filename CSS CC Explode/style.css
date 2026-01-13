@@ -1,12 +1,12 @@
 *,
-html {
+*:before,
+*:after {
   box-sizing: border-box;
 }
 body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  height: 100vh;
+  font-family: "Montserrat", "Helvetica", sans-serif;
+  font-size: 14px;
+  line-height: 1.3;
+  background-color: #808080;
+  background-image: linear-gradient(to right, #202020, #808080);
 }
