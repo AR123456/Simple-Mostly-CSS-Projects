@@ -59,3 +59,7 @@ body {
   width: 200px;
   transform: skewX(-15deg) translateX(50px);
 }
+.strip-top {
+  width: 180px;
+  transform: skewX(20deg) translateX(50px);
+}
