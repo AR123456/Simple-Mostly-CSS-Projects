@@ -909,11 +909,12 @@
     addParticleType,
   };
 });
+let cardCopy;
 window.addEventListener("load", () => {
   disintegrate.init();
+  const cardCopy = document.querySelector(".card-container").cloneNode(true);
 });
 
-const cardCopy = document.querySelector(".card-container").cloneNode(true);
 //  define changeHue function
 function changeHue(hex, degree) {
   let hsl = hexToHSL(hex);
@@ -993,4 +994,3 @@ document.addEventListener("click", (e) => {
     parent.remove();
   });
 });
-disintegrate.getDisObj(document.querySelector(".card"));
