@@ -914,6 +914,45 @@ window.addEventListener("load", () => {
 });
 
 const cardCopy = document.querySelector(".card-container").cloneNode(true);
+//  define changeHue function
+function changeHue(hex, degree) {
+  let hsl = hexToHSL(hex);
+  hsl.h = (hsl.h + degree) % 360;
+  return `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`;
+}
+
+function hexToHSL(hex) {
+  let r = parseInt(hex.substr(1, 2), 16) / 255;
+  let g = parseInt(hex.substr(3, 2), 16) / 255;
+  let b = parseInt(hex.substr(5, 2), 16) / 255;
+
+  let max = Math.max(r, g, b),
+    min = Math.min(r, g, b);
+  let h,
+    s,
+    l = (max + min) / 2;
+
+  if (max === min) {
+    h = s = 0;
+  } else {
+    let d = max - min;
+    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+    switch (max) {
+      case r:
+        h = (g - b) / d + (g < b ? 6 : 0);
+        break;
+      case g:
+        h = (b - r) / d + 2;
+        break;
+      case b:
+        h = (r - g) / d + 4;
+        break;
+    }
+    h *= 60;
+  }
+
+  return { h, s: s * 100, l: l * 100 };
+}
 
 // Because html2canvas doesn't support CSS filters yet, manually calculate a hue-rotate for newly created cards
 const origColor1 = "#ff6767",
@@ -954,3 +993,4 @@ document.addEventListener("click", (e) => {
     parent.remove();
   });
 });
+disintegrate.getDisObj(document.querySelector(".card"));
