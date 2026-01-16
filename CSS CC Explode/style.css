@@ -12,13 +12,13 @@ body {
 }
 @media screen and (min-width: 400px) {
   body {
-    overflow: hidden;
+    overflow-x: hidden;
   }
 }
 .container,
 .card-container {
   margin: 0 auto;
-  margin-top: 5rem;
+  margin-top: 5em;
   width: 400px;
   text-align: right;
 }
@@ -26,7 +26,7 @@ body {
   width: 400px;
   height: 250px;
   text-align: left;
-  margin-bottom: 1rem;
+  margin-bottom: 1em;
 }
 .flip {
   width: inherit;
@@ -66,8 +66,7 @@ body {
 .logo {
   position: absolute;
   top: 30px;
-  left: 25px;
-  text-transform: uppercase;
+  right: 25px;
 }
 .investor {
   position: relative;
