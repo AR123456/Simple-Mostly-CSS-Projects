@@ -978,18 +978,20 @@ document.querySelector(".add-new").onclick = (e) => {
 
 document.addEventListener("click", (e) => {
   if (!e.target.classList.contains("delete")) return;
+  if (!particlesReady) return; // 🔑 THIS IS REQUIRED
 
   const parent = e.target.closest(".card-container");
   const card = parent.querySelector(".card");
   const disObj = disintegrate.getDisObj(card);
 
-  // Create particles
-  disintegrate.createSimultaneousParticles(disObj);
+  if (!disObj) {
+    console.warn("DisObj not ready yet");
+    return;
+  }
 
-  // Hide original card
+  disintegrate.createSimultaneousParticles(disObj);
   card.style.visibility = "hidden";
 
-  // Remove after animation
   disObj.elem.addEventListener("disComplete", () => {
     parent.remove();
   });
