@@ -909,7 +909,7 @@
     addParticleType,
   };
 });
- window.addEventListener("load", () => {
+window.addEventListener("load", () => {
   disintegrate.init();
 });
 
@@ -938,19 +938,19 @@ document.querySelector(".add-new").onclick = (e) => {
 
 document.addEventListener("click", (e) => {
   if (!e.target.classList.contains("delete")) return;
-    let parent = e.srcElement.parentNode,
-      card = parent.querySelector(".card"),
-      disObj = disintegrate.getDisObj(card);
 
-    // Create our particles
-    disintegrate.createSimultaneousParticles(disObj);
+  const parent = e.target.closest(".card-container");
+  const card = parent.querySelector(".card");
+  const disObj = disintegrate.getDisObj(card);
 
-    // Hide the original card
-    card.style.visibility = "hidden";
+  // Create particles
+  disintegrate.createSimultaneousParticles(disObj);
 
-    // Remove the whole thing after the animation completes
-    disObj.elem.addEventListener("disComplete", (e) => {
-      parent.parentNode.removeChild(parent);
-    });
-  }
-};
+  // Hide original card
+  card.style.visibility = "hidden";
+
+  // Remove after animation
+  disObj.elem.addEventListener("disComplete", () => {
+    parent.remove();
+  });
+});
