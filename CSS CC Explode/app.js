@@ -1,3 +1,5 @@
+let particlesReady = false;
+
 // UMD format: https://github.com/umdjs/umd/blob/master/templates/returnExports.js#L17
 (function (root, factory) {
   if (typeof define === "function" && define.amd) {
@@ -909,6 +911,11 @@
     addParticleType,
   };
 });
+// listen for readyness
+window.addEventListener("particlesReady", () => {
+  particlesReady = true;
+});
+
 let cardCopy;
 window.addEventListener("load", () => {
   disintegrate.init();
