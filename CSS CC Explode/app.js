@@ -920,7 +920,7 @@ window.addEventListener("particlesReady", () => {
 let cardCopy;
 window.addEventListener("load", () => {
   disintegrate.init();
-  const cardCopy = document.querySelector(".card-container").cloneNode(true);
+  cardCopy = document.querySelector(".card-container").cloneNode(true);
 });
 
 //  define changeHue function
@@ -996,7 +996,7 @@ document.addEventListener("click", (e) => {
   const disObj = disintegrate.getDisObj(card);
 
   if (!disObj) {
-    console.warn("DisObj still undefined");
+    // console.warn("DisObj still undefined");
     return;
   }
 
