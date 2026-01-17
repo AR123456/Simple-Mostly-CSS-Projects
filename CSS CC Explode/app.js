@@ -65,6 +65,7 @@ let particlesReady = false;
 
   // Create a disObj for each Disintegrate element detected
   function processDisElement(el) {
+    console.log("processing element", elem);
     let ignoreColors = [];
     if (el.dataset.disIgnoreColors) {
       ignoreColors = getNumberArraysFromString(el.dataset.disIgnoreColors);
