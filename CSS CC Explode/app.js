@@ -179,7 +179,7 @@ let particlesReady = false;
       }
     });
   }
-
+  //??
   function disUpdate() {
     dises.forEach((disObj) => {
       if (disObj.particleArr.length) animateParticles(disObj);
