@@ -985,14 +985,17 @@ document.querySelector(".add-new").onclick = (e) => {
 
 document.addEventListener("click", (e) => {
   if (!e.target.classList.contains("delete")) return;
-  if (!particlesReady) return; // 🔑 THIS IS REQUIRED
+  if (!particlesReady) {
+    console.warn("Particles not ready yet");
+    return;
+  }
 
   const parent = e.target.closest(".card-container");
   const card = parent.querySelector(".card");
   const disObj = disintegrate.getDisObj(card);
 
   if (!disObj) {
-    console.warn("DisObj not ready yet");
+    console.warn("DisObj still undefined");
     return;
   }
 
