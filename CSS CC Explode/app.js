@@ -65,7 +65,7 @@ let particlesReady = false;
 
   // Create a disObj for each Disintegrate element detected
   function processDisElement(el) {
-    console.log("processing element", elem);
+    console.log("processing element", el);
     let ignoreColors = [];
     if (el.dataset.disIgnoreColors) {
       ignoreColors = getNumberArraysFromString(el.dataset.disIgnoreColors);
@@ -691,7 +691,7 @@ let particlesReady = false;
   // Check to see if all the Disintegrate elements detected have been successfully loaded
   var raf;
   function checkAllLoaded() {
-    if (disElems.length === dises.length) {
+    if (disEems && disElems.length === dises.length) {
       window.dispatchEvent(new Event("disesLoaded"));
 
       if (typeof raf === "undefined")
