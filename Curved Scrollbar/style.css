@@ -11,7 +11,7 @@ body {
 }
 .container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
 }
@@ -27,4 +27,8 @@ body {
   scrollbar-color: blue green;
   /* a thin scroll bar */
   scrollbar-width: thin;
+}
+/* this one does not seem to be working  */
+.card::hover {
+  scrollbar-color: red;
 }
