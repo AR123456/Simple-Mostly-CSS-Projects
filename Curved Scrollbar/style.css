@@ -15,7 +15,7 @@ body {
   align-items: center;
   justify-content: center;
 }
-.card {
+.card-outer {
   margin: 5rem;
   width: 20rem;
   height: 30rem;
@@ -27,6 +27,21 @@ body {
   scrollbar-color: blue green;
   /* a thin scroll bar */
   scrollbar-width: thin;
+  scroll-behavior: smooth;
+}
+.card-inner {
+  margin: 5rem;
+  width: 20rem;
+  height: 30rem;
+  border: solid red;
+  border-radius: 15px;
+  overflow: scroll;
+  /* https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/scrollbar-color */
+  /* first color is thumb , second is gree */
+  scrollbar-color: blue green;
+  /* a thin scroll bar */
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
 }
 /* this one does not seem to be working  */
 .card::hover {
