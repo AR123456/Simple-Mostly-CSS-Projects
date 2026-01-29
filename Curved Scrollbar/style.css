@@ -26,9 +26,9 @@ body {
 .card-inner {
   width: 100%;
   height: 100%;
-  border: solid red;
-  border-radius: 15px;
-  overflow: scroll;
+  border: solid purple;
+
+  overflow-y: auto;
   /* https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/scrollbar-color */
   /* first color is thumb , second is gree */
   scrollbar-color: blue green;
