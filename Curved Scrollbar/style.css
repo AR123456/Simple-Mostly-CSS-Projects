@@ -27,31 +27,30 @@ body {
   width: 100%;
   height: 100%;
   border: solid purple;
+  overflow: visible;
 
-  /* overflow-y: auto; */
   /* https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/scrollbar-color */
   /* first color is thumb , second is gree */
-  /* scrollbar-color: blue green; */
-
-  /* scrollbar-width: 5px; */
-
-  /* scroll-behavior: smooth; */
-  overflow-y: auto; /* Adds the scrollbar here */
-  /* For cross-browser styling of the scrollbar itself (optional, but recommended for aesthetics) */
-  /* WebKit (Chrome, Safari, Edge) */
-  &::-webkit-scrollbar {
-    width: 10px;
+  ::-webkit-scrollbar {
+    width: 12px;
   }
-  &::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 5px; /* Adds rounded corners to the scrollbar thumb itself */
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
   }
-  &::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px; /* Adds rounded corners to the scrollbar track */
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(255, 0, 0, 0.8);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  }
+  ::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(255, 0, 0, 0.4);
   }
 }
 /* this one does not seem to be working  */
-.card::hover {
-  scrollbar-color: red;
-}
