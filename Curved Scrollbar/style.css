@@ -16,23 +16,16 @@ body {
   justify-content: center;
 }
 .card-outer {
-  margin: 5rem;
   width: 20rem;
   height: 30rem;
-  border: solid red;
+  border: 2px solid red;
   border-radius: 15px;
-  overflow: scroll;
-  /* https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/scrollbar-color */
-  /* first color is thumb , second is gree */
-  scrollbar-color: blue green;
-  /* a thin scroll bar */
-  scrollbar-width: thin;
-  scroll-behavior: smooth;
+  overflow: hidden;
+  padding: 5px 0px;
 }
 .card-inner {
-  margin: 5rem;
-  width: 20rem;
-  height: 30rem;
+  width: 100%;
+  height: 100%;
   border: solid red;
   border-radius: 15px;
   overflow: scroll;
