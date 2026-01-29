@@ -28,13 +28,28 @@ body {
   height: 100%;
   border: solid purple;
 
-  overflow-y: auto;
+  /* overflow-y: auto; */
   /* https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/scrollbar-color */
   /* first color is thumb , second is gree */
-  scrollbar-color: blue green;
-  /* a thin scroll bar */
-  scrollbar-width: thin;
-  scroll-behavior: smooth;
+  /* scrollbar-color: blue green; */
+
+  /* scrollbar-width: 5px; */
+
+  /* scroll-behavior: smooth; */
+  overflow-y: auto; /* Adds the scrollbar here */
+  /* For cross-browser styling of the scrollbar itself (optional, but recommended for aesthetics) */
+  /* WebKit (Chrome, Safari, Edge) */
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px; /* Adds rounded corners to the scrollbar thumb itself */
+  }
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px; /* Adds rounded corners to the scrollbar track */
+  }
 }
 /* this one does not seem to be working  */
 .card::hover {
