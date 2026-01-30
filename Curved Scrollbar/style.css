@@ -27,30 +27,16 @@ body {
   width: 100%;
   height: 100%;
   border: solid purple;
-  overflow: visible;
 
+  height: 30rem;
+  border: solid red;
+  border-radius: 15px;
+  overflow: scroll;
   /* https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/scrollbar-color */
   /* first color is thumb , second is gree */
-  ::-webkit-scrollbar {
-    width: 12px;
-  }
-
-  /* Track */
-  ::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-  }
-
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    background: rgba(255, 0, 0, 0.8);
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
-  }
-  ::-webkit-scrollbar-thumb:window-inactive {
-    background: rgba(255, 0, 0, 0.4);
-  }
+  scrollbar-color: blue green;
+  /* a thin scroll bar */
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
 }
 /* this one does not seem to be working  */
