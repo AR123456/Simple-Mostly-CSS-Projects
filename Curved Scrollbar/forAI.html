@@ -28,12 +28,36 @@
         border: solid red;
         border-radius: 15px;
         overflow: scroll;
-        /* https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/scrollbar-color */
-        /* first color is thumb , second is gree */
-        scrollbar-color: blue green;
-        /* a thin scroll bar */
-        scrollbar-width: thin;
         scroll-behavior: smooth;
+
+        /* Firefox */
+        scrollbar-color: blue green;
+        scrollbar-width: thin;
+      }
+
+      /* WebKit browsers (Chrome, Safari, Edge) */
+      .card::-webkit-scrollbar {
+        width: 12px;
+      }
+
+      .card::-webkit-scrollbar-track {
+        background: green;
+        border-radius: 15px;
+        margin: 15px 0; /* This creates the curve effect at top/bottom */
+      }
+
+      .card::-webkit-scrollbar-thumb {
+        background: blue;
+        border-radius: 15px;
+      }
+
+      .card::-webkit-scrollbar-thumb:hover {
+        background: red;
+      }
+
+      /* Note: Your selector had a typo - should be :hover not ::hover */
+      .card:hover {
+        scrollbar-color: red green;
       }
     </style>
     <title>Curved Scroll</title>
