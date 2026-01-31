@@ -9,13 +9,13 @@ body {
   overflow: hidden;
   height: 100vh;
 }
-.container {
+.wrapper {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
-.card-outer {
+.scroll-container {
   width: 20rem;
   height: 30rem;
   border: 2px solid red;
@@ -23,7 +23,7 @@ body {
   overflow: hidden;
   padding: 5px 0px;
 }
-.card-inner {
+.scroll-content {
   width: 100%;
   height: 100%;
   border: solid purple;
