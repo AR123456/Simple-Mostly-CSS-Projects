@@ -1,42 +1,97 @@
-* {
-  box-sizing: border-box;
-}
-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  height: 100vh;
-}
 .wrapper {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  height: 500px;
+  width: min(100%, 600px);
+  margin: 0 auto;
 }
 .scroll-container {
-  width: 20rem;
-  height: 30rem;
-  border: 2px solid red;
-  border-radius: 15px;
+  --card-border-radius: 50px;
+
+  --thumb-color: rgb(0, 188, 255);
+  --thumb-color-active: dodgerblue;
+  --thumb-width: 4;
+  --thumb-width-active: 6;
+
+  --track-color: transparent;
+  --track-color-active: light-dark(#eee, #222);
+  --track-width: 4;
+  --track-width-active: 6;
+
+  /* styling for the second card */
+  &.box-2 {
+    --card-border-radius: 20px;
+    --thumb-color: rgb(154, 230, 0);
+    --thumb-color-active: rgb(124, 207, 0);
+  }
+
+  position: relative;
+  width: 100%;
+  contain: size;
+  margin: 3rem auto;
+  border: 1px solid var(--clr-lines);
+  border-radius: var(--card-border-radius);
   overflow: hidden;
-  padding: 5px 0px;
+  & h2 {
+    text-wrap: balance;
+    font-size: 1.1rem;
+  }
+  & img {
+    max-width: 100%;
+    display: block;
+  }
 }
+
 .scroll-content {
+  height: 100%;
+  overflow-y: auto;
+  padding: 1rem 1.5rem 1rem 1rem; /* space on right for scrollbar */
+
+  /* keep scrolling functional */
+  overflow-y: scroll;
+
+  /* hide scrollbars */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge Legacy */
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
+  }
+}
+.scrollbar-svg {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  border: solid purple;
-
-  height: 30rem;
-  border: solid red;
-  border-radius: 15px;
-  overflow: scroll;
-  /* https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/scrollbar-color */
-  /* first color is thumb , second is gree */
-  scrollbar-color: blue green;
-  /* a thin scroll bar */
-  scrollbar-width: thin;
-  scroll-behavior: smooth;
+  pointer-events: none;
+  &:has(:active) {
+    --thumb-width: var(--thumb-width-active);
+    --track-width: var(--track-width-active);
+    --track-color: var(--track-color-active);
+  }
 }
-/* this one does not seem to be working  */
+
+.scrollbar-track {
+  fill: none;
+  stroke: var(--track-color);
+  stroke-width: var(--track-width);
+  stroke-linecap: round;
+  transition: stroke-width, stroke;
+  transiton-duration: 150ms;
+  transition-timing-function: ease-in-out;
+}
+.scrollbar-thumb {
+  fill: none;
+  stroke: var(--thumb-color);
+  stroke-width: var(--thumb-width);
+  stroke-linecap: round;
+  pointer-events: auto;
+  cursor: grab;
+  transition: stroke-width, stroke;
+  transiton-duration: 150ms;
+  transition-timing-function: ease-in-out;
+  &:active {
+    stroke: var(--thumb-color-active);
+    cursor: grabbing;
+  }
+}
