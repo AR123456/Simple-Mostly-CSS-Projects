@@ -1,9 +1,9 @@
 // config
 const offset = 7; // distance from edge of container
-const EXTRA_INSET = 2;
-const MIN_START_RATIO = 0.8;
-const MIN_THUMB = 20;
-const SEGMENTS = 50;
+const extraInset = 2;
+const minStartRatio = 0.8;
+const minThumb = 20;
+const segments = 50;
 
 // init scrollbars - each has their own scoped functions and settings
 document.querySelectorAll("[data-scrollbar]").forEach((container) => {
@@ -54,8 +54,8 @@ function initCurvedScrollbar(container) {
     const cornerX = trackX - effectiveRadius;
 
     // calculate x start point - ensure that it is never higher than the corner radius start point
-    const minStartX = w * MIN_START_RATIO;
-    let startX = trackX - effectiveRadius * EXTRA_INSET;
+    const minStartX = w * minStartRatio;
+    let startX = trackX - effectiveRadius * extraInset;
     if (startX < minStartX) startX = minStartX;
     if (startX > cornerX) startX = cornerX;
 
@@ -73,7 +73,7 @@ function initCurvedScrollbar(container) {
     // calculate length of thumb based on content height
     pathLength = trackPath.getTotalLength();
     const ratio = content.clientHeight / content.scrollHeight;
-    thumbLength = Math.max(MIN_THUMB, pathLength * ratio);
+    thumbLength = Math.max(minThumb, pathLength * ratio);
 
     updateThumb();
   }
@@ -88,8 +88,8 @@ function initCurvedScrollbar(container) {
     // the thumb needs to follow the path so we get the generated path points
     // NOTE - the high number of segments help follow the curves
     const points = [];
-    for (let i = 0; i <= SEGMENTS; i++) {
-      const t = startoffset + ((endoffset - startoffset) / SEGMENTS) * i;
+    for (let i = 0; i <= segments; i++) {
+      const t = startoffset + ((endoffset - startoffset) / segments) * i;
       const p = trackPath.getPointAtLength(t);
       points.push(`${p.x} ${p.y}`);
     }
