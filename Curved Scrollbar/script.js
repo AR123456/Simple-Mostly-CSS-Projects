@@ -1,8 +1,13 @@
 // config
-const offset = 7; // distance from edge of container
+// Distance from container edge → where the scrollbar sits.
+const offset = 7;
+// Pulls the track slightly inward from rounded corners so it doesn’t clip.
 const extraInset = 2;
+// Prevents the track from starting too far left — ensures it stays near the right edge.
 const minStartRatio = 0.8;
+// Minimum thumb length in pixels so it never becomes too small to grab.
 const minThumb = 20;
+// How many line segments are used to approximate the curved thumb path.
 const segments = 50;
 
 // init scrollbars - each has their own scoped functions and settings
@@ -30,6 +35,7 @@ function initCurvedScrollbar(container) {
     "path",
   );
   thumbPath.classList.add("scrollbar-thumb");
+  console.log(svg);
 
   svg.appendChild(trackPath);
   svg.appendChild(thumbPath);
