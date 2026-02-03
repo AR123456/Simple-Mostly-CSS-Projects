@@ -19,8 +19,8 @@ document.querySelectorAll("[data-scrollbar]").forEach((container) => {
 function initCurvedScrollbar(container) {
   const content = container.querySelector(".scroll-content");
 
-  // create and add SVG
-  svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  // create and add SVG-note adding const to svg so its not global scope
+  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   svg.classList.add("scrollbar-svg");
   svg.setAttribute("aria-hidden", "true");
 
@@ -35,7 +35,6 @@ function initCurvedScrollbar(container) {
     "path",
   );
   thumbPath.classList.add("scrollbar-thumb");
-  console.log(svg);
 
   svg.appendChild(trackPath);
   svg.appendChild(thumbPath);
