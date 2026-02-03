@@ -46,10 +46,13 @@ function initCurvedScrollbar(container) {
   let dragging = false;
   let pointerId = null;
 
-  // function - update
+  // function - update recalculate the SVG path whenever size changes
   function updatePath() {
+    //compute curved path that runs down r side, bends around corners, respects container radius
     const w = container.clientWidth;
     const h = container.clientHeight;
+    // https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle
+
     const r = parseFloat(getComputedStyle(container).borderRadius) || 0;
 
     const effectiveRadius = Math.max(r - offset, 0);
