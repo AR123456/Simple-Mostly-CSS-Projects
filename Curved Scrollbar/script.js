@@ -54,7 +54,6 @@ function initCurvedScrollbar(container) {
     // https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle
 
     const r = parseFloat(getComputedStyle(container).borderRadius) || 0;
-
     const effectiveRadius = Math.max(r - offset, 0);
     const trackX = w - offset;
     const topY = offset;
@@ -79,6 +78,7 @@ function initCurvedScrollbar(container) {
     trackPath.setAttribute("d", d);
 
     // calculate length of thumb based on content height
+    // if visible content is 50% of total thumb 50 % of path if 10% thumb shrinks
     pathLength = trackPath.getTotalLength();
     const ratio = content.clientHeight / content.scrollHeight;
     thumbLength = Math.max(minThumb, pathLength * ratio);
