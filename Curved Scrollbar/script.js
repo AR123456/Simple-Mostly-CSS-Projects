@@ -121,10 +121,13 @@ function initCurvedScrollbar(container) {
 
   // function - drag thumb
   window.addEventListener("pointermove", (e) => {
+    // map pointer position → scroll position.
     if (!dragging || e.pointerId !== pointerId) return;
     const rect = container.getBoundingClientRect();
+    //ratio = (mouseY - containerTop) / containerHeight
     let ratio = (e.clientY - rect.top) / rect.height;
     ratio = Math.max(0, Math.min(1, ratio));
+    // content.scrollTop = ratio * scrollableHeight
     content.scrollTop = ratio * (content.scrollHeight - content.clientHeight);
     updateThumb();
   });
