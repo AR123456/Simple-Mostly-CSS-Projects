@@ -88,6 +88,8 @@ function initCurvedScrollbar(container) {
 
   // function - thumb update
   function updateThumb() {
+    // compute scroll ratio, convert it distance along svg path, sample points along path, build mini path with those points, make the thumb follow exact curve of track
+
     const scrollableHeight = content.scrollHeight - content.clientHeight || 1;
     const scrollRatio = content.scrollTop / scrollableHeight;
     const startoffset = (pathLength - thumbLength) * scrollRatio;
