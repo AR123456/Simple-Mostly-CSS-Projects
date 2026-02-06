@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simple Web App — Tasks</title>
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --accent:#06b6d4; --muted:#94a3b8; --text:#e6eef8;
+      --radius:10px; --gap:12px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+      background:linear-gradient(180deg,#071024 0%, #081427 60%); color:var(--text);
+      padding:32px;
+    }
+    .app{
+      width:100%; max-width:900px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:var(--radius); padding:20px; box-shadow:0 6px 30px rgba(2,6,23,0.6); border:1px solid rgba(255,255,255,0.03);
+    }
+    header{display:flex; align-items:center; gap:16px; margin-bottom:18px}
+    .logo{
+      width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#3b82f6);
+      display:flex;align-items:center;justify-content:center;font-weight:700;color:#022; font-size:18px;
+    }
+    h1{font-size:1.1rem;margin:0}
+    p.lead{margin:0;color:var(--muted);font-size:0.9rem}
+    .controls{display:flex;gap:12px;align-items:center;margin:14px 0}
+    .input{
+      flex:1; display:flex; gap:8px; align-items:center;
+    }
+    input[type="text"]{
+      width:100%; padding:10px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.04);
+      background:transparent; color:var(--text); outline:none; font-size:0.95rem;
+    }
+    button{
+      background:var(--accent); color:#042028; border:none; padding:10px 14px; border-radius:8px; cursor:pointer; font-weight:600;
+    }
+    .filters{display:flex;gap:8px}
+    .filters button{background:transparent;border:1px solid rgba(255,255,255,0.03); color:var(--muted); padding:8px 10px; border-radius:8px;font-weight:600;cursor:pointer}
+    .filters button.active{background:rgba(255,255,255,0.03); color:var(--text); border-color:rgba(255,255,255,0.06)}
+    .list{margin-top:12px; display:grid; gap:10px}
+    .card{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      padding:12px; background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+      border-radius:8px; border:1px solid rgba(255,255,255,0.02);
+    }
+    .left{display:flex;gap:12px;align-items:center;flex:1}
+    .checkbox{
+      width:20px;height:20px;border-radius:6px;border:1px solid rgba(255,255,255,0.06);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;
+    }
+    .title{font-size:0.98rem}
+    .title.completed{color:var(--muted); text-decoration:line-through}
+    .meta{color:var(--muted); font-size:0.85rem}
+    .actions{display:flex;gap:8px;align-items:center}
+    .icon-btn{background:transparent;border:0;color:var(--muted);cursor:pointer;padding:8px;border-radius:6px}
+    .icon-btn:hover{background:rgba(255,255,255,0.02); color:var(--text)}
+    footer{margin-top:14px; display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:0.9rem}
+    @media (max-width:520px){
+      header{flex-direction:column;align-items:flex-start}
+      .controls{flex-direction:column;align-items:stretch}
+      .filters{flex-wrap:wrap}
+    }
+  </style>
+</head>
+<body>
+  <main class="app" id="app">
+    <header>
+      <div class="logo" aria-hidden>WS</div>
+      <div>
+        <h1>Tasks — Simple Web App</h1>
+        <p class="lead">Create, complete, and persist tasks in your browser.</p>
+      </div>
+    </header>
+
+    <section class="controls" aria-label="Controls">
+      <form id="addForm" class="input" aria-label="Add task">
+        <label for="taskInput" class="sr-only" hidden>Task</label>
+        <input id="taskInput" type="text" placeholder="Add a new task and press Enter" autocomplete="off" required />
+        <button type="submit" aria-label="Add task">Add</button>
+      </form>
+
+      <div class="filters" role="tablist" aria-label="Filters">
+        <button data-filter="all" class="active" role="tab" aria-selected="true">All</button>
+        <button data-filter="active" role="tab">Active</button>
+        <button data-filter="completed" role="tab">Completed</button>
+      </div>
+    </section>
+
+    <section>
+      <div id="list" class="list" aria-live="polite"></div>
+    </section>
+
+    <footer>
+      <div id="count">0 tasks</div>
+      <div>
+        <button id="clearCompleted" class="icon-btn" title="Clear completed">Clear completed</button>
+        <button id="clearAll" class="icon-btn" title="Clear all">Clear all</button>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      const STORAGE_KEY = 'simple_tasks_v1';
+      const app = document.getElementById('app');
+      const listEl = document.getElementById('list');
+      const addForm = document.getElementById('addForm');
+      const taskInput = document.getElementById('taskInput');
+      const filters = document.querySelectorAll('.filters button');
+      const countEl = document.getElementById('count');
+      const clearCompletedBtn = document.getElementById('clearCompleted');
+      const clearAllBtn = document.getElementById('clearAll');
+
+      let tasks = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      let filter = 'all';
+
+      function save() {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+      }
+
+      function uid() {
+        return Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+      }
+
+      function render() {
+        listEl.innerHTML = '';
+        const visible = tasks.filter(t => {
+          if (filter === 'active') return !t.completed;
+          if (filter === 'completed') return t.completed;
+          return true;
+        });
+
+        for (const task of visible) {
+          const card = document.createElement('div');
+          card.className = 'card';
+          card.dataset.id = task.id;
+
+          const left = document.createElement('div');
+          left.className = 'left';
+
+          const checkbox = document.createElement('button');
+          checkbox.className = 'checkbox';
+          checkbox.setAttribute('aria-pressed', String(task.completed));
+          checkbox.title = task.completed ? 'Mark as active' : 'Mark as completed';
+          checkbox.innerHTML = task.completed ? '✓' : '';
+
+          const titleWrap = document.createElement('div');
+          titleWrap.style.flex = '1';
+
+          const title = document.createElement('div');
+          title.className = 'title' + (task.completed ? ' completed' : '');
+          title.textContent = task.text;
+
+          const meta = document.createElement('div');
+          meta.className = 'meta';
+          const date = new Date(task.created);
+          meta.textContent = date.toLocaleString();
+
+          titleWrap.appendChild(title);
+          titleWrap.appendChild(meta);
+
+          left.appendChild(checkbox);
+          left.appendChild(titleWrap);
+
+          const actions = document.createElement('div');
+          actions.className = 'actions';
+
+          const editBtn = document.createElement('button');
+          editBtn.className = 'icon-btn';
+          editBtn.title = 'Edit';
+          editBtn.textContent = 'Edit';
+
+          const delBtn = document.createElement('button');
+          delBtn.className = 'icon-btn';
+          delBtn.title = 'Delete';
+          delBtn.textContent = 'Delete';
+
+          actions.appendChild(editBtn);
+          actions.appendChild(delBtn);
+
+          card.appendChild(left);
+          card.appendChild(actions);
+
+          listEl.appendChild(card);
+        }
+
+        updateCount();
+      }
+
+      function updateCount() {
+        const remaining = tasks.filter(t => !t.completed).length;
+        countEl.textContent = remaining + (remaining === 1 ? ' task' : ' tasks');
+      }
+
+      addForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const text = taskInput.value.trim();
+        if (!text) return;
+        tasks.unshift({ id: uid(), text, completed: false, created: Date.now() });
+        save();
+        taskInput.value = '';
+        render();
+        taskInput.focus();
+      });
+
+      // Event delegation for list actions
+      listEl.addEventListener('click', (e) => {
+        const card = e.target.closest('.card');
+        if (!card) return;
+        const id = card.dataset.id;
+        const taskIndex = tasks.findIndex(t => t.id === id);
+        if (taskIndex === -1) return;
+
+        if (e.target.matches('.checkbox')) {
+          tasks[taskIndex].completed = !tasks[taskIndex].completed;
+          save(); render();
+          return;
+        }
+
+        if (e.target.matches('.icon-btn')) {
+          const txt = e.target.textContent;
+          if (txt === 'Delete') {
+            tasks.splice(taskIndex, 1);
+            save(); render();
+            return;
+          }
+          if (txt === 'Edit') {
+            const newText = prompt('Edit task', tasks[taskIndex].text);
+            if (newText === null) return;
+            tasks[taskIndex].text = newText.trim() || tasks[taskIndex].text;
+            save(); render();
+            return;
+          }
+        }
+      });
+
+      filters.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filters.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          filter = btn.dataset.filter;
+          filters.forEach(b => b.setAttribute('aria-selected', b === btn ? 'true' : 'false'));
+          render();
+        });
+      });
+
+      clearCompletedBtn.addEventListener('click', () => {
+        tasks = tasks.filter(t => !t.completed);
+        save(); render();
+      });
+
+      clearAllBtn.addEventListener('click', () => {
+        if (!confirm('Clear all tasks?')) return;
+        tasks = [];
+        save(); render();
+      });
+
+      // Initial render
+      render();
+    })();
+  </script>
+</body>
+</html>
