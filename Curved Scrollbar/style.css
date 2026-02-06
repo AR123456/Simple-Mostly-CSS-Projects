@@ -81,7 +81,7 @@
     stroke-width: var(--track-width);
     stroke-linecap: round;
     transition: stroke-width, stroke;
-    transition-duration: 150ms;
+    transiton-duration: 150ms;
     transition-timing-function: ease-in-out;
   }
   .scrollbar-thumb {
@@ -92,7 +92,7 @@
     pointer-events: auto;
     cursor: grab;
     transition: stroke-width, stroke;
-    transition-duration: 150ms;
+    transiton-duration: 150ms;
     transition-timing-function: ease-in-out;
     &:active {
       stroke: var(--thumb-color-active);
