@@ -1,6 +1,7 @@
-* {
-  box-sizing: border-box;
+*,
+::after,
+::before {
   border-style: solid;
   border-width: 0;
-  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
 }
