@@ -18,7 +18,94 @@
           <button data-ctrl="demo" data-action="complete">Complete</button>
           <button data-ctrl="demo" data-action="reset">Reset</button>
         </div>
-        <type-writer id="demo"></type-writer>
+        <!-- https://developer.mozilla.org/en-US/docs/Web/API/Window/customElements -->
+        <type-writer id="demo" autostart="true" speed="60">
+          <h3>TypeWriter Web Component</h3>
+          <p>
+            A web component for character-by-character text animation with HTML
+            support. Suitable for interactive storytelling, educational
+            tutorials, chat simulations, and dynamic content presentation.
+          </p>
+
+          <h4>Features</h4>
+          <ul>
+            <li>
+              <strong>HTML Support</strong> — Preserves tags including
+              <em>emphasis</em>, <a href="#">links</a>, <code>code</code>, and
+              nested structures
+            </li>
+            <li>
+              <strong>Bidirectional Text</strong> — Supports LTR and RTL text
+              direction via <code>dir</code> attribute
+            </li>
+            <li>
+              <strong>Dynamic Content</strong> — Update content with
+              <code>setText()</code> method
+            </li>
+            <li>
+              <strong>Playback Control</strong> — Methods for start, pause,
+              resume, complete, and reset
+            </li>
+            <li>
+              <strong>Progress Events</strong> — Dispatches progress events
+              during animation
+            </li>
+            <li>
+              <strong>Accessibility Features</strong> — ARIA live regions and
+              optional reduced motion support
+            </li>
+          </ul>
+
+          <h4>Configuration Attributes</h4>
+          <ul>
+            <li><code>speed</code> — Characters per second (default: 100)</li>
+            <li>
+              <code>min-duration</code> — Minimum animation duration in ms
+              (default: 50)
+            </li>
+            <li>
+              <code>max-duration</code> — Maximum animation duration in ms
+              (default: 500)
+            </li>
+            <li>
+              <code>autostart</code> — Auto-start on load, set to "false" to
+              disable (default: true)
+            </li>
+            <li>
+              <code>dir</code> — Text direction: "ltr" or "rtl" (default: ltr)
+            </li>
+            <li>
+              <code>respect-motion-preference</code> — Respect
+              prefers-reduced-motion media query (default: false)
+            </li>
+            <li>
+              <code>aria-label</code> — ARIA label for the container region
+            </li>
+          </ul>
+
+          <h4>JavaScript API</h4>
+          <ul>
+            <li><code>start()</code> — Begin animation from start</li>
+            <li><code>pause()</code> — Pause animation</li>
+            <li><code>resume()</code> — Resume paused animation</li>
+            <li><code>complete()</code> — Display all content instantly</li>
+            <li><code>reset()</code> — Clear content and reset state</li>
+            <li><code>setText(html)</code> — Replace content and reset</li>
+          </ul>
+
+          <h4>Events</h4>
+          <ul>
+            <li><code>start</code> — Dispatched when animation begins</li>
+            <li><code>pause</code> — Dispatched when animation pauses</li>
+            <li><code>resume</code> — Dispatched when animation resumes</li>
+            <li><code>complete</code> — Dispatched when animation finishes</li>
+            <li><code>reset</code> — Dispatched when component resets</li>
+            <li>
+              <code>progress</code> — Dispatched every 10 characters with
+              {current, total, percent}
+            </li>
+          </ul>
+        </type-writer>
         <div id="progress"></div>
       </div>
     </div>
