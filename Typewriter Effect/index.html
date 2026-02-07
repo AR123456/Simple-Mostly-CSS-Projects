@@ -8,14 +8,21 @@
   </head>
   <body>
     <div class="wrapper">
-      <div id="controls">
-        <button data-ctrl="demo" data-action="start">Start</button>
-        <button data-ctrl="demo" data-action="pause">Pause</button>
-        <button data-ctrl="demo" data-action="resume">Resume</button>
-        <button data-ctrl="demo" data-action="complete">Complete</button>
-        <button data-ctrl="demo" data-action="reset">Reset</button>
+      <h1>Look at this typewriter effect</h1>
+      <div class="demo-section">
+        <h2>Interactive Demo</h2>
+        <div id="controls">
+          <button data-ctrl="demo" data-action="start">Start</button>
+          <button data-ctrl="demo" data-action="pause">Pause</button>
+          <button data-ctrl="demo" data-action="resume">Resume</button>
+          <button data-ctrl="demo" data-action="complete">Complete</button>
+          <button data-ctrl="demo" data-action="reset">Reset</button>
+        </div>
+        <type-writer id="demo"></type-writer>
+        <div id="progress"></div>
       </div>
     </div>
+    <div class="resources-layer"></div>
     <script src="app.js"></script>
   </body>
 </html>
