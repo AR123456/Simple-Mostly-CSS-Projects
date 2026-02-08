@@ -19,3 +19,18 @@ body {
   margin-inline: auto;
   width: min(100%-2rem, 56.25rem);
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-block-start: 0;
+  text-wrap: balance;
+}
+h1,
+h2,
+h3 {
+  letter-spacing: 0.025em;
+  line-height: 1.1;
+}
