@@ -36,4 +36,6 @@ h3 {
 }
 .demo-section {
   border-inline-start: 0.1875rem solid color-mix(in oklab, #653449 30%, #f4eeeb);
+  margin-block-end: 2rem;
+  padding-inline-start: 1rem;
 }
