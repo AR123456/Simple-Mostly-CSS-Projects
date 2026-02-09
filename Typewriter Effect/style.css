@@ -48,5 +48,5 @@ a:visited {
   color: color-mix(in oklch, var(--dark-color), #fff 10%);
 }
 a:where(:hover, :focus-visible) {
-  color: var(--color-text);
+  color: #653449;
 }
