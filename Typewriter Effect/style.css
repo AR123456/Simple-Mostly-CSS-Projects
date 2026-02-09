@@ -69,3 +69,7 @@ pre code {
   padding: 0;
   word-break: normal;
 }
+type-writer {
+  display: block;
+  margin-block: 1rem;
+}
