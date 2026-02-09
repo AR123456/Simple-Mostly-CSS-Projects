@@ -39,3 +39,8 @@ h3 {
   margin-block-end: 2rem;
   padding-inline-start: 1rem;
 }
+a {
+  color: color-mix(in oklab, #653449 30%, #f4eeeb);
+
+  transition: color 0.2s ease;
+}
