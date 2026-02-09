@@ -44,3 +44,9 @@ a {
 
   transition: color 0.2s ease;
 }
+a:visited {
+  color: color-mix(in oklch, var(--dark-color), #fff 10%);
+}
+a:where(:hover, :focus-visible) {
+  color: var(--color-text);
+}
