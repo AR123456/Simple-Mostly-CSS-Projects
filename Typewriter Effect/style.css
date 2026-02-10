@@ -44,14 +44,14 @@ a {
   transition: color 0.2s ease;
 }
 a:visited {
-  color: color-mix(in oklch, var(--dark-color), #fff 10%);
+  color: color-mix(in oklch, #653449, #fff 10%);
 }
 a:where(:hover, :focus-visible) {
   color: #653449;
 }
 code,
 pre {
-  background: var(--color-bg-alt);
+  background: color-mix(in oklch, #f4eeeb, #000 10%);
   font-family: ui-monospace, "Cascadia Code", "Source Code Pro", monospace;
 }
 code {
