@@ -79,3 +79,12 @@ type-writer {
   gap: 0.5rem;
   margin-block-end: 1rem;
 }
+#progress {
+  background: var(--color-bg-alt);
+  color: var(--color-accent);
+  display: flex;
+  font-size: 0.875rem;
+  margin-block-start: 1rem;
+  min-height: 2rem;
+  padding: 0.5rem;
+}
