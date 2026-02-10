@@ -80,8 +80,8 @@ type-writer {
   margin-block-end: 1rem;
 }
 #progress {
-  background: var(--light-color-darker);
-  color: color-mix(in oklab, var(--color-text) 80%, var(--color-bg));
+  background: color-mix(in oklch, #f4eeeb, #000 10%);
+  color: color-mix(in oklab, #653449 80%, #f4eeeb);
   display: flex;
   font-size: 0.875rem;
   margin-block-start: 1rem;
