@@ -73,3 +73,9 @@ type-writer {
   display: block;
   margin-block: 1rem;
 }
+#controls {
+  display: flex;
+  flex-direction: wrap;
+  gap: 0.5rem;
+  margin-block-end: 1rem;
+}
