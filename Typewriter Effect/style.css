@@ -88,3 +88,14 @@ type-writer {
   min-height: 2rem;
   padding: 0.5rem;
 }
+#progress,
+button {
+  align-items: center;
+}
+button {
+  appearance: none;
+  background: red;
+  border: 0.0625rem solid green;
+  border-radius: 5px;
+  color: yellow;
+}
