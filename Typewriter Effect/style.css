@@ -123,3 +123,10 @@ button:where(:hover):not(:disabled):not([aria-disabled="true"]) {
   background: color-mix(in oklab, #653449 80%, #f4eeeb);
   border-color: color-mix(in oklab, #653449 80%, #f4eeeb);
 }
+button:where(:disabled, [aria-disabled="true"]) {
+  background: color-mix(in oklch, var(--light-color), #000 10%);
+  border-color: color-mix(in oklab, var(--color-text) 30%, var(--color-bg));
+  color: color-mix(in oklab, var(--color-text), var(--color-bg));
+  cursor: not-allowed;
+  opacity: 1;
+}
