@@ -124,9 +124,9 @@ button:where(:hover):not(:disabled):not([aria-disabled="true"]) {
   border-color: color-mix(in oklab, #653449 80%, #f4eeeb);
 }
 button:where(:disabled, [aria-disabled="true"]) {
-  background: color-mix(in oklch, var(--light-color), #000 10%);
-  border-color: color-mix(in oklab, var(--color-text) 30%, var(--color-bg));
-  color: color-mix(in oklab, var(--color-text), var(--color-bg));
+  background: color-mix(in oklch, #f4eeeb, #000 10%);
+  border-color: color-mix(in oklab, #653449 30%, #f4eeeb);
+  color: color-mix(in oklab, #653449, #f4eeeb);
   cursor: not-allowed;
   opacity: 1;
 }
