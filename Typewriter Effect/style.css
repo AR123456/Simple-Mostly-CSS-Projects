@@ -115,3 +115,11 @@ button {
   user-select: none;
   white-space: nowrap;
 }
+button:focus-visible,
+button:where(:active, .is-active, [aria-pressed="true"]):not(:disabled):not(
+    [aria-disabled="true"]
+  ),
+button:where(:hover):not(:disabled):not([aria-disabled="true"]) {
+  background: color-mix(in oklab, #653449 80%, #f4eeeb);
+  border-color: color-mix(in oklab, #653449 80%, #f4eeeb);
+}
