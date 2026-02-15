@@ -9,8 +9,14 @@ class TypeWriter extends HTMLElement {
     this._idx = 0;
     this._nodes = [];
   }
-  connectedCallback() {
-    console.log("in the html");
-  }
+  connectedCallback() {}
+  disconnectedCallback() {}
+  _flattenNodes(node) {}
+  async start() {}
+  pause() {}
+  resume() {}
+  complete() {}
+  reset() {}
+  setText(html) {}
 }
 customElements.define("type-writer", TypeWriter);
