@@ -1,5 +1,7 @@
 // js file
-class TypeWriter extends HTMLElement{
-    console.log("in the class")
+class TypeWriter extends HTMLElement {
+  connectedCallback() {
+    console.log("in the html");
+  }
 }
-customElements.define("type-writer", TypeWriter)
+customElements.define("type-writer", TypeWriter);
