@@ -1,13 +1,16 @@
 * {
   box-sizing: border-box;
 }
+
 .container {
   display: grid;
-  grid-template-columns: repeat(2, 30rem);
-  grid-template-rows: repeat(4, 0rem);
-  gap: 1rem;
-  place-content: center;
+  grid-template-columns: repeat(2, 10rem); /* 2 columns */
+  grid-template-rows: repeat(4, 10rem); /* 4 rows */
+  gap: 1rem; /* space between cards */
+  place-content: center; /* center the whole grid */
+  height: 100vh;
 }
+
 .card {
   border: 2px solid black;
 }
