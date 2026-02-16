@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+}
+.card {
+  height: 10rem;
+  width: 10rem;
+  border: 2px solid black;
+}
