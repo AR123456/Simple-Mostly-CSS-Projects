@@ -2,15 +2,12 @@
   box-sizing: border-box;
 }
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(2, 30rem);
+  grid-template-rows: repeat(4, 0rem);
+  gap: 1rem;
+  place-content: center;
 }
 .card {
-  height: 10rem;
-  width: 10rem;
   border: 2px solid black;
 }
