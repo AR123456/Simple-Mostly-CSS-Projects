@@ -20,3 +20,5 @@ class TypeWriter extends HTMLElement {
   setText(html) {}
 }
 customElements.define("type-writer", TypeWriter);
+
+// document.addEventListener(eventtype,callbackFunction);
