@@ -4,13 +4,13 @@
 
 .container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   max-width: 90vw;
   margin: 0 auto;
 }
 
 .card {
-  aspect-ratio: 1 / 1; /* keeps them square */
+  aspect-ratio: 1 / 1;
   border: 2px solid black;
 }
