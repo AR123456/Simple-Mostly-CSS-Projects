@@ -1,29 +1,15 @@
-That’s exactly what media queries are for. ✅ Clean Mobile-First Grid * {
+* {
   box-sizing: border-box;
 }
 
 .container {
   display: grid;
-  grid-template-columns: 1fr; /* 📱 default: 1 column */
+  grid-template-columns: repeat(2, minmax(200px, 1fr));
   gap: 1rem;
-  padding: 1rem;
-}
+  width: min(1200px, 90vw);
+  margin: 0 auto;
 
 .card {
   aspect-ratio: 1 / 1;
   border: 2px solid black;
-}
-
-/* 📲 Tablets */
-@media (min-width: 600px) {
-  .container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* 🖥 Desktop */
-@media (min-width: 1000px) {
-  .container {
-    grid-template-columns: repeat(3, 1fr);
-  }
 }
