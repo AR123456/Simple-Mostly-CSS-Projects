@@ -9,13 +9,25 @@
   <body>
     <div class="container">
       <div class="card">
-        <audio src=""></audio>
+        <h2>Listen to this</h2>
+        <audio controls src="./t-rex-roar.mp3"></audio>
       </div>
       <div class="card">
-        <canvas></canvas>
+        <h2>I drew this using canvas</h2>
+        <canvas width="120" height="120">
+          An alternative text describing what your canvas displays.
+        </canvas>
       </div>
       <div class="card">
-        <datalist></datalist>
+        <h2>A data list</h2>
+        <label for="ice-cream">Choose a flavor</label>
+        <input list="flavors" id="ice-cream" name=" ice-cream" />
+        <datalist id="flavors">
+          <option value="Chocolate"></option>
+          <option value="Sherbet"></option>
+          <option value="Vanilla"></option>
+          <option value="Cookie Dough"></option>
+        </datalist>
       </div>
       <div class="card">
         <details></details>
