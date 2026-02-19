@@ -22,3 +22,6 @@ class TypeWriter extends HTMLElement {
 customElements.define("type-writer", TypeWriter);
 
 // document.addEventListener(eventtype,callbackFunction);
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("loaded");
+});
