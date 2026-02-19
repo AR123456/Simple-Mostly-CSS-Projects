@@ -27,9 +27,14 @@ document.addEventListener("DOMContentLoaded", () => {
   // loop the demo elements on the  buttons
   const demoEl = document.getElementById("demo");
   const progress = document.getElementById("progress");
-
-  // check if its a demo
-
+    // check if a demo build progress bar text
+if(demoEl && progress){
+ demoEl.addEventListener("progress",(ev)=>{
+  progress.textContent=`Progress: ${ev.detail.percent.toFixed(1)}% (${
+    ev.detail.current}/${ev.detail.total});`
+  })
+ })
+}
   // update buttons
 
   // map typewriterStates
