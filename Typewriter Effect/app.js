@@ -19,11 +19,14 @@ class TypeWriter extends HTMLElement {
   reset() {}
   setText(html) {}
 }
+// customElements.define(tagName, class, options);
 customElements.define("type-writer", TypeWriter);
 
 // document.addEventListener(eventtype,callbackFunction);
 document.addEventListener("DOMContentLoaded", () => {
-  // get elements needed for type writer
+  // loop the demo elements on the  buttons
+  const demoEl = document.getElementById("demo");
+  const progress = document.getElementById("progress");
 
   // check if its a demo
 
