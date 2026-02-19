@@ -23,5 +23,15 @@ customElements.define("type-writer", TypeWriter);
 
 // document.addEventListener(eventtype,callbackFunction);
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("loaded");
+  // get elements needed for type writer
+
+  // check if its a demo
+
+  // update buttons
+
+  // map typewriterStates
+
+  document.querySelectorAll("type-writer").forEach((el) => {});
+
+  document.addEventListener("click", () => {});
 });
