@@ -1,4 +1,5 @@
 // this is chat GPT simple version with no custom events
+// it works kind of but the buttons do not work
 class TypeWriter extends HTMLElement {
   constructor() {
     super();
