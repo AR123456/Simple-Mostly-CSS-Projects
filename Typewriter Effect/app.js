@@ -23,15 +23,21 @@ class TypeWriter extends HTMLElement {
 customElements.define("type-writer", TypeWriter);
 
 // document.addEventListener(eventtype,callbackFunction);
+// this should be solved with defer in the app.js script tag
+//<script src="app.js" defer></script>
 document.addEventListener("DOMContentLoaded", () => {
   // loop the demo elements on the  buttons
   const demoEl = document.getElementById("demo");
   const progress = document.getElementById("progress");
   // check if a demo build progress bar text
   if (demoEl && progress) {
+    // progress is a custom event
     demoEl.addEventListener("progress", (ev) => {
       progress.textContent = `Progress: ${ev.detail.percent.toFixed(1)}% (${ev.detail.current}/${ev.detail.total})`;
-      //
+      //complete is a custom event
+      demoEl.addEventListener("complete", () => {
+        progress.textContent = "Animation complete!";
+      });
     });
   }
   // update buttons
