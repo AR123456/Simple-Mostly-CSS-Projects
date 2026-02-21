@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
   // update buttons
+  const updateButtons = (id, state) => {};
 
   // map typewriterStates
 
