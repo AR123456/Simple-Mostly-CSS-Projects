@@ -68,6 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // map typewriterStates
+  const typewriterStates = new Map();
 
   document.querySelectorAll("type-writer").forEach((el) => {});
 
