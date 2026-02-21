@@ -70,7 +70,29 @@ document.addEventListener("DOMContentLoaded", () => {
   // map typewriterStates
   const typewriterStates = new Map();
 
-  document.querySelectorAll("type-writer").forEach((el) => {});
+  document.querySelectorAll("type-writer").forEach((el) => {
+    const id = el.id;
+    if (!id) return;
+
+    const autostart = el.getAttribute("autostart") !== "false";
+    const state = { running: autostart, paused: false };
+    typewriterStates.set(id, state);
+    // start
+    el.addEventListener("start", () => {
+      state.running = true;
+      state.paused = false;
+      updateButtons(id, state);
+    });
+    // paused
+
+    // resume
+
+    //complete
+
+    // reset
+
+    // queue micro task
+  });
 
   document.addEventListener("click", () => {});
 });
