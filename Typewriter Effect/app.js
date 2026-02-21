@@ -89,7 +89,10 @@ document.addEventListener("DOMContentLoaded", () => {
       updateButtons(id, state);
     });
     // resume
-    el.addEventListener("resume", () => {});
+    el.addEventListener("resume", () => {
+      state.paused = false;
+      updateButtons(id, state);
+    });
     //complete
     el.addEventListener("complete", () => {});
     // reset
