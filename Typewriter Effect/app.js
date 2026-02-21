@@ -84,13 +84,16 @@ document.addEventListener("DOMContentLoaded", () => {
       updateButtons(id, state);
     });
     // paused
-
+    el.addEventListener("paused", () => {
+      state.paused = true;
+      updateButtons(id, state);
+    });
     // resume
-
+    el.addEventListener("resume", () => {});
     //complete
-
+    el.addEventListener("complete", () => {});
     // reset
-
+    el.addEventListener("reset", () => {});
     // queue micro task
   });
 
