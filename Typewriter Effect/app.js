@@ -100,7 +100,11 @@ document.addEventListener("DOMContentLoaded", () => {
       updateButtons(id, state);
     });
     // reset
-    el.addEventListener("reset", () => {});
+    el.addEventListener("reset", () => {
+      state.running = false;
+      state.paused = false;
+      updateButtons(id, state);
+    });
     // queue micro task
   });
 
