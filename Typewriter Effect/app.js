@@ -106,6 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
       updateButtons(id, state);
     });
     // queue micro task
+    queueMicrotask(() => updateButtons(id, state));
   });
 
   document.addEventListener("click", () => {});
