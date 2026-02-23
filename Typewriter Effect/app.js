@@ -10,8 +10,14 @@ class TypeWriter extends HTMLElement {
     this._nodes = [];
   }
   connectedCallback() {
-    //direction atribute or defalut left to right
+    //direction attribute or default left to right
     const dir = this.getAttribute("dir") || "ltr";
+    const speed = parseInt(this.getAttribute("speed")) || 100;
+    const minDur = parseInt(this.getAttribute("min-duration")) || 50;
+    const maxDur = parseInt(this.getAttribute("max-duration")) || 500;
+    const autostart = this.getAttribute("autostart") !== "false";
+    const respectMotion =
+      this.getAttribute("respect-motion-preference") === "true";
   }
   disconnectedCallback() {}
   _flattenNodes(node) {}
