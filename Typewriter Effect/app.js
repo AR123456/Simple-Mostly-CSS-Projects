@@ -1,6 +1,7 @@
 // js file
 class TypeWriter extends HTMLElement {
   // when the browser parses html <type-writer></type-writer> , we have a new TypeWriter
+  // TODO why ridiculous underscore naming convention
   constructor() {
     super();
     this._gen = 0;
@@ -46,7 +47,13 @@ class TypeWriter extends HTMLElement {
       if (autostart) this.start();
     }
   }
-  disconnectedCallback() {}
+  disconnectedCallback() {
+    this._gen++;
+    this._running = false;
+    this._paused = false;
+    this._nodes.length = 0;
+    this._original = null;
+  }
   _flattenNodes(node) {}
   async start() {}
   pause() {}
