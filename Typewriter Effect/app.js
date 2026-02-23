@@ -23,6 +23,27 @@ class TypeWriter extends HTMLElement {
     const len = children.length;
     for (let i = 0; i < len; i++) {
       this._original.appendChild(children[i].cloneNode(true));
+      this.textContent = "";
+
+      this._container = document.createElement("div");
+      this._container.className = "type-writer-container";
+      this._container.setAttribute("role", "region");
+      this._container.setAttribute("aria-live", "polite");
+      this._container.setAttribute("aria-atomic", "false");
+      this._container.style.direction = dir;
+
+      const label = this.getAttribute("aria-label");
+      if (label) this._container.setAttribute("aria-label", label);
+
+      this.appendChild(this._container);
+
+      this._prefersReducedMotion =
+        respectMotion &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      this._cfg = { speed, minDur, maxDur };
+
+      if (autostart) this.start();
     }
   }
   disconnectedCallback() {}
