@@ -123,6 +123,57 @@ class TypeWriter extends HTMLElement {
 
     const len = this._nodes.length;
     let charCount = 0;
+    // process next
+    const processNext = async (i) => {
+      if (i >= len) {
+        this._running = false;
+        this._container.setAttribute("aria-busy", "false");
+        this.dispatchEvent(new CustomEvent("complete"));
+        return;
+      }
+
+      if (gen !== this._gen || !this._running) return;
+
+      if (this._paused) {
+        setTimeout(() => processNext(i), 50);
+        return;
+      }
+
+      const item = this._nodes[i];
+
+      if (item.type === "open") {
+        item.parent.appendChild(item.node);
+      } else if (item.type === "char") {
+        const parent = item.parent;
+        const lastChild = parent.lastChild;
+
+        if (lastChild && lastChild.nodeType === Node.TEXT_NODE) {
+          lastChild.textContent += item.char;
+        } else {
+          parent.appendChild(document.createTextNode(item.char));
+        }
+
+        charCount++;
+
+        if (charCount % 10 === 0 && total > 0) {
+          this.dispatchEvent(
+            new CustomEvent("progress", {
+              detail: {
+                current: charCount,
+                total: total,
+                percent: (charCount / total) * 100,
+              },
+            }),
+          );
+        }
+      }
+
+      this._idx = i + 1;
+
+      const nextDelay =
+        item.type === "char" ? delay + ((Math.random() * 6) | 0) : 0;
+      setTimeout(() => processNext(i + 1), nextDelay);
+    };
   }
   pause() {}
   resume() {}
