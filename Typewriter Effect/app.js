@@ -87,7 +87,8 @@ class TypeWriter extends HTMLElement {
     return result;
   }
   async start() {
-    console.log("started");
+    if (!this._original || !this._container) return;
+    if (this._running) return;
   }
   pause() {}
   resume() {}
