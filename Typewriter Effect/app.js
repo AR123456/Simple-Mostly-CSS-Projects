@@ -55,8 +55,40 @@ class TypeWriter extends HTMLElement {
     this._nodes.length = 0;
     this._original = null;
   }
-  _flattenNodes(node) {}
-  async start() {}
+  //TODO why underscore
+  _flattenNodes(node) {
+    const result = [];
+
+    const walk = (n, parent) => {
+      if (n.nodeType === Node.TEXT_NODE) {
+        const text = n.textContent;
+        if (!/\S/.test(text)) return;
+        const normalized = text.replace(/\s+/g, " ");
+        for (let i = 0; i < normalized.length; i++) {
+          result.push({ type: "char", char: normalized[i], parent });
+        }
+      } else if (n.nodeType === Node.ELEMENT_NODE) {
+        const clone = n.cloneNode(false);
+        result.push({ type: "open", node: clone, parent });
+        const children = n.childNodes;
+        const len = children.length;
+        for (let i = 0; i < len; i++) {
+          walk(children[i], clone);
+        }
+        result.push({ type: "close", node: clone, parent });
+      }
+    };
+
+    const children = node.childNodes;
+    const len = children.length;
+    for (let i = 0; i < len; i++) {
+      walk(children[i], this._container);
+    }
+    return result;
+  }
+  async start() {
+    console.log("started");
+  }
   pause() {}
   resume() {}
   complete() {}
