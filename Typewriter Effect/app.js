@@ -41,7 +41,31 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
   // update buttons
-  const updateButtons = (id, state) => {};
+  const updateButtons = (id, state) => {
+    const buttons = document.querySelectorAll(`[data-ctrl="${id}"]`);
+    buttons.forEach((btn) => {
+      const action = btn.dataset.action;
+      let disabled = false;
+      switch (action) {
+        case "start":
+          disabled = state.running;
+          break;
+        case "pause":
+          disabled = !state.running || state.paused;
+          break;
+        case "resume":
+          disabled = !state.paused;
+          break;
+        case "complete":
+          disabled = !state.running;
+          break;
+        case "reset":
+          disabled = state.running && !state.paused;
+          break;
+      }
+      btn.disabled = disabled;
+    });
+  };
 
   // map typewriterStates
 
