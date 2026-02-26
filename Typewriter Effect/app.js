@@ -108,5 +108,23 @@ document.addEventListener("DOMContentLoaded", () => {
     queueMicrotask(() => updateButtons(id, state));
   });
   //
-  document.addEventListener("click", () => {});
+  document.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-ctrl]");
+    if (!btn || btn.disabled) return;
+
+    const id = btn.dataset.ctrl;
+    const action = btn.dataset.action;
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    if (action === "setText") {
+      const texts = [
+        "<p>The <strong>TypeWriter</strong> component dynamically replaces content and restarts animation, maintaining full HTML structure.</p>",
+      ];
+      el.setText(texts[0]);
+      el.start();
+    } else {
+      el[action]?.();
+    }
+  });
 });
