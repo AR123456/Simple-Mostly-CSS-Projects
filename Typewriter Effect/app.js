@@ -69,7 +69,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // map typewriterStates
   const typewriterStates = new Map();
-
   document.querySelectorAll("type-writer").forEach((el) => {
     const id = el.id;
     if (!id) return;
@@ -77,37 +76,37 @@ document.addEventListener("DOMContentLoaded", () => {
     const autostart = el.getAttribute("autostart") !== "false";
     const state = { running: autostart, paused: false };
     typewriterStates.set(id, state);
-    // start
+
     el.addEventListener("start", () => {
       state.running = true;
       state.paused = false;
       updateButtons(id, state);
     });
-    // paused
-    el.addEventListener("paused", () => {
+
+    el.addEventListener("pause", () => {
       state.paused = true;
       updateButtons(id, state);
     });
-    // resume
+
     el.addEventListener("resume", () => {
       state.paused = false;
       updateButtons(id, state);
     });
-    //complete
+
     el.addEventListener("complete", () => {
       state.running = false;
       state.paused = false;
       updateButtons(id, state);
     });
-    // reset
+
     el.addEventListener("reset", () => {
       state.running = false;
       state.paused = false;
       updateButtons(id, state);
     });
-    // queue micro task
+
     queueMicrotask(() => updateButtons(id, state));
   });
-
+  //
   document.addEventListener("click", () => {});
 });
