@@ -1,7 +1,6 @@
 // js file
 class TypeWriter extends HTMLElement {
   // when the browser parses html <type-writer></type-writer> , we have a new TypeWriter
-  // TODO why ridiculous underscore naming convention
   constructor() {
     super();
     this._gen = 0;
@@ -10,51 +9,8 @@ class TypeWriter extends HTMLElement {
     this._idx = 0;
     this._nodes = [];
   }
-  connectedCallback() {
-    const dir = this.getAttribute("dir") || "ltr";
-    const speed = parseInt(this.getAttribute("speed")) || 100;
-    const minDur = parseInt(this.getAttribute("min-duration")) || 50;
-    const maxDur = parseInt(this.getAttribute("max-duration")) || 500;
-    const autostart = this.getAttribute("autostart") !== "false";
-    const respectMotion =
-      this.getAttribute("respect-motion-preference") === "true";
-
-    this._original = document.createDocumentFragment();
-    const children = this.childNodes;
-    const len = children.length;
-    for (let i = 0; i < len; i++) {
-      this._original.appendChild(children[i].cloneNode(true));
-    }
-
-    this.textContent = "";
-
-    this._container = document.createElement("div");
-    this._container.className = "type-writer-container";
-    this._container.setAttribute("role", "region");
-    this._container.setAttribute("aria-live", "polite");
-    this._container.setAttribute("aria-atomic", "false");
-    this._container.style.direction = dir;
-
-    const label = this.getAttribute("aria-label");
-    if (label) this._container.setAttribute("aria-label", label);
-
-    this.appendChild(this._container);
-
-    this._prefersReducedMotion =
-      respectMotion &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    this._cfg = { speed, minDur, maxDur };
-
-    if (autostart) this.start();
-  }
-  disconnectedCallback() {
-    this._gen++;
-    this._running = false;
-    this._paused = false;
-    this._nodes.length = 0;
-    this._original = null;
-  }
+  connectedCallback() {}
+  disconnectedCallback() {}
   _flattenNodes(node) {}
   async start() {}
   pause() {}
@@ -85,90 +41,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
   // update buttons
-  const updateButtons = (id, state) => {
-    const buttons = document.querySelectorAll(`[data-ctrl="${id}"]`);
-    buttons.forEach((btn) => {
-      const action = btn.dataset.action;
-      let disabled = false;
-      switch (action) {
-        case "start":
-          disabled = state.running;
-          break;
-        case "pause":
-          disabled = !state.running || state.paused;
-          break;
-        case "resume":
-          disabled = !state.paused;
-          break;
-        case "complete":
-          disabled = !state.running;
-          break;
-        case "reset":
-          disabled = state.running && !state.paused;
-          break;
-      }
-      btn.disabled = disabled;
-    });
-  };
+  const updateButtons = (id, state) => {};
 
   // map typewriterStates
-  const typewriterStates = new Map();
-  document.querySelectorAll("type-writer").forEach((el) => {
-    const id = el.id;
-    if (!id) return;
 
-    const autostart = el.getAttribute("autostart") !== "false";
-    const state = { running: autostart, paused: false };
-    typewriterStates.set(id, state);
+  document.querySelectorAll("type-writer").forEach((el) => {});
 
-    el.addEventListener("start", () => {
-      state.running = true;
-      state.paused = false;
-      updateButtons(id, state);
-    });
-
-    el.addEventListener("pause", () => {
-      state.paused = true;
-      updateButtons(id, state);
-    });
-
-    el.addEventListener("resume", () => {
-      state.paused = false;
-      updateButtons(id, state);
-    });
-
-    el.addEventListener("complete", () => {
-      state.running = false;
-      state.paused = false;
-      updateButtons(id, state);
-    });
-
-    el.addEventListener("reset", () => {
-      state.running = false;
-      state.paused = false;
-      updateButtons(id, state);
-    });
-
-    queueMicrotask(() => updateButtons(id, state));
-  });
-  //
-  document.addEventListener("click", (e) => {
-    const btn = e.target.closest("[data-ctrl]");
-    if (!btn || btn.disabled) return;
-
-    const id = btn.dataset.ctrl;
-    const action = btn.dataset.action;
-    const el = document.getElementById(id);
-    if (!el) return;
-
-    if (action === "setText") {
-      const texts = [
-        "<p>The <strong>TypeWriter</strong> component dynamically replaces content and restarts animation, maintaining full HTML structure.</p>",
-      ];
-      el.setText(texts[0]);
-      el.start();
-    } else {
-      el[action]?.();
-    }
-  });
+  document.addEventListener("click", () => {});
 });
