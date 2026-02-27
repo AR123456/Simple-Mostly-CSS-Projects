@@ -1,6 +1,7 @@
 // js file
 class TypeWriter extends HTMLElement {
   // when the browser parses html <type-writer></type-writer> , we have a new TypeWriter
+  // TODO why ridiculous underscore naming convention
   constructor() {
     super();
     this._gen = 0;
@@ -10,7 +11,6 @@ class TypeWriter extends HTMLElement {
     this._nodes = [];
   }
   connectedCallback() {
-    //direction attribute or default left to right
     const dir = this.getAttribute("dir") || "ltr";
     const speed = parseInt(this.getAttribute("speed")) || 100;
     const minDur = parseInt(this.getAttribute("min-duration")) || 50;
@@ -18,14 +18,43 @@ class TypeWriter extends HTMLElement {
     const autostart = this.getAttribute("autostart") !== "false";
     const respectMotion =
       this.getAttribute("respect-motion-preference") === "true";
+
     this._original = document.createDocumentFragment();
     const children = this.childNodes;
     const len = children.length;
     for (let i = 0; i < len; i++) {
       this._original.appendChild(children[i].cloneNode(true));
     }
+
+    this.textContent = "";
+
+    this._container = document.createElement("div");
+    this._container.className = "type-writer-container";
+    this._container.setAttribute("role", "region");
+    this._container.setAttribute("aria-live", "polite");
+    this._container.setAttribute("aria-atomic", "false");
+    this._container.style.direction = dir;
+
+    const label = this.getAttribute("aria-label");
+    if (label) this._container.setAttribute("aria-label", label);
+
+    this.appendChild(this._container);
+
+    this._prefersReducedMotion =
+      respectMotion &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    this._cfg = { speed, minDur, maxDur };
+
+    if (autostart) this.start();
   }
-  disconnectedCallback() {}
+  disconnectedCallback() {
+    this._gen++;
+    this._running = false;
+    this._paused = false;
+    this._nodes.length = 0;
+    this._original = null;
+  }
   _flattenNodes(node) {}
   async start() {}
   pause() {}
