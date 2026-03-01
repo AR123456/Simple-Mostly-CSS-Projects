@@ -9,7 +9,10 @@ class TypeWriter extends HTMLElement {
     this._idx = 0;
     this._nodes = [];
   }
-  connectedCallback() {}
+  connectedCallback() {
+    //direction atribute or defalut left to right
+    const dir = this.getAttribute("dir") || "ltr";
+  }
   disconnectedCallback() {}
   _flattenNodes(node) {}
   async start() {}
