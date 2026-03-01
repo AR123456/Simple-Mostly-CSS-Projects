@@ -18,6 +18,12 @@ class TypeWriter extends HTMLElement {
     const autostart = this.getAttribute("autostart") !== "false";
     const respectMotion =
       this.getAttribute("respect-motion-preference") === "true";
+    this._original = document.createDocumentFragment();
+    const children = this.childNodes;
+    const len = children.length;
+    for (let i = 0; i < len; i++) {
+      this._original.appendChild(children[i].cloneNode(true));
+    }
   }
   disconnectedCallback() {}
   _flattenNodes(node) {}
