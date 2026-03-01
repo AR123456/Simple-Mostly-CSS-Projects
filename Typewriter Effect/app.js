@@ -87,7 +87,29 @@ class TypeWriter extends HTMLElement {
     return result;
   }
   async start() {
-    console.log("started");
+    if (!this._original || !this._container) return;
+    if (this._running) return;
+    //
+    this._gen++;
+    this._idx = 0;
+    this._paused = false;
+    this._container.textContent = "";
+    // character by character page including DOM elements
+    this._nodes = this._flattenNodes(this._original.cloneNode(true));
+    // is this a reduced motion rendering
+    if (this._prefersReducedMotion) {
+      const clone = this._original.cloneNode(true);
+      const children = clone.childNodes;
+      const len = children.length;
+      for (let i = 0; i < len; i++) {
+        this._container.appendChild(children[i].cloneNode(true));
+      }
+      // get stuff on page
+
+      this._container.setAttribute("aria-busy", "false");
+      this.dispatchEvent(new CustomEvent("complete"));
+      return;
+    }
   }
   pause() {}
   resume() {}
