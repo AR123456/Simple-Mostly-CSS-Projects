@@ -89,6 +89,91 @@ class TypeWriter extends HTMLElement {
   async start() {
     if (!this._original || !this._container) return;
     if (this._running) return;
+    //
+    this._gen++;
+    this._idx = 0;
+    this._paused = false;
+    this._container.textContent = "";
+    // character by character page including DOM elements
+    this._nodes = this._flattenNodes(this._original.cloneNode(true));
+    // is this a reduced motion rendering
+    if (this._prefersReducedMotion) {
+      const clone = this._original.cloneNode(true);
+      const children = clone.childNodes;
+      const len = children.length;
+      for (let i = 0; i < len; i++) {
+        this._container.appendChild(children[i].cloneNode(true));
+      }
+      this._container.setAttribute("aria-busy", "false");
+      this.dispatchEvent(new CustomEvent("complete"));
+      return;
+    }
+    const gen = this._gen;
+    this._running = true;
+
+    this._container.setAttribute("aria-busy", "true");
+    this.dispatchEvent(new CustomEvent("start"));
+
+    const total = this._nodes.filter((n) => n.type === "char").length;
+    const dur = Math.max(
+      this._cfg.minDur,
+      Math.min(this._cfg.maxDur, Math.round((total / this._cfg.speed) * 1000)),
+    );
+    const delay = total ? Math.max(8, Math.round(dur / total)) : 0;
+
+    const len = this._nodes.length;
+    let charCount = 0;
+    // process next
+    const processNext = async (i) => {
+      if (i >= len) {
+        this._running = false;
+        this._container.setAttribute("aria-busy", "false");
+        this.dispatchEvent(new CustomEvent("complete"));
+        return;
+      }
+
+      if (gen !== this._gen || !this._running) return;
+
+      if (this._paused) {
+        setTimeout(() => processNext(i), 50);
+        return;
+      }
+
+      const item = this._nodes[i];
+
+      if (item.type === "open") {
+        item.parent.appendChild(item.node);
+      } else if (item.type === "char") {
+        const parent = item.parent;
+        const lastChild = parent.lastChild;
+
+        if (lastChild && lastChild.nodeType === Node.TEXT_NODE) {
+          lastChild.textContent += item.char;
+        } else {
+          parent.appendChild(document.createTextNode(item.char));
+        }
+
+        charCount++;
+
+        if (charCount % 10 === 0 && total > 0) {
+          this.dispatchEvent(
+            new CustomEvent("progress", {
+              detail: {
+                current: charCount,
+                total: total,
+                percent: (charCount / total) * 100,
+              },
+            }),
+          );
+        }
+      }
+
+      this._idx = i + 1;
+
+      const nextDelay =
+        item.type === "char" ? delay + ((Math.random() * 6) | 0) : 0;
+      setTimeout(() => processNext(i + 1), nextDelay);
+    };
   }
   pause() {}
   resume() {}
