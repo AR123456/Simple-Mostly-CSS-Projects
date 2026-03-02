@@ -179,7 +179,25 @@ class TypeWriter extends HTMLElement {
   }
   pause() {}
   resume() {}
-  complete() {}
+  complete() {
+    if (!this._running) return;
+
+    this._gen++;
+    this._running = false;
+    this._paused = false;
+    this._idx = 0;
+
+    this._container.textContent = "";
+    const clone = this._original.cloneNode(true);
+    const children = clone.childNodes;
+    const len = children.length;
+    for (let i = 0; i < len; i++) {
+      this._container.appendChild(children[i].cloneNode(true));
+    }
+
+    this._container.setAttribute("aria-busy", "false");
+    this.dispatchEvent(new CustomEvent("complete"));
+  }
   reset() {}
   setText(html) {}
 }
