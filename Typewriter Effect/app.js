@@ -174,6 +174,8 @@ class TypeWriter extends HTMLElement {
         item.type === "char" ? delay + ((Math.random() * 6) | 0) : 0;
       setTimeout(() => processNext(i + 1), nextDelay);
     };
+    // call process next
+    processNext(0);
   }
   pause() {}
   resume() {}
