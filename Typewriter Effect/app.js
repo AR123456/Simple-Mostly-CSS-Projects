@@ -177,7 +177,11 @@ class TypeWriter extends HTMLElement {
     // call process next
     processNext(0);
   }
-  pause() {}
+  pause() {
+    if (!this._running || this._paused) return;
+    this._paused = true;
+    this.dispatchEvent(new CustomEvent("pause"));
+  }
   resume() {}
   complete() {
     if (!this._running) return;
