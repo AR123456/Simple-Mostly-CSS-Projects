@@ -197,6 +197,7 @@ class TypeWriter extends HTMLElement {
 
     this._container.setAttribute("aria-busy", "false");
     this.dispatchEvent(new CustomEvent("complete"));
+    console.log("completed");
   }
   reset() {}
   setText(html) {}
