@@ -222,7 +222,16 @@ class TypeWriter extends HTMLElement {
     );
     this.dispatchEvent(new CustomEvent("reset"));
   }
-  setText(html) {}
+  setText(html) {
+    const temp = document.createElement("div");
+    temp.innerHTML = html;
+
+    this._original = document.createDocumentFragment();
+    Array.from(temp.childNodes).forEach((node) => {
+      this._original.appendChild(node.cloneNode(true));
+    });
+    this.reset();
+  }
 }
 
 // customElements.define(tagName, class, options);
