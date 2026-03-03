@@ -182,7 +182,11 @@ class TypeWriter extends HTMLElement {
     this._paused = true;
     this.dispatchEvent(new CustomEvent("pause"));
   }
-  resume() {}
+  resume() {
+    if (!this._paused || !this._running) return;
+    this._paused = false;
+    this.dispatchEvent(new CustomEvent("resume"));
+  }
   complete() {
     if (!this._running) return;
 
