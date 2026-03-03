@@ -207,9 +207,24 @@ class TypeWriter extends HTMLElement {
     this.dispatchEvent(new CustomEvent("complete"));
     console.log("completed");
   }
-  reset() {}
+  reset() {
+    this._gen++;
+    this._running = false;
+    this._paused = false;
+    this._idx = 0;
+    this._nodes.length = 0;
+    if (this._container) this._container.textContent = "";
+
+    this.dispatchEvent(
+      new CustomEvent("progress", {
+        detail: { current: 0, total: 0, percent: 0 },
+      }),
+    );
+    this.dispatchEvent(new CustomEvent("reset"));
+  }
   setText(html) {}
 }
+
 // customElements.define(tagName, class, options);
 customElements.define("type-writer", TypeWriter);
 
