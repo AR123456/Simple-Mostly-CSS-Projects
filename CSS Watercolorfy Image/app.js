@@ -7,6 +7,8 @@ const getPixelIndex = (x, y, imageData) =>
   (Math.floor(x) + Math.floor(y) * imageData.width) * 4;
 const clamp = (value, min, max) => Math.max(min, Math.min(value, max));
 let points = [];
+// for slider
+let growth = 0.1;
 
 const ctx = document.querySelector(".js-lines").getContext("2d");
 const ctxGhost = document.createElement("canvas").getContext("2d");
@@ -73,7 +75,9 @@ const getPoint = (width, height) => {
 };
 
 const update = (point) => {
-  point.r += 0.1;
+  // point.r += 0.1;
+  // implement slider
+  point.r += growth;
   point.life *= point.decay;
 };
 
