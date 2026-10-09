@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -10,6 +10,18 @@
   <body>
     <div class="container">
       <canvas class="canvas js-lines"></canvas>
+      <!-- user control -->
+      <label class="control">
+        Watercolor spread
+        <input
+          type="range"
+          class="js-spread"
+          min="0.02"
+          max="0.5"
+          step="0.01"
+          value="0.1"
+        />
+      </label>
     </div>
     <script src="app.js"></script>
   </body>
