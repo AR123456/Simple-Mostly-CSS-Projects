@@ -9,7 +9,7 @@ const clamp = (value, min, max) => Math.max(min, Math.min(value, max));
 let points = [];
 // for slider
 let growth = 0.1;
-
+let imageData;
 const ctx = document.querySelector(".js-lines").getContext("2d");
 const ctxGhost = document.createElement("canvas").getContext("2d");
 const imageUrl = "./flower.jpg";
@@ -75,9 +75,10 @@ const getPoint = (width, height) => {
 };
 
 const update = (point) => {
-  // point.r += 0.1;
+  point.r += 0.1;
   // implement slider
-  point.r += growth;
+  // point.r += growth;
+
   point.life *= point.decay;
 };
 
@@ -127,7 +128,10 @@ const start = async () => {
     points = [];
     ctx.clearRect(0, 0, width, height);
   });
-
+  const spreadSlider = document.querySelector(".js-spread");
+  spreadSlider.addEventListener("input", (e) => {
+    growth = parseFloat(e.target.value);
+  });
   loop();
 };
 
