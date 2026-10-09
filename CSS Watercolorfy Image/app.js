@@ -8,7 +8,10 @@ const getPixelIndex = (x, y, imageData) =>
 const clamp = (value, min, max) => Math.max(min, Math.min(value, max));
 let points = [];
 // for slider
-let growth = 0.1;
+let duration = 10; // seconds, matches the slider's starting value
+let startTime = 0; // when the current painting began
+let frameId; // remembers the pending animation frame so we can cancel it
+//
 let imageData;
 const ctx = document.querySelector(".js-lines").getContext("2d");
 const ctxGhost = document.createElement("canvas").getContext("2d");
@@ -128,7 +131,7 @@ const start = async () => {
     points = [];
     ctx.clearRect(0, 0, width, height);
   });
-  const spreadSlider = document.querySelector(".js-spread");
+  const spreadSlider = document.querySelector(".js-duration");
   spreadSlider.addEventListener("input", (e) => {
     growth = parseFloat(e.target.value);
   });
