@@ -139,14 +139,9 @@ const start = async () => {
     points = [];
     ctx.clearRect(0, 0, width, height);
   });
-  // const spreadSlider = document.querySelector(".js-duration");
-  // spreadSlider.addEventListener("input", (e) => {
-  //   growth = parseFloat(e.target.value);
-  // });
-  const slider = document.querySelector(".js-spread");
-  slider.addEventListener("change", (e) => {
-    duration = parseInt(e.target.value, 10);
-    restart();
+  const spreadSlider = document.querySelector(".js-duration");
+  spreadSlider.addEventListener("input", (e) => {
+    growth = parseFloat(e.target.value);
   });
   loop();
 };
