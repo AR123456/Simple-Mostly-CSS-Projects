@@ -8,9 +8,12 @@ const getPixelIndex = (x, y, imageData) =>
 const clamp = (value, min, max) => Math.max(min, Math.min(value, max));
 let points = [];
 // for slider
-let duration = 10; // seconds, matches the slider's starting value
-let startTime = 0; // when the current painting began
-let frameId; // remembers the pending animation frame so we can cancel it
+// let duration = 10; // seconds, matches the slider's starting value
+// let startTime = 0; // when the current painting began
+// let frameId; // remembers the pending animation frame so we can cancel it
+const FRAMES_PER_SECOND = 60; // one "second" of painting = 60 frames
+const MAX_SECONDS = 30; // must match the slider's max
+const snapshots = []; // snapshots[n] = canvas after n seconds
 //
 let imageData;
 const ctx = document.querySelector(".js-lines").getContext("2d");
