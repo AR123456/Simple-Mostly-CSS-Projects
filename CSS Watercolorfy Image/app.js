@@ -79,8 +79,6 @@ const getPoint = (width, height) => {
 
 const update = (point) => {
   point.r += 0.1;
-  // implement slider
-  // point.r += growth;
 
   point.life *= point.decay;
 };
@@ -102,6 +100,8 @@ const draw = (point) => {
 const clear = () => ctx.clearRect(0, 0, W, H);
 
 const loop = () => {
+  const elapsed = (performance.now() - startTime) / 1000;
+  if (elapsed >= duration) return;
   points.forEach((point) => {
     update(point);
     draw(point);
@@ -115,27 +115,43 @@ const loop = () => {
 
   points = points.filter((p) => p.life > 0.01);
 
-  requestAnimationFrame(loop);
+  // requestAnimationFrame(loop);
+  frameId = requestAnimationFrame(loop);
 };
-
+//  need a restart for the slider
+const restart = () => {
+  cancelAnimationFrame(frameId);
+  points = [];
+  ctx.clearRect(0, 0, W, H);
+  startTime = performance.now();
+  loop();
+};
 const start = async () => {
   const image = await loadImage();
 
-  const { width, height } = image;
+  // const { width, height } = image;
 
   setupCanvas(W, H);
 
   imageData = getImageData(ctxGhost, image);
 
-  ctx.canvas.addEventListener("click", () => {
-    points = [];
-    ctx.clearRect(0, 0, width, height);
+  // ctx.canvas.addEventListener("click", () => {
+  //   points = [];
+  //   ctx.clearRect(0, 0, width, height);
+  // });
+  ctx.canvas.addEventListener("click", restart);
+  // const spreadSlider = document.querySelector(".js-duration");
+  // spreadSlider.addEventListener("input", (e) => {
+  //   growth = parseFloat(e.target.value);
+  // });
+  const slider = document.querySelector(".js-duration");
+  slider.addEventListener("change", (e) => {
+    duration = parseInt(e.target.value, 10);
+    restart();
   });
-  const spreadSlider = document.querySelector(".js-duration");
-  spreadSlider.addEventListener("input", (e) => {
-    growth = parseFloat(e.target.value);
-  });
-  loop();
+  // loop();
+  // restart();
+  ctx.drawImage(image, 0, 0, W, H);
 };
 
 start();
