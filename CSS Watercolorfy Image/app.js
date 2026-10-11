@@ -129,21 +129,22 @@ const restart = () => {
 const start = async () => {
   const image = await loadImage();
 
-  const { width, height } = image;
+  // const { width, height } = image;
 
   setupCanvas(W, H);
 
   imageData = getImageData(ctxGhost, image);
 
-  ctx.canvas.addEventListener("click", () => {
-    points = [];
-    ctx.clearRect(0, 0, width, height);
-  });
+  // ctx.canvas.addEventListener("click", () => {
+  //   points = [];
+  //   ctx.clearRect(0, 0, width, height);
+  // });
+  ctx.canvas.addEventListener("click", restart);
   // const spreadSlider = document.querySelector(".js-duration");
   // spreadSlider.addEventListener("input", (e) => {
   //   growth = parseFloat(e.target.value);
   // });
-  const slider = document.querySelector(".js-spread");
+  const slider = document.querySelector(".js-duration");
   slider.addEventListener("change", (e) => {
     duration = parseInt(e.target.value, 10);
     restart();
