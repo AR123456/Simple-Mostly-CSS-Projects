@@ -8,9 +8,7 @@ const getPixelIndex = (x, y, imageData) =>
 const clamp = (value, min, max) => Math.max(min, Math.min(value, max));
 let points = [];
 // for slider
-// let duration = 10; // seconds, matches the slider's starting value
-// let startTime = 0; // when the current painting began
-// let frameId; // remembers the pending animation frame so we can cancel it
+
 const FRAMES_PER_SECOND = 60; // one "second" of painting = 60 frames
 const MAX_SECONDS = 30; // must match the slider's max
 const snapshots = []; // snapshots[n] = canvas after n seconds
@@ -102,26 +100,6 @@ const draw = (point) => {
 
 const clear = () => ctx.clearRect(0, 0, W, H);
 
-// const loop = () => {
-//   const elapsed = (performance.now() - startTime) / 1000;
-//   if (elapsed >= duration) return;
-//   points.forEach((point) => {
-//     update(point);
-//     draw(point);
-//   });
-
-//   for (let i = 0; i < 10; i++) {
-//     points.push(getPoint(W, H));
-//     points.push(getPoint(W, H));
-//     points.push(getPoint(W, H));
-//   }
-
-//   points = points.filter((p) => p.life > 0.01);
-
-//   // requestAnimationFrame(loop);
-//   frameId = requestAnimationFrame(loop);
-// };
-// now using step
 const step = () => {
   points.forEach((point) => {
     update(point);
@@ -136,16 +114,8 @@ const step = () => {
 
   points = points.filter((p) => p.life > 0.01);
 };
-//
-//  need a restart for the slider
-// const restart = () => {
-//   cancelAnimationFrame(frameId);
-//   points = [];
-//   ctx.clearRect(0, 0, W, H);
-//   startTime = performance.now();
-//   loop();
-// };
-// now using build snapshot
+
+// build snapshot
 const buildSnapshots = (image) => {
   snapshots.length = 0;
 
@@ -161,21 +131,21 @@ const buildSnapshots = (image) => {
     snapshots.push(ctx.getImageData(0, 0, W, H));
   }
 };
+
 const start = async () => {
   const image = await loadImage();
+
   setupCanvas(W, H);
+
   imageData = getImageData(ctxGhost, image);
 
-  // ctx.canvas.addEventListener("click", restart);
+  buildSnapshots(image);
+  ctx.putImageData(snapshots[0], 0, 0);
 
   const slider = document.querySelector(".js-duration");
-  slider.addEventListener("change", (e) => {
-    duration = parseInt(e.target.value, 10);
-    // restart();
+  slider.addEventListener("input", (e) => {
+    ctx.putImageData(snapshots[parseInt(e.target.value, 10)], 0, 0);
   });
-  // loop();
-  // restart();
-  // ctx.drawImage(image, 0, 0, W, H);
 };
 
 start();
