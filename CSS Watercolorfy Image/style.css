@@ -16,8 +16,9 @@ body {
 a:hover {
   text-decoration: none;
 }
-.containter {
+.container {
   width: 100vw;
+
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -26,6 +27,17 @@ a:hover {
 }
 .canvas {
   margin: 0 0 1rem 0;
-  box-shadow: 8px 4px 10px -42px rgba(0, 0, 0, 0.031),
+  box-shadow:
+    8px 4px 10px -42px rgba(0, 0, 0, 0.031),
     64px 32px 80px -42px rgba(0, 0, 0, 0.07);
+}
+.control {
+  display: block;
+  width: 500px;
+}
+
+.control input {
+  display: block;
+  width: 100%;
+  margin-top: 0.5rem;
 }
