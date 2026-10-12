@@ -12,7 +12,8 @@ let points = [];
 const FRAMES_PER_SECOND = 60; // one "second" of painting = 60 frames
 const MAX_SECONDS = 30; // must match the slider's max
 const snapshots = []; // snapshots[n] = canvas after n seconds
-//
+// slider 2
+let minDecay = 0.03;
 let imageData;
 const ctx = document.querySelector(".js-lines").getContext("2d");
 const ctxGhost = document.createElement("canvas").getContext("2d");
@@ -64,8 +65,10 @@ const getPoint = (width, height) => {
 
   const color = getColorFromPosition(pos, imageData);
   const lightness = (color.r + color.g + color.b) / (3 * 255);
-  const decay = 1 - Math.min(0.1, lightness * 0.2);
-
+  // const decay = 1 - clamp(lightness * 0.2, 0.03, 0.1);
+  //  new code to help on darker images
+  // const decay = 1 - clamp(lightness * 0.2, 0.18, 0.1);
+  const decay = 1 - clamp(lightness * 0.2, minDecay, 0.1);
   const life = 1;
   const r = 1;
 
@@ -145,6 +148,18 @@ const start = async () => {
   const slider = document.querySelector(".js-duration");
   slider.addEventListener("input", (e) => {
     ctx.putImageData(snapshots[parseInt(e.target.value, 10)], 0, 0);
+  });
+  const detailSlider = document.querySelector(".js-detail");
+  const status = document.querySelector(".js-status");
+
+  detailSlider.addEventListener("change", (e) => {
+    minDecay = parseInt(e.target.value, 10) / 100;
+    status.textContent = "Repainting...";
+    setTimeout(() => {
+      buildSnapshots(image);
+      ctx.putImageData(snapshots[parseInt(slider.value, 10)], 0, 0);
+      status.textContent = "";
+    }, 50);
   });
 };
 
